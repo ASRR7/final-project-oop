@@ -59,7 +59,7 @@ public class Medicamento {
         System.out.println("Puede causar efectos secundarios comunes.") ;
     }
 
-    protected void contraindicaciones() {
+    public void contraindicaciones() {
         System.out.println("Consultar con un médico antes de usar.");
     }
 }
