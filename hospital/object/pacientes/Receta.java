@@ -1,6 +1,6 @@
 package hospital.object.pacientes;
 
-import hospital.object.recursos.medicamentos.Medicamento;
+import hospital.object.recursos.Medicamentos.Medicamento;
 
 public class Receta {
     private Medicamento medicamento;
