@@ -1,4 +1,4 @@
-package hospital.object.recursos.medicamentos;
+package hospital.object.recursos.Medicamentos;
 
 public class Antiviral extends Medicamento {
     private static int numAntiviralInventario;
