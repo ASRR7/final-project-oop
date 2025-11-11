@@ -1,4 +1,4 @@
-package hospital.object.recursos.medicamentos;
+package hospital.object.recursos.Medicamentos;
 
 public class Medicamento {
     protected String nombre;
