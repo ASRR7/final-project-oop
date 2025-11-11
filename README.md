@@ -77,5 +77,13 @@
     - Mostrar citas en calendarios por médico o por día
 
 ## Diagrama General v1.0
-
 <img src="diagrama_general.png" alt="Diagrama General" />
+
+## Diagrama a Detalle (paciente) v1.0
+<img src="diagrama_detalle-pacientes" alt="Diagrama Paciente" />
+
+## Diagrama a Detalle (medicamentos) v1.0
+<img src="diagrama_detalle-medicamentos" alt="Diagrama Medicamentos" />
+
+## Diagrama a Detalle (usuarios) v1.0
+<img src="diagrama_detalle-usuarios" alt="Diagrama Usuarios" />
