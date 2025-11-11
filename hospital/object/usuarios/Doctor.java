@@ -1,5 +1,6 @@
 package hospital.object.usuarios;
 
+import java.util.ArrayList;
 public class Doctor extends Usuario {
     private static int numDoctoresHist = 0;
     private static int numDoctoresActual = 0;
