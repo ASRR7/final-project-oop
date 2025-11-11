@@ -7,6 +7,12 @@ public class Receta {
     private double dosis;
     private int tiempoEntreDosis;
 
+    public Receta( Medicamento medicamento, double dosis, int tiempoEntreDosis ) {
+        this.medicamento = medicamento;
+        this.dosis = dosis;
+        this.tiempoEntreDosis = tiempoEntreDosis;
+    }
+
     public Medicamento getMedicamento() {
         return medicamento;
     }

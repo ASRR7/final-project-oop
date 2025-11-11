@@ -5,10 +5,18 @@ import java.util.ArrayList;
 public class Tratamiento {
     private ArrayList<Receta> recetas;
 
+    public Tratamiento( ArrayList<Receta> recetas ) {
+        this.recetas = recetas;
+    }
+
     public ArrayList<Receta> getRecetas() {
         return recetas;
     }
     public void setRecetas( ArrayList<Receta> recetas ) {
         this.recetas = recetas;
+    }
+
+    public void agregarReceta( Receta receta ) {
+        this.recetas.add( receta );
     }
 }

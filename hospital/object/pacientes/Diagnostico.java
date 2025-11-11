@@ -7,6 +7,12 @@ public class Diagnostico {
     private Doctor doctor;
     private Tratamiento tratamiento;
 
+    public Diagnostico( String enfermedad, Doctor doctor, Tratamiento tratamiento ) {
+        this.enfermedad = enfermedad;
+        this.doctor = doctor;
+        this.tratamiento = tratamiento;
+    }
+
     public String getEnfermedad() {
         return enfermedad;
     }

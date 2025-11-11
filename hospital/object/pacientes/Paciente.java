@@ -3,8 +3,8 @@ package hospital.object.pacientes;
 import hospital.state.IPacienteState;
 
 public class Paciente {
-    private static int numPacientesHist;
-    private static int numPacientesActual;
+    private static int numPacientesHist = 0;
+    private static int numPacientesActual = 0;
     private int id;
     private String nombre;
     private String sexo;
@@ -15,6 +15,23 @@ public class Paciente {
     private Boolean esLactancia;
     private Boolean esGeriatria;
     private Boolean esInfancia;
+
+    public Paciente( String nombre, String sexo, int edad,
+            IPacienteState estado, Boolean esEmbarazo, Boolean esLactancia,
+            Boolean esGeriatria, Boolean esInfancia ) {
+        this.id = numPacientesHist+1;
+        this.nombre = nombre;
+        this.sexo = sexo;
+        this.edad = edad;
+        this.expediente = new Expediente(); // Expediente vacio
+        this.estado = estado;
+        this.esEmbarazo = esEmbarazo;
+        this.esLactancia = esLactancia;
+        this.esGeriatria = esGeriatria;
+        this.esInfancia = esInfancia;
+        numPacientesHist++;
+        numPacientesActual++;
+    }
 
     public int getNumPacientesHist() {
         return numPacientesHist;
