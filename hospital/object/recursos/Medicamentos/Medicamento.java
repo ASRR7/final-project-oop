@@ -43,7 +43,7 @@ public class Medicamento {
         return enGeriatria;
     }
 
-    public void setEnGeriatria(boolean enGeriatria) {
+    public void setEnGeriatria(boolean enGeriatria ) {
         this.enGeriatria = enGeriatria;
     }
 
