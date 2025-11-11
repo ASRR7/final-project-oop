@@ -80,10 +80,10 @@
 <img src="diagrama_general.png" alt="Diagrama General" />
 
 ## Diagrama a Detalle (paciente) v1.0
-<img src="diagrama_detalle-pacientes" alt="Diagrama Paciente" />
+<img src="diagrama_detalle-pacientes.png" alt="Diagrama Paciente" />
 
 ## Diagrama a Detalle (medicamentos) v1.0
-<img src="diagrama_detalle-medicamentos" alt="Diagrama Medicamentos" />
+<img src="diagrama_detalle-medicamentos.png" alt="Diagrama Medicamentos" />
 
 ## Diagrama a Detalle (usuarios) v1.0
-<img src="diagrama_detalle-usuarios" alt="Diagrama Usuarios" />
+<img src="diagrama_detalle-usuarios.png" alt="Diagrama Usuarios" />
