@@ -1,14 +1,27 @@
 package hospital.object.recursos.medicamentos;
 
 public class Antiviral extends Medicamento {
-    private int numAntibioticoInventario;
-    private int numAntibioticoVendidos;
+    private static int numAntiviralInventario;
+    private static int numAntiviralcoVendidos;
 
-    public Antiviral(String nombre, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia,
-            int numAntibioticoInventario, int numAntibioticoVendidos) {
+    public Antiviral(String nombre, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
         super(nombre, enEmbarazo, enLactancia, enGeriatria, enInfancia);
-        this.numAntibioticoInventario = numAntibioticoInventario;
-        this.numAntibioticoVendidos = numAntibioticoVendidos;
+    }
+
+    public static int getNumAntiviralInventario() {
+        return numAntiviralInventario;
+    }
+
+    public static void setNumAntiviralInventario(int numAntiviralInventario) {
+        Antiviral.numAntiviralInventario = numAntiviralInventario;
+    }
+
+    public static int getNumAntiviralcoVendidos() {
+        return numAntiviralcoVendidos;
+    }
+
+    public static void setNumAntiviralcoVendidos(int numAntiviralcoVendidos) {
+        Antiviral.numAntiviralcoVendidos = numAntiviralcoVendidos;
     }
 
     @Override

@@ -1,16 +1,29 @@
 package hospital.object.recursos.medicamentos;
 
 public class Paracetamol extends Medicamento {
-    private int numAntibioticoInventario;
-    private int numAntibioticoVendidos;
+    private int numParacetamolInventario;
+    private int numParacetamolVendidos;
 
-    public Paracetamol(String nombre, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia,
-            int numAntibioticoInventario, int numAntibioticoVendidos) {
+    public Paracetamol(String nombre, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
         super(nombre, enEmbarazo, enLactancia, enGeriatria, enInfancia);
-        this.numAntibioticoInventario = numAntibioticoInventario;
-        this.numAntibioticoVendidos = numAntibioticoVendidos;
     }
 
+    public int getNumParacetamolInventario() {
+        return numParacetamolInventario;
+    }
+
+    public void setNumParacetamolInventario(int numParacetamolInventario) {
+        this.numParacetamolInventario = numParacetamolInventario;
+    }
+
+    public int getNumParacetamolVendidos() {
+        return numParacetamolVendidos;
+    }
+
+    public void setNumParacetamolVendidos(int numParacetamolVendidos) {
+        this.numParacetamolVendidos = numParacetamolVendidos;
+    }
+    
     @Override
     public void sintomasSecundarios() {
         super.sintomasSecundarios();
