@@ -1,5 +1,5 @@
-package hospital.object.recursos.Medicamentos;
+package hospital.object.recursos.medicamentos;
 
-public class Paracetamol {
+public class Paracetamol extends Medicamento {
 
 }

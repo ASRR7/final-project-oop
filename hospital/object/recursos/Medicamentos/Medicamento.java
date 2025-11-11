@@ -1,4 +1,4 @@
-package hospital.object.recursos.Medicamentos;
+package hospital.object.recursos.medicamentos;
 
 public class Medicamento {
     protected String nombre;
@@ -53,5 +53,13 @@ public class Medicamento {
 
     public void setEnInfancia(boolean enInfancia) {
         this.enInfancia = enInfancia;
+    }
+
+    public void sintomasSecundarios() {
+        System.out.println("Puede causar efectos secundarios comunes.") ;
+    }
+
+    protected void contraindicaciones() {
+        System.out.println("Consultar con un médico antes de usar.");
     }
 }
