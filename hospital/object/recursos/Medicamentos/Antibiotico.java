@@ -1,6 +1,6 @@
 package hospital.object.recursos.medicamentos;
 
-public class Paracetamol {
-    private Static int numAntibioticoInventario;  
-    private Static int numAntibioticoVendidos; 
+public class Antibiotico extends Medicamento {
+    private static int numAntibioticoInventario;  
+    private static int numAntibioticoVendidos; 
 }
