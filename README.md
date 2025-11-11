@@ -78,5 +78,4 @@
 
 ## Diagrama General v1.0
 
-![Diagrama General](diagrama_general.png)
 <img src="diagrama_general.png" alt="Diagrama General" />
