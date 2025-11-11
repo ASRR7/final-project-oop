@@ -75,3 +75,8 @@
     - Marcar citas como completadas
     - Cada cita se puede asociar a un diagnóstico o tratamiento
     - Mostrar citas en calendarios por médico o por día
+
+## Diagrama General v1.0
+
+![Diagrama General](diagrama_general.png)
+<img src="diagrama_general.png" alt="Diagrama General" />
