@@ -1,7 +1,7 @@
 package hospital.object.recursos;
 
-import hospital.state.ICitaState;
-import hospital.object.usuarios.Doctor; 
+import hospital.object.usuarios.Doctor;
+import hospital.state.ICitaState; 
 
 public class Cita {
     private ICitaState estado;
@@ -12,7 +12,7 @@ public class Cita {
     private Doctor doctor;
     private int consultorio;
 
-    public Prueba(double hora, int dia, int mes, Doctor doctor, int consultorio) {
+    public Cita(double hora, int dia, int mes, Doctor doctor, int consultorio) {
         this.hora = hora;
         this.dia = dia;
         this.mes = mes;
