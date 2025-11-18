@@ -31,6 +31,14 @@ public class Habitacion {
         this.pasillo = pasillo;
     }
 
+    public void setEstado(IHabitacionState estado){
+        this.estado = estado;
+    }
+
+    public IHabitacionState getEstado() {
+        return estado;
+    }
+
     public int getNumCamas() {
         return numCamas;
     }

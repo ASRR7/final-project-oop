@@ -3,10 +3,9 @@ package hospital.files.reportes;
 import java.util.ArrayList;
 import java.util.Date;
 import java.io.FileWriter;
-
-
-import hospital.object.recursos.Cita;
 import hospital.object.usuarios.Doctor;
+
+
 public class DoctorReporte {
     public static void makeReporte(ArrayList<Doctor> doctores) throws RuntimeException{
 
