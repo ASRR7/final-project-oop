@@ -18,6 +18,7 @@ public class EstadoLimpieza extends IHabitacionState {
 
     public int eliminarPaciente(){
         System.out.println("Habitación en limpieza, no se pueden añadir pacientes");
+        return -1;
     }
 
 }
