@@ -15,12 +15,7 @@ public class EstadoOcupada extends IHabitacionState{
     }
 
     public void addPaciente(Paciente paciente){
-        if (numPacientes<capacidadMaxima){
-            disponible = Boolean.TRUE;
-        }
-        else{
-            disponible = Boolean.FALSE;
-        }
+        updateDisponible();
        if (isDisponible()){
            pacientes.add(paciente);
            numPacientes++;
@@ -54,6 +49,8 @@ public class EstadoOcupada extends IHabitacionState{
             if (idDelete ==  paciente.getId()){
                 pacientes.remove(indexDelete);
                 System.out.println("Paciente eliminado");
+                numPacientes--;
+                updateDisponible();
                 return 0;
             }
             indexDelete++;
@@ -73,5 +70,14 @@ public class EstadoOcupada extends IHabitacionState{
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void updateDisponible(){
+        if (capacidadMaxima>numPacientes){
+            disponible = Boolean.TRUE;
+        }
+        else{
+            disponible = Boolean.FALSE;
+        }
     }
 }
