@@ -3,6 +3,7 @@ package hospital.object.recursos;
 import hospital.object.usuarios.Doctor;
 import hospital.state.ICitaState;
 import hospital.object.pacientes.Paciente;
+import hospital.object.usuarios.Doctor;
 
 public class Cita {
     private ICitaState estado;
@@ -13,6 +14,9 @@ public class Cita {
     private Doctor doctor;
     private int consultorio;
     private Paciente paciente;
+    private int Id;
+
+
 
     public Cita(double hora, int dia, int mes, Doctor doctor, int consultorio, Paciente paciente) {
         this.hora = hora;
@@ -21,6 +25,7 @@ public class Cita {
         this.doctor = doctor;
         this.consultorio = consultorio;
         this.paciente = paciente;
+        this.Id = 10000*mes+dia*100 +Doctor.getNumDoctoresActual();
     }
     public Paciente getPaciente() {
         return paciente;
@@ -68,5 +73,12 @@ public class Cita {
 
     public void setConsultorio(int consultorio) {
         this.consultorio = consultorio;
+    }
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 }
