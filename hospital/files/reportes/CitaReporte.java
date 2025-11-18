@@ -2,11 +2,11 @@ package hospital.files.reportes;
 
 import hospital.object.recursos.Cita;
 
-import java.awt.geom.Arc2D;
-import java.io.IOException;
+
+import java.util.Date;
 import java.util.ArrayList;
 import java.io.FileWriter;
-import java.io.IOException;
+
 
 public class CitaReporte {
     private static String[] meses = {"Enero","Febrero", "Marzo",
@@ -19,7 +19,17 @@ public class CitaReporte {
     public static void makeCsvReport(ArrayList<Cita> citas) throws RuntimeException{
 
         try {
-            FileWriter myWriter = new FileWriter("filename.csv");
+            Date date = new Date();
+            String os = System.getProperty("os.name");
+            String fileName = "Reporte-Citas-" + Integer.toString(date.getDay())
+                                + "-" + Integer.toString(date.getMonth())
+                                + "-" + Integer.toString(date.getDay())
+                                + "-" + Integer.toString(date.getHours())
+                                + ":" + Integer.toString(date.getMinutes())
+                                + ":" + Integer.toString(date.getSeconds())
+                                + ".csv";
+            String filePath = os.startsWith("Windows") ? "\\reportesCitas\\" + fileName: "/reportesCitas/" + fileName ;
+            FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora\n");
             for(Cita cita: citas){
                 String comma = ",";
