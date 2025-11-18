@@ -31,9 +31,10 @@ public class CitaReporte {
             String filePath = os.startsWith("Windows") ? "\\reportesCitas\\" + fileName: "/reportesCitas/" + fileName ;
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora\n");
+            String comma = ",";
+            String lineBreak = "\n";
             for(Cita cita: citas){
-                String comma = ",";
-                String lineBreak = "\n";
+
                 String idCita = Integer.toString(cita.getId());
                 String nombrePaciente = cita.getPaciente().getNombre();
                 String nombreDoctor = cita.getDoctor().getNombre();
@@ -50,9 +51,9 @@ public class CitaReporte {
                 myWriter.write(csvField);
             }
             myWriter.close();
-            System.out.println("Successfully created file");
+            System.out.println("Reporte creado con éxito");
         } catch (Exception e) {
-            System.out.println("An error occurred.");
+            System.out.println("Ocurrió un error");
             e.printStackTrace();
             throw new RuntimeException(e);
         }
