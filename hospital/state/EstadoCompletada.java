@@ -7,7 +7,7 @@ public class EstadoCompletada implements ICitaState{
 
     public EstadoAgendada makeDisponible(String doNotFillMeString) throws RuntimeException{
         if(doNotFillMeString == null){
-            System.out.println("La cita ya fue completada");
+            System.out.println( "La cita ya fue completada");
             throw new RuntimeException();
         }
         return new EstadoAgendada();

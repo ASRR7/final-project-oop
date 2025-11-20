@@ -14,7 +14,7 @@ public class EstadoCancelada {
         return new EstadoCancelada();
     }
     public EstadoCompletada completarCita(){
-        System.out.println("La cita ya fue completada");
+        System.out.println( "La cita ya fue completada");
         return new EstadoCompletada();
     }
 }
