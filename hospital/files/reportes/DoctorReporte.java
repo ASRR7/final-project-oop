@@ -50,13 +50,11 @@ public class DoctorReporte {
             } 
             catch (FileNotFoundException e) {
                 System.out.println("No se encontró el archivo");
-                e.printStackTrace();
                 e.getMessage();
             }
             catch (Exception e) {
                 System.out.println("Ocurrió un error");
-                e.printStackTrace();
-                throw new RuntimeException(e);
+                e.getMessage();
             }
 
 
