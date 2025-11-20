@@ -14,7 +14,7 @@ public class EstadoCompletada implements ICitaState{
     }
     public EstadoCancelada makeNoDisponible(String doNotFillMeString) throws RuntimeException{
         if(doNotFillMeString == null){
-            System.out.println("La cita ya fue cancelada");
+            System.out.println("La cita ya fue completada");
             throw new RuntimeException();
         }
         

@@ -9,21 +9,20 @@ public class EstadoDisponible extends IHabitacionState{
 
     }
 
-
     public Boolean isDisponible(){
         return disponible;
     }
 
     public void addPaciente(Paciente paciente){
         updateDisponible();
-       if (isDisponible()){
-        pacientes.add(paciente);
-        numPacientes++;
-        System.out.println("Paciente agregado");
-       }
-       else{
-        System.out.println("Habitación a su máxima capacidad");
-       }
+        if (isDisponible()){
+            pacientes.add(paciente);
+            numPacientes++;
+            System.out.println("Paciente agregado");
+        }
+        else{
+            System.out.println("Habitación a su máxima capacidad");
+        }
     }
 
     public int eliminarPaciente(){
