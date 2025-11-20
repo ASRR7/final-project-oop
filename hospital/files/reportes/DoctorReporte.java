@@ -1,10 +1,11 @@
 package hospital.files.reportes;
 
+import hospital.object.usuarios.Doctor;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.*;
-import java.io.FileWriter;
-import hospital.object.usuarios.Doctor;
 
 
 public class DoctorReporte {
@@ -45,10 +46,14 @@ public class DoctorReporte {
                 myWriter.close();
                 System.out.println("Reporte creado con éxito");
 
-            } catch (Exception e) {
+            } 
+            catch (FileNotFoundException e) {
+                System.out.println("No se encontró el archivo");
+                e.getMessage();
+            }
+            catch (Exception e) {
                 System.out.println("Ocurrió un error");
-                e.printStackTrace();
-                throw new RuntimeException(e);
+                e.getMessage();
             }
 
 
