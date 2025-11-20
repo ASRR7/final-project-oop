@@ -3,7 +3,8 @@ package hospital.files.reportes;
 import hospital.object.recursos.Cita;
 
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.*;
 import java.util.ArrayList;
 import java.io.FileWriter;
 
@@ -19,15 +20,12 @@ public class CitaReporte {
     public static void makeCsvReport(ArrayList<Cita> citas) throws RuntimeException{
 
         try {
-            Date date = new Date();
             String os = System.getProperty("os.name");
-            String fileName = "Reporte-Citas-" + Integer.toString(date.getDay())
-                                + "-" + Integer.toString(date.getMonth())
-                                + "-" + Integer.toString(date.getDay())
-                                + "-" + Integer.toString(date.getHours())
-                                + ":" + Integer.toString(date.getMinutes())
-                                + ":" + Integer.toString(date.getSeconds())
-                                + ".csv";
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+                                        "yyyy-MM-dd HH:mm:ss a");
+            LocalDateTime now = LocalDateTime.now();
+            String dateTimeString = now.format(formatter);
+            String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
             String filePath = os.startsWith("Windows") ? "\\reportesCitas\\" + fileName: "/reportesCitas/" + fileName ;
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora\n");
