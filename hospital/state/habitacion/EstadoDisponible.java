@@ -1,4 +1,4 @@
-package hospital.state;
+package hospital.state.habitacion;
 
 import hospital.object.pacientes.Paciente;
 import java.util.Scanner;

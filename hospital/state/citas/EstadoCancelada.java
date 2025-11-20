@@ -1,4 +1,4 @@
-package hospital.state;
+package hospital.state.citas;
 
 public class EstadoCancelada {
     public boolean isDisponible(){

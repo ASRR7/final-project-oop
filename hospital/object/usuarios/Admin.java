@@ -19,8 +19,6 @@ public class Admin extends Usuario {
         return numAdminActual;
     }
 
-
-
     public static void addReceptionist(ArrayList<Recepcionista> Recepcionistas, Recepcionista recepcionista){
         Recepcionistas.add(recepcionista);
     }

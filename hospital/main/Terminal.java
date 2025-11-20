@@ -5,29 +5,20 @@ import java.util.Scanner;
 import hospital.object.pacientes.*;
 import hospital.object.usuarios.*;
 import hospital.state.*;
+import hospital.facade.*;
 
 
 public class Terminal {
-    public static Doctor makeDoctor() {
 
+    private IHospitalFacade hospitalFacade;
 
-        String nombre = voidStringValidator("Ingrese el nombre del doctor: ");
-
-        String contrasena =voidStringValidator("Ingrese la contraseña del doctor: ");
-
-        double sueldo = doubleValidator("Ingrese el sueldo del doctor: ");
-
-        String turno = voidStringValidator("Ingrese el turno del doctor: ");
-
-        String especialidad = voidStringValidator("Ingrese la especialidad del doctor:");
-
-        return new Doctor(nombre, contrasena, sueldo, turno, especialidad);
+    public Terminal() {
+        this.hospitalFacade = new HospitalFacadeImpl();
     }
 
     public static Admin makeAdmin() {
 
         String nombre = voidStringValidator("Ingrese el nombre del administrador:");
-
 
         String contrasena = voidStringValidator("Ingrese la contraseña del administrador:");
 

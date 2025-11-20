@@ -1,4 +1,4 @@
-package hospital.state;
+package hospital.state.citas;
 
 public class EstadoCompletada implements ICitaState{
     public boolean isDisponible(){

@@ -2,7 +2,7 @@ package hospital.facade;
 
 import java.util.Scanner;
 
-public class HospitalFacadeImpl {
+public class HospitalFacadeImpl implements IHospitalFacade {
     public static int desplegarMenu(String texto, int n, Scanner sc) {
         int opcion;
         do {
