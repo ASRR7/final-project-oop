@@ -17,12 +17,12 @@ public class EstadoOcupada extends IHabitacionState{
     public void addPaciente(Paciente paciente){
         updateDisponible();
        if (isDisponible()){
-           pacientes.add(paciente);
-           numPacientes++;
-           System.out.println("Paciente agregado");
+        pacientes.add(paciente);
+        numPacientes++;
+        System.out.println("Paciente agregado");
        }
        else{
-           System.out.println("Habitación a su máxima capacidad");
+        System.out.println("Habitación a su máxima capacidad");
        }
     }
 
@@ -65,6 +65,7 @@ public class EstadoOcupada extends IHabitacionState{
         int option;
         try{
             option = scanner.nextInt();
+            scanner.close();
             return option;
         } catch (Exception e) {
             throw new RuntimeException(e);
