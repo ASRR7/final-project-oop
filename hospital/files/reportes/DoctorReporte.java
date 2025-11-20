@@ -1,25 +1,24 @@
 package hospital.files.reportes;
 
 import hospital.object.usuarios.Doctor;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.*;
 
 
 public class DoctorReporte {
     public static void makeReporte(ArrayList<Doctor> doctores) throws RuntimeException{
 
             try{
-                Date date = new Date();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+                                        "yyyy-MM-dd HH:mm:ss a");
+                LocalDateTime now = LocalDateTime.now();
+                String dateTimeString = now.format(formatter);
                 String os = System.getProperty("os.name");
-                String fileName = "Reporte-Doctores-" + Integer.toString(date.getDay())
-                        + "-" + Integer.toString(date.getMonth())
-                        + "-" + Integer.toString(date.getDay())
-                        + "-" + Integer.toString(date.getHours())
-                        + ":" + Integer.toString(date.getMinutes())
-                        + ":" + Integer.toString(date.getSeconds())
-                        + ".csv";
+                String fileName = "Reporte-Doctores-" + dateTimeString + ".csv";
                 String filePath = os.startsWith("Windows") ? "\\reportesDoctores\\" + fileName: "/reportesDoctores/" + fileName ;
                 FileWriter myWriter = new FileWriter(filePath);
                 //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
