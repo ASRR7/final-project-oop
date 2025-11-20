@@ -24,7 +24,7 @@ public class Terminal {
         return new Doctor(nombre, contrasena, sueldo, turno, especialidad);
     }
 
-    public static Admin createAdmin() {
+    public static Admin makeAdmin() {
 
         String nombre = voidStringValidator("Ingrese el nombre del administrador:");
 
