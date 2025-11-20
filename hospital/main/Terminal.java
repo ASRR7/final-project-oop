@@ -5,6 +5,8 @@ import java.util.Scanner;
 import hospital.object.pacientes.*;
 import hospital.object.usuarios.*;
 import hospital.state.*;
+
+
 public class Terminal {
     public static Doctor makeDoctor() {
 
@@ -47,7 +49,8 @@ public class Terminal {
             scanner.close();
             return option;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Favor de ingresar un número entero");
+            return integerValidator(prompt);
         }
     }
     public static double doubleValidator(String prompt){
@@ -59,7 +62,8 @@ public class Terminal {
             scanner.close();
             return option;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Favor de ingresar un número");
+            return doubleValidator(prompt);
         }
     }
 
@@ -71,11 +75,12 @@ public class Terminal {
             option = scanner.nextLine();
             scanner.close();
             if (option.isEmpty()) {
-                throw new RuntimeException("El campo no puede estar vacio");
+                throw new IllegalArgumentException();
             }
             return option;
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("El campo no puede estar vacio");
+            return voidStringValidator(prompt); 
         }
     }
 
