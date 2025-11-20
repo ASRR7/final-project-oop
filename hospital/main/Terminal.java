@@ -39,6 +39,21 @@ public class Terminal {
 
         return new Admin(nombre, contrasena, sueldo, turno);
     }
+    public static Recepcionista makeRecepcionista() {
+
+        String nombre = voidStringValidator("Ingrese el nombre del administrador:");
+
+
+        String contrasena = voidStringValidator("Ingrese la contraseña del administrador:");
+
+
+        double sueldo = doubleValidator("Ingrese el sueldo del administrador:");
+
+
+        String turno = voidStringValidator("Ingrese el turno del administrador:");
+
+        return new Recepcionista(nombre, contrasena, sueldo, turno);
+    }
 
     public static int integerValidator(String prompt){
         Scanner scanner = new Scanner(System.in);
