@@ -14,9 +14,9 @@ public abstract class IHabitacionState {
         this.numPacientes = numPacientes;
     }
 
-    abstract Boolean isDisponible();
-    abstract void addPaciente(Paciente paciente);
-    abstract int eliminarPaciente();
+    public abstract Boolean isDisponible();
+    public abstract void addPaciente(Paciente paciente);
+    public abstract int eliminarPaciente();
 
 
 
