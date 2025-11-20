@@ -1,12 +1,11 @@
 package hospital.files.reportes;
 
 import hospital.object.usuarios.Doctor;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.time.LocalDateTime;
 import java.time.format.*;
+import java.util.ArrayList;
 
 
 public class DoctorReporte {
