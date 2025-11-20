@@ -2,6 +2,7 @@ package hospital.files.reportes;
 
 import hospital.object.usuarios.Doctor;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -48,7 +49,7 @@ public class DoctorReporte {
                 System.out.println("Reporte creado con éxito");
 
             } 
-            catch (FileNotFoundException e) {
+            catch (IOException e) {
                 System.out.println("No se encontró el archivo");
                 e.getMessage();
             }
