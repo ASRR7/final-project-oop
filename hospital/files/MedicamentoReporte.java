@@ -15,7 +15,7 @@ public class MedicamentoReporte {
 
             try{
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-                                        "yyyy-MM-dd HH:mm:ss a");
+                                        "yyyy-MM-dd HH-mm-ss");
                 LocalDateTime now = LocalDateTime.now();
                 String dateTimeString = now.format(formatter);
                 String fileName = "Reporte-Medicamentos-" + dateTimeString + ".csv";

@@ -15,7 +15,7 @@ public class HabitacionReporte {
 
             try{
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-                                        "yyyy-MM-dd HH:mm:ss a");
+                                        "yyyy-MM-dd HH-mm-ss");
                 LocalDateTime now = LocalDateTime.now();
                 String dateTimeString = now.format(formatter);
                 String os = System.getProperty("os.name");
