@@ -16,7 +16,7 @@ import java.util.Scanner;
     private Paciente paciente;
     private int Id;*/
 public class CitaServicio {
-    public static ArrayList<Cita> leerCitaTxt(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes) throws IOException {
+    public static ArrayList<Cita> leerCitaTxt(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes) throws IOException{
         String fileName = "Citas.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
         ArrayList<Cita> citas = new ArrayList<>();
@@ -42,7 +42,7 @@ public class CitaServicio {
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
     public static void escribirCitaTxt(ArrayList<Cita> citas) throws IOException {
-        String fileName = "Cita.txt";
+        String fileName = "Citas.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
         String espacio = " ";
         String lineBreak = "\n";
@@ -68,8 +68,8 @@ public class CitaServicio {
             }
             myWriter.close();
         } catch (IOException e) {
-            throw new IOException(e);
-        }
+            throw new IOException(e.getMessage());
+        } 
     }
     /*pedir cita reciba arraydoctores id paciente array paciente, array citas datos de hora dia y mes, aleatoriamente 
     asigna un doctor disponible en el array y consultorio aleatorio guarda la cita en el array de citas y retorna un booleano*/
