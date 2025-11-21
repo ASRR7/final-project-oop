@@ -36,7 +36,7 @@ public class CitaServicio {
                 int idPaciente = fileIn.nextInt();
                 Paciente paciente = PacienteServicio.searchByIdPaciente(pacientes, idPaciente);
                 Doctor doctor = DoctorServicio.searchByIdDoctor(doctores, idDoctor);
-                String estadoCita = fileIn.nextLine(); 
+                String estadoCita = fileIn.next().trim(); 
                 switch (estadoCita) {
                     case "Agendada":
                         estado = new EstadoAgendada();
