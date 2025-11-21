@@ -125,7 +125,9 @@ public class CitaServicio {
         for (Cita cita: citas){
             if(cita.getId() == citaId){
                 consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
-                break;  }
+                break; 
+                // TODO : Agregar lógica con states
+            }
         }
         return consultaInfo;    
     }
