@@ -52,10 +52,18 @@ public class HospitalFacadeImpl {
         return CitaServicio.pedirCita(this.doctores, this.pacientes, this.citas, pacienteId, hora, dia, mes);
     }
     public boolean cancelarCita(int pacienteId, int citaId){
-        return CitaServicio.cancelarCita(this.citas, pacienteId, citaId);
+        try{
+            return CitaServicio.cancelarCita(this.citas, pacienteId, citaId);
+        }catch (NullPointerException e){
+            return false;
+        }
     }
     public String verHistorialMedico(int pacienteId){
-        return PacienteServicio.pacienteExpediente(this.pacientes, pacienteId);
+        String historial = PacienteServicio.pacienteExpediente(this.pacientes, pacienteId);
+        if(historial == null){
+            return "Paciente sin historial médico.";
+        }
+        return historial;
     }
 
     // =========================================
@@ -90,7 +98,11 @@ public class HospitalFacadeImpl {
         return CitaServicio.infoCita(this.citas, doctorId, citaId);
     }
     public String verCitasAsignadas(int doctorId){
-        return CitaServicio.verCitasAsignadas(this.citas, doctorId);
+        try{
+            return CitaServicio.verCitasAsignadas(this.citas, doctorId);
+        }catch (NullPointerException e){
+            return "No hay citas disponibles. ";
+        }
     }
     public String irAConsulta(int doctorId, int citaId){
         return CitaServicio.irAConsulta(this.citas, doctorId, citaId);

@@ -90,7 +90,6 @@ public class PacienteServicio {
                     myWriter.write(pacienteInfo);
                 }
                 myWriter.close();
-                System.out.println("Los datos de los doctores han sido almacenados correctamente.");
     
     }catch (IOException e) {
         e.printStackTrace();
