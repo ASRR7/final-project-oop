@@ -1,21 +1,18 @@
 package hospital.servicios;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import hospital.object.pacientes.Paciente;
+
 import hospital.object.recursos.Medicamentos.Medicamento;
-import hospital.object.usuarios.Doctor;
-import hospital.state.IPacienteState;
-import hospital.state.PacienteEnfermo;
-import hospital.state.PacienteMuerto;
-import hospital.state.PacienteSano;
+
 
 public class MedicamentoServicio {
-    public static ArrayList <Medicamento> leerMedicamentos() {
+    public static ArrayList <Medicamento> leerMedicamentos() throws RuntimeException {
         String fileName = "Medicamentos.txt";
         String filePath = "../archivosTXT/" + fileName;
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
@@ -38,11 +35,12 @@ public class MedicamentoServicio {
             }
             bufferedReader.close();
         } catch (IOException e) {
-            System.out.println("Ocurrio un error al leer el archivo.");
+            throw new RuntimeException(e);
         }
+        
         return medicamentos;
     }
-    public static void writeMedicamentoTXT(ArrayList<Medicamento> medicamentos) {
+    public static void writeMedicamentoTXT(ArrayList<Medicamento> medicamentos) throws RuntimeException {
         String fileName = "Medicamentos.txt";
         String filePath = "../archivosTXT/" + fileName;
         String comma = ",";
@@ -68,11 +66,10 @@ public class MedicamentoServicio {
                     myWriter.write(medInfo);
                 }
                 myWriter.close();
-                System.out.println("Los datos de los medicamentos han sido almacenados correctamente.");
+                
     
     }catch (IOException e) {
-        System.out.println("Ocurrió un error al almacenar los medicamentos.");
-        e.printStackTrace();
+        throw new RuntimeException(e);
     }
     }
 
