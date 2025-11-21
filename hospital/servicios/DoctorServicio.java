@@ -1,10 +1,9 @@
 package hospital.servicios;
 
-import java.util.Scanner;
+import hospital.object.usuarios.Doctor;
 import java.io.*;
 import java.util.ArrayList;
-
-import hospital.object.usuarios.Doctor;
+import java.util.Scanner;
 
     public class DoctorServicio 
     {
@@ -17,7 +16,7 @@ import hospital.object.usuarios.Doctor;
                 int doctoresActual = fileIn.nextInt();
                 Doctor.numDoctoresHist = doctoresHist;
                 Doctor.numDoctoresActual = doctoresActual;
-                while (fileName.hasNextLine()) {
+                while (fileIn.hasNextLine()) {
                     String nombreDoctor = fileIn.next();
                     String contraseña = fileIn.next();
                     double sueldo = fileIn.nextDouble();
