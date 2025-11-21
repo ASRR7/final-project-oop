@@ -88,4 +88,15 @@ public class Cita {
     public ICitaState getEstado() {
         return estado;
     }
+
+    public String toString(){
+        return "Cita{" +
+                "hora=" + hora +
+                ", dia=" + dia +
+                ", mes=" + mes +
+                ", doctor=" + doctor +
+                ", consultorio=" + consultorio +
+                ", paciente=" + paciente +
+                '}';
+    }
 }
