@@ -13,7 +13,11 @@ import hospital.state.PacienteMuerto;
 import hospital.state.PacienteSano;
 import hospital.state.IPacienteState;
 
+
 public class PacienteServicio {
+    public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
+        return new Paciente(nombre, sexo, edad, new PacienteEnfermo(), esEmbarazo, esLactancia, esGeriatria, esInfancia);
+    }
     public static ArrayList <Paciente> leerPacienteTxt() {
         String fileName = "Pacientes.txt";
         String filePath = "../archivosTXT/" + fileName;
