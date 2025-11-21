@@ -1,9 +1,7 @@
 package hospital.object.usuarios;
-
-import java.util.ArrayList;
 public class Doctor extends Usuario {
-    private static int numDoctoresHist = 0;
-    private static int numDoctoresActual = 0;
+    public static int numDoctoresHist = 0;
+    public static int numDoctoresActual = 0;
     private String especialidad;
 
     public Doctor( String nombre, String contrasena, double sueldo, String turno, String especialidad ) {
