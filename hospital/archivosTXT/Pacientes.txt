@@ -1,6 +1,6 @@
-Juan,H,34,No,No,No,No
-Maria,M,28,Si,No,No,No
-Alex,NoBinario,22,No,No,No,No
-Lucia,M,1,No,No,No,Si
-Pedro,H,72,No,No,Si,No
-Ana,M,30,No,Si,No,No
+Juan,H,34,El paciente esta Enfermo,No,No,No,No
+Maria,M,28,El paciente esta Enfermo,Si,No,No,No
+Alex,NoBinario,22,El paciente esta Enfermo,No,No,No,No
+Lucia,M,1,El paciente esta Enfermo,No,No,No,Si
+Pedro,H,72,El paciente esta Enfermo,No,No,Si,No
+Ana,M,30,El paciente esta Enfermo,No,Si,No,No
