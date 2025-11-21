@@ -100,8 +100,7 @@ public class HospitalFacadeImpl {
     public String verCitasAsignadas(int doctorId){
         String citas;
         try{
-            citas = CitaServicio.verCitasAsignadas(this.citas, doctorId);
-            return citas;
+            return CitaServicio.verCitasAsignadas(this.citas, doctorId);
         }catch (NullPointerException e){
             return "No hay citas disponibles. ";
         }
