@@ -5,10 +5,9 @@ import hospital.object.recursos.Cita;
 import hospital.object.recursos.Medicamentos.Medicamento;
 import hospital.object.usuarios.Doctor;
 import hospital.servicios.*;
-
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.io.IOException;
 
 public class HospitalFacadeImpl {
     protected ArrayList<Doctor> doctores = new ArrayList<>();
