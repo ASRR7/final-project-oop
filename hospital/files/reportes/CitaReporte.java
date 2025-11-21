@@ -26,7 +26,7 @@ public class CitaReporte {
             LocalDateTime now = LocalDateTime.now();
             String dateTimeString = now.format(formatter);
             String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
-            String filePath = os.startsWith("Windows") ? "\\reportesCitas\\" + fileName: "/reportesCitas/" + fileName ;
+            String filePath = "/reportesCitas/" + fileName ;
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado\n");
             String comma = ",";
