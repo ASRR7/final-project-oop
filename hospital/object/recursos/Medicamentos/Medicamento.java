@@ -2,13 +2,15 @@ package hospital.object.recursos.Medicamentos;
 
 public class Medicamento {
     protected String nombre;
+    private int cantidad; 
     private boolean enEmbarazo;
     private boolean enLactancia;
     private boolean enGeriatria;
     private boolean enInfancia;
 
-    public Medicamento(String nombre, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
+    public Medicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
         this.nombre = nombre;
+        this.cantidad = cantidad;   
         this.enEmbarazo = enEmbarazo;
         this.enLactancia = enLactancia;
         this.enGeriatria = enGeriatria;
@@ -21,6 +23,14 @@ public class Medicamento {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public int getContrasena() {
+        return cantidad;
+    }   
+    
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public boolean isEnEmbarazo() {
