@@ -60,7 +60,7 @@ public class PacienteServicio {
     }
     public static void writePacienteTxt(ArrayList<Paciente> Pacientes) throws RuntimeException{
         String fileName = "Pacientes.txt";
-        String filePath = "../archivosTXT/" + fileName;
+        String filePath = "hospital/archivosTXT/" + fileName;
         String comma = ",";
         String lineBreak = "\n";
         try{
