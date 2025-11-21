@@ -53,11 +53,11 @@ public class PacienteReporte {
                 
 
             catch(IOException e) {
-                e.getMessage();
+                throw new RuntimeException(e);
             }
             catch (Exception e) {
-                System.out.println("Ocurrió un error");
-                e.getMessage();
+
+                throw new RuntimeException(e);
             }
 
 

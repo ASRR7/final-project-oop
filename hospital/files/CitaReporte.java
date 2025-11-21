@@ -55,7 +55,7 @@ public class CitaReporte {
             }
             myWriter.close();
         } catch (Exception e) {
-            e.printStackTrace();
+
             throw new RuntimeException(e);
         }
     }

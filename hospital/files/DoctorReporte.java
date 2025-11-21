@@ -51,12 +51,12 @@ public class DoctorReporte {
 
             } 
             catch (IOException e) {
-                System.out.println("No se encontró el archivo");
-                e.getMessage();
+
+                throw new RuntimeException(e);
             }
             catch (Exception e) {
-                System.out.println("Ocurrió un error");
-                e.getMessage();
+
+                throw new RuntimeException(e);
             }
 
 
