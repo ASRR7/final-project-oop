@@ -98,6 +98,7 @@ public class Cita {
                 ", doctor=" + doctor.getNombre() +
                 ", consultorio=" + consultorio +
                 ", paciente=" + paciente +
+                ", estado=" + estado.toString() +
                 '}';
     }
 }
