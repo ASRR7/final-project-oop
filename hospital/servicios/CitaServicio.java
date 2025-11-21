@@ -96,11 +96,16 @@ public class CitaServicio {
     }
 
     public static String verCitasAsignadas (ArrayList<Cita> citas, int doctorId){
+        String espacio = " ";
+        String citasDoctor = "Citas asignadas al doctor con ID: "+doctorId+":";
+        
         for (Cita c: citas){
             if(c.getDoctor().getId() == doctorId){
+                citasDoctor += c.toString() + espacio;
                 return c.toString();
             }
         }
+        return citasDoctor;
     }
 
     public static String infoCita (ArrayList<Cita> citas, int doctorId, int citaId){
