@@ -2,7 +2,7 @@ package hospital.facade;
 
 import hospital.object.pacientes.Paciente;
 import hospital.object.recursos.Cita;
-import hospital.object.recursos.medicamentos.Medicamento;
+import hospital.object.recursos.Medicamentos.Medicamento;
 import hospital.object.usuarios.Admin;
 import hospital.object.usuarios.Doctor;
 import hospital.object.usuarios.Recepcionista;
@@ -25,7 +25,7 @@ public class HospitalFacadeImpl {
     public void cargarDatosIniciales() {
         this.doctores = DoctorServicio.leerDoctorTxt();
         this.pacientes = PacienteServicio.leerPacienteTxt();
-        this.medicamentos = MedicamentoServicio.leerMedicamentoTxt();
+        this.medicamentos = MedicamentoServicio.leerMedicamentos();
         this.citas = CitaServicio.leerCitaTxt();
     }
     // =========================================
