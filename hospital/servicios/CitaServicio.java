@@ -103,13 +103,11 @@ public class CitaServicio {
             for (Cita c : citas) {
                 if (c.getDoctor().getId() == doctorId) {
                     citasDoctor += c.toString() + espacio;
-                    return c.toString();
                 }
             }
         } catch (NullPointerException e) {
             throw new NullPointerException(e.getMessage());
         }
-        
         return citasDoctor;
     }
 
@@ -136,5 +134,4 @@ public class CitaServicio {
         }
         return consultaInfo;    
     }
-
 }
