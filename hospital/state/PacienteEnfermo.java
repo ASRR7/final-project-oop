@@ -29,11 +29,6 @@ public class PacienteEnfermo implements IPacienteState {
     }
 
     @Override
-    public void salirDelHospital(Object paciente) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
     public void setContextoPaciente(ContextoPaciente contexto) {
         this.contexto = contexto;
     }

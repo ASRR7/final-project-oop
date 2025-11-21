@@ -1,6 +1,7 @@
 package hospital.object.pacientes;
 
-import hospital.state.IPacienteState;
+package hospital.state.*;
+
 
 public class Paciente {
     private static int numPacientesHist = 0;
@@ -74,39 +75,70 @@ public class Paciente {
     public void setExpediente( Expediente expediente ) {
         this.expediente = expediente;
     }
-
-    public IPacienteState getEstado() {
-        return estado;
-    }
-    public void setEstado( IPacienteState estado ) {
+    
+    public void setEstado(IPacienteState estado) {
         this.estado = estado;
     }
 
     public Boolean getEsEmbarazo() {
         return esEmbarazo;
     }
-    public void setEsEmbarazo( Boolean esEmbarazo ) {
+
+    public void setEsEmbarazo(Boolean esEmbarazo) {
         this.esEmbarazo = esEmbarazo;
     }
 
     public Boolean getEsLactancia() {
         return esLactancia;
     }
-    public void setEsLactancia( Boolean esLactancia ) {
+
+    public void setEsLactancia(Boolean esLactancia) {
         this.esLactancia = esLactancia;
     }
 
     public Boolean getEsGeriatria() {
         return esGeriatria;
     }
-    public void setEsGeriatria( Boolean esGeriatria ) {
+
+    public void setEsGeriatria(Boolean esGeriatria) {
         this.esGeriatria = esGeriatria;
     }
 
     public Boolean getEsInfancia() {
         return esInfancia;
     }
-    public void setEsInfancia( Boolean esInfancia ) {
+
+    public void setEsInfancia(Boolean esInfancia) {
         this.esInfancia = esInfancia;
     }
+
+    public IPacienteState getEstado() {
+        return estado;
+    }
+
+    public ContextoPaciente() {
+        setState(new PacienteEnfermo());
+    }
+
+    public void setState(IPacienteState estado) {
+        this.estado = estado;
+        this.estado.setContextoPaciente(this);
+    }
+
+    public void agendarCita(Paciente paciente) {
+        this.estado.agendarCita();
+    }
+
+    public void cancelarCita(Paciente paciente) {
+        this.estado.cancelarCita();
+    }
+
+    public void irACita(Paciente paciente) {
+        this.estado.irACita();
+    }
+
+    public void salirDelHospital(Paciente paciente) {
+        this.estado.salirDelHospital();
+    }
+    
 }
