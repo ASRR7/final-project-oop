@@ -69,4 +69,12 @@ import java.util.Scanner;
                 e.printStackTrace();
             }
         }
+        public static Doctor searchByIdDoctor(ArrayList<Doctor> doctores, int id) {
+            for (Doctor doctor:doctores){
+                if(doctor.getId() == id){
+                    return doctor;
+                }
+            }
+            return null;
+        }
 }
