@@ -7,6 +7,5 @@ public interface IPacienteState {
     void cancelarCita();
     void irACita();
     void salirDelHospital();
-
     void setContextoPaciente(Paciente contexto);
 }

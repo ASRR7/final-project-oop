@@ -32,4 +32,9 @@ public class PacienteSano implements IPacienteState {
     public void setContextoPaciente(Paciente contexto) {
         this.contexto = contexto;
     }
+
+    @Override
+    public String toString() {
+        return "El paciente esta Sano";
+    }
 }
