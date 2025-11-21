@@ -88,9 +88,10 @@ public class Terminal {
     }
     public void mostrarMenuPaciente(){
         System.out.println("=== Menú Paciente ===");
-        System.out.println("1. Registrarte como paciente");
-        System.out.println("2. Ya soy paciente");
-        System.out.println("3. Volver al menú principal");
+        System.out.println("1. Ver pacientes registrados");
+        System.out.println("2. Registrarte como paciente");
+        System.out.println("3. Ya soy paciente");
+        System.out.println("4. Volver al menú principal");
     }
     public void mostrarMenuPacienteInterno(){
         System.out.println("=== Menú Interno de Paciente ===");
@@ -108,12 +109,13 @@ public class Terminal {
     }
     public void mostrarMenuAdmin(){
         System.out.println("=== Menú Admin ===");
-        System.out.println("1. Agregar Doctor");
-        System.out.println("2. Remover Doctor");
-        System.out.println("3. Ver medicamentos");
-        System.out.println("4. Agregar Medicamentos");
-        System.out.println("5. Crear Reportes");
-        System.out.println("6. Volver al menú principal");
+        System.out.println("1. Ver Doctores");
+        System.out.println("2. Agregar Doctor");
+        System.out.println("3. Remover Doctor");
+        System.out.println("4. Ver medicamentos");
+        System.out.println("5. Agregar Medicamentos");
+        System.out.println("6. Crear Reportes");
+        System.out.println("7. Volver al menú principal");
     }
     public void mostrarMenuDoctor(){
         System.out.println("=== Menú Doctor ===");
@@ -127,14 +129,17 @@ public class Terminal {
         int opcion = this.leerEntero("Seleccione una opción: ");
         switch (opcion) {
             case 1:
+                this.mostrarPacientes();
+                break;
+            case 2:
                 this.registrarPaciente();
                 this.menuPacienteInterno();
                 break;
-            case 2:
+            case 3:
                 this.soyPaciente();
                 this.menuPacienteInterno();
                 break;
-            case 3:
+            case 4:
                 System.out.println("Volviendo al menú principal...");
                 break;
             default: System.out.println("Opción inválida.");
@@ -160,21 +165,24 @@ public class Terminal {
         int opcion = this.leerEntero("Seleccione una opción: ");
         switch (opcion) {
             case 1:
-                this.agregarDoctor();
+                this.mostrarDoctores();
                 break;
             case 2:
-                this.removerDoctor();
+                this.agregarDoctor();
                 break;
             case 3:
-                this.verMedicamentos();
+                this.removerDoctor();
                 break;
             case 4:
-                this.agregarMedicamentos();
+                this.verMedicamentos();
                 break;
             case 5:
-                this.generarReportes();
+                this.agregarMedicamentos();
                 break;
             case 6:
+                this.generarReportes();
+                break;
+            case 7:
                 System.out.println("Volviendo al menú principal...");
                 break;
             default: System.out.println("Opción inválida.");
@@ -202,6 +210,10 @@ public class Terminal {
     // =========================================
     // PACIENTES
     // =========================================
+    public void mostrarPacientes(){
+        System.out.println("Mostrando pacientes registrados...");
+        System.out.println(facade.mostrarPacientes());
+    }
     public void registrarPaciente(){
         String nombre = leerTexto("Ingrese el nombre del paciente: ");
         String sexo = leerTexto("Ingrese el sexo del paciente: ");
@@ -266,6 +278,10 @@ public class Terminal {
     // =========================================
     // ADMIN
     // =========================================
+    public void mostrarDoctores(){
+        System.out.println("Mostrando doctores registrados...");
+        System.out.println(facade.mostrarDoctores());
+    }
     public void agregarDoctor(){
         String nombre = leerTexto("Ingrese el nombre del doctor: ");
         String contrasena = leerTexto("Ingrese la contraseña del doctor: ");
@@ -330,8 +346,8 @@ public class Terminal {
         System.out.println("La consulta ha finalizado: " + facade.irAConsulta(doctor.getId(), id));
     }
     public void verCitasAsignadas(){
-        System.out.println("Mostrando citas asignadas...");
         if(doctor != null){
+            System.out.println("Mostrando citas asignadas...");
             facade.verCitasAsignadas(doctor.getId());
         } else {
             System.out.println("Doctor no encontrado.");
@@ -342,8 +358,7 @@ public class Terminal {
     // -------------------------------------------
     // -------------------------------------------
     public void cerrar(){
-        System.out.println("Cerrando sistema del hospital...");
-        facade.cerrarSistema();
+        System.out.println(facade.cerrarSistema());
         scanner.close();
     }
 }

@@ -35,6 +35,9 @@ public class HospitalFacadeImpl {
     // =========================================
     // PACIENTES
     // =========================================
+    public String mostrarPacientes(){
+        return PacienteServicio.mostrarPacientes(this.pacientes);
+    }
     public Paciente registrarPaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
         return PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
@@ -54,6 +57,9 @@ public class HospitalFacadeImpl {
     // =========================================
     // ADMIN
     // =========================================
+    public String mostrarDoctores(){
+        return DoctorServicio.mostrarDoctores(this.doctores);
+    }
     public void agregarDoctor(String nombre, String contrasena, double sueldo, String turno, String especialidad){
         DoctorServicio.addDoctor(this.doctores, nombre, contrasena, sueldo, turno, especialidad);
     }
@@ -86,14 +92,15 @@ public class HospitalFacadeImpl {
         return CitaServicio.irAConsulta(this.citas, doctorId, citaId);
     }
 
-    public void cerrarSistema() {
+    public String cerrarSistema() {
         try{
             DoctorServicio.writeDoctorTxt(this.doctores);
             PacienteServicio.writePacienteTxt(this.pacientes);
             MedicamentoServicio.writeMedicamentoTXT(this.medicamentos);
             CitaServicio.escribirCitaTxt(this.citas);
+            return "Saliendo... Los datos han sido guardados correctamente.";
         }catch (IOException e){
-            System.out.println("Error al guardar los datos: " + e.getMessage());
+            return "Error al guardar los datos: " + e.getMessage();
         }
     }
 }
