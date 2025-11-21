@@ -75,4 +75,28 @@ public class MedicamentoServicio {
         e.printStackTrace();
     }
     }
+
+    //method to add n medicamentos
+    public static int addMedicamentos(ArrayList<Medicamento> medicamentos, int n) {
+        if (n<=0) {
+            System.out.println("La cantidad de medicamentos a agregar debe ser mayor a 0.");
+            return -1;
+        }
+        for (Medicamento medicamento: medicamentos) {
+            if (medicamento.getId() == n) {
+                medicamento.setCantidad(medicamento.getCantidad() + 1);
+                return 0;
+            }
+        }
+        System.out.println("El medicamento con el id proporcionado no se encontró.");
+        return -1;
+    }
+
+    public static String medicamentosString(ArrayList<Medicamento> medicamentos) {
+        String medicamentosString = "";
+        for (Medicamento medicamento: medicamentos) {
+            medicamentosString += medicamento.toString() + "\n";
+        }
+        return medicamentosString;
+    }
 }

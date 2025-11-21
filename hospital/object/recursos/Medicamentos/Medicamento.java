@@ -3,12 +3,16 @@ package hospital.object.recursos.Medicamentos;
 public class Medicamento {
     protected String nombre;
     private int cantidad; 
+    private static int numMedicamentosActual = 0;
+    private int id;
     private boolean enEmbarazo;
     private boolean enLactancia;
     private boolean enGeriatria;
     private boolean enInfancia;
 
     public Medicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
+        numMedicamentosActual++;
+        this.id = numMedicamentosActual;
         this.nombre = nombre;
         this.cantidad = cantidad;   
         this.enEmbarazo = enEmbarazo;
@@ -17,6 +21,9 @@ public class Medicamento {
         this.enInfancia = enInfancia;
     }
 
+    public int getId() {
+        return id;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -71,5 +78,16 @@ public class Medicamento {
 
     public void contraindicaciones() {
         System.out.println("Consultar con un médico antes de usar.");
+    }
+
+    public String toString() {
+        return "Medicamento{" +
+                "nombre='" + nombre + '\'' +
+                ", cantidad=" + cantidad +
+                ", enEmbarazo=" + enEmbarazo +
+                ", enLactancia=" + enLactancia +
+                ", enGeriatria=" + enGeriatria +
+                ", enInfancia=" + enInfancia +
+                '}';
     }
 }
