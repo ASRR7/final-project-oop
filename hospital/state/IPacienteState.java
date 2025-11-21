@@ -3,8 +3,10 @@ package hospital.state;
 import hospital.object.pacientes.Paciente;
 
 public interface IPacienteState {
-    void agendarCita(Paciente paciente);
-    void cancelarCita(Paciente paciente);
-    void irACita(Paciente paciente);
-    void salirDelHospital(Paciente paciente);
+    void agendarCita(Paciente p); 
+    void cancelarCita(Paciente p);
+    void irACita(Paciente p);
+    void salirDelHospital(Paciente p);
+
+    void setContextoPaciente(ContextoPaciente contexto);
 }
