@@ -16,7 +16,7 @@ import java.util.Scanner;
     private int Id;*/
 public class CitaServicio {
     public static ArrayList<Cita> leerCitaTxt(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes) throws IOException {
-        String fileName = "Cita.txt";
+        String fileName = "Citas.txt";
         String filePath = "../archivosTXT/" + fileName;
         ArrayList<Cita> citas = new ArrayList<>();
         try {
@@ -41,7 +41,7 @@ public class CitaServicio {
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
     public static void escribirCitaTxt(ArrayList<Cita> citas) throws IOException {
-        String fileName = "Cita.txt";
+        String fileName = "Citas.txt";
         String filePath = "../archivosTXT/" + fileName;
         String espacio = " ";
         String lineBreak = "\n";

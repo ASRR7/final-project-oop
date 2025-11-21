@@ -28,6 +28,7 @@ import java.util.Scanner;
                     doctores.add(doctor);
                 }
 
+
             } catch (IOException e) {
                 throw new IOException(e);
             }

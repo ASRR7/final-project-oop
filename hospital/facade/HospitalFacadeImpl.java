@@ -24,7 +24,7 @@ public class HospitalFacadeImpl {
 
     public String cargarDatosIniciales() {
         try{
-            this.doctores = DoctorServicio.leerDoctorTxt();
+            //this.doctores = DoctorServicio.leerDoctorTxt();
             this.pacientes = PacienteServicio.leerPacienteTxt();
             this.medicamentos = MedicamentoServicio.leerMedicamentos();
             this.citas = CitaServicio.leerCitaTxt(doctores, pacientes);
