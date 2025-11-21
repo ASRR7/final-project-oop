@@ -93,5 +93,14 @@ public class PacienteServicio {
     }
     }
 
+    public static Paciente searchByIdPaciente(ArrayList<Paciente> pacientes, int id) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getId() == id) {
+                return paciente;
+            }
+        }
+        return null;
+    }
+
 
 }
