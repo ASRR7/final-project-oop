@@ -17,10 +17,10 @@ public class HospitalFacadeImpl {
 
     public String cargarDatosIniciales() {
         try{
-            this.doctores = DoctorServicio.leerDoctorTxt();
-            this.pacientes = PacienteServicio.leerPacienteTxt();
-            this.medicamentos = MedicamentoServicio.leerMedicamentos();
-            this.citas = CitaServicio.leerCitaTxt(doctores, pacientes);
+            this.doctores.addAll(DoctorServicio.leerDoctorTxt());
+            this.pacientes.addAll(PacienteServicio.leerPacienteTxt());
+            this.medicamentos.addAll(MedicamentoServicio.leerMedicamentos());
+            this.citas.addAll(CitaServicio.leerCitaTxt(doctores, pacientes));
             return "Datos iniciales cargados correctamente.";
         } catch (RuntimeException e){
             return "Error al momento de leer los archivos: " + e.getMessage();
