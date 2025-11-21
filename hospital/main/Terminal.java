@@ -32,6 +32,7 @@ public class Terminal {
             return texto;
         } catch (Exception e) {
             System.out.println("El campo no puede estar vacio");
+            leerTexto(mensaje);
         }
     }
 
