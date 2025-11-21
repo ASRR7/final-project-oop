@@ -18,7 +18,7 @@ public class DoctorReporte {
                 String dateTimeString = now.format(formatter);
                 String os = System.getProperty("os.name");
                 String fileName = "Reporte-Doctores-" + dateTimeString + ".csv";
-                String filePath = "/reportess/reportesDoctores/" + fileName ;
+                String filePath = "hospital/files/reportess/reportesDoctores/" + fileName ;
                 FileWriter myWriter = new FileWriter(filePath);
                 //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
                 myWriter.write("Doctor,Contraseña,Sueldo,Turno,Especialidad,NumHist,NumActual\n");

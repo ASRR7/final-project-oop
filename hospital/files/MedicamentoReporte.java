@@ -18,7 +18,7 @@ public class MedicamentoReporte {
                 LocalDateTime now = LocalDateTime.now();
                 String dateTimeString = now.format(formatter);
                 String fileName = "Reporte-Medicamentos-" + dateTimeString + ".csv";
-                String filePath = "/reportes/reportesMedicamentos/" + fileName ;
+                String filePath = "hospital/files/reportes/reportesMedicamentos/" + fileName ;
                 FileWriter myWriter = new FileWriter(filePath);
                 //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
                 myWriter.write("Nombre,Cantidad,EnEmbarazo,EnLactancia,EnGeriatria,EnInfancia\n");

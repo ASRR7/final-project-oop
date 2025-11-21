@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MedicamentoServicio {
     public static ArrayList <Medicamento> leerMedicamentos() throws RuntimeException {
         String fileName = "Medicamentos.txt";
-        String filePath = "../archivosTXT/" + fileName;
+        String filePath = "hospital/archivosTXT/" + fileName;
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
         try {
             
@@ -39,7 +39,7 @@ public class MedicamentoServicio {
     }
     public static void writeMedicamentoTXT(ArrayList<Medicamento> medicamentos) throws RuntimeException {
         String fileName = "Medicamentos.txt";
-        String filePath = "../archivosTXT/" + fileName;
+        String filePath = "hospital/archivosTXT/" + fileName;
         String comma = ",";
         String lineBreak = "\n";
         try{

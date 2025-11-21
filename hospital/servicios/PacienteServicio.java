@@ -16,12 +16,12 @@ import hospital.state.IPacienteState;
 
 
 public class PacienteServicio {
-    public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
+    public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia) throws RuntimeException{
         return new Paciente(nombre, sexo, edad, new PacienteEnfermo(), esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
     public static ArrayList <Paciente> leerPacienteTxt() {
         String fileName = "Pacientes.txt";
-        String filePath = "../archivosTXT/" + fileName;
+        String filePath = "hospital/archivosTXT/" + fileName;
         ArrayList<Paciente> pacientes = new ArrayList<>();
         try {
             
@@ -54,7 +54,7 @@ public class PacienteServicio {
             }
             bufferedReader.close();
         } catch (IOException e) {
-            System.out.println("Ocurrio un error al leer el archivo.");
+            throw new RuntimeException(e);
         }
         return pacientes;
     }
