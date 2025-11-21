@@ -1,5 +1,5 @@
 package hospital.servicios;
 
-public class MedicamentosServicio {
+public class MedicamentoServicio {
     
 }
