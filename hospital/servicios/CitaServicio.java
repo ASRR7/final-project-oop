@@ -3,6 +3,10 @@ package hospital.servicios;
 import hospital.object.pacientes.Paciente;
 import hospital.object.recursos.Cita;
 import hospital.object.usuarios.Doctor;
+import hospital.state.ICitaState;
+import hospital.state.citas.EstadoAgendada;
+import hospital.state.citas.EstadoCancelada;
+import hospital.state.citas.EstadoCompletada;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -23,6 +27,7 @@ public class CitaServicio {
         try {
             Scanner fileIn = new Scanner(new FileReader(filePath));
             while (fileIn.hasNextInt()) {
+                ICitaState estado = null;
                 int hora = fileIn.nextInt();
                 int dia = fileIn.nextInt();
                 int mes = fileIn.nextInt();
@@ -31,7 +36,19 @@ public class CitaServicio {
                 int idPaciente = fileIn.nextInt();
                 Paciente paciente = PacienteServicio.searchByIdPaciente(pacientes, idPaciente);
                 Doctor doctor = DoctorServicio.searchByIdDoctor(doctores, idDoctor);
-                Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
+                String estadoCita = fileIn.nextLine(); 
+                switch (estadoCita) {
+                    case "Agendada":
+                        estado = new EstadoAgendada();
+                        break;
+                    case "Completada":
+                        estado = new EstadoCompletada();
+                        break;
+                    case "Cancelada":
+                        estado = new EstadoCancelada();
+                        break;
+                }
+                Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente, estado);
                 citas.add(cita);
             }
 
@@ -56,6 +73,7 @@ public class CitaServicio {
                 int consultorio = c.getConsultorio();
                 int idDoctor = c.getDoctor().getId();
                 int idPaciente = c.getPaciente().getId();
+                String estado = c.getEstado().toString();
 
                 String citaInfo = hora  + espacio
                         + dia           + espacio
@@ -80,7 +98,7 @@ public class CitaServicio {
         int consultorio = aleatorio.nextInt(10) + 1;
         Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
         //aqui falta ampliar los state de citas  
-        Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
+        Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente, new EstadoAgendada());
         
         citas.add(cita);
         return true;
@@ -103,7 +121,6 @@ public class CitaServicio {
             for (Cita c : citas) {
                 if (c.getDoctor().getId() == doctorId) {
                     citasDoctor += c.toString() + espacio;
-                    
                 }
             }
             System.out.println(citasDoctor);

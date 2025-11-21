@@ -24,6 +24,6 @@ public class EstadoCancelada implements ICitaState{
 
      @Override
     public String toString() {
-        return "Cita Cancelada";
+        return "Cancelada";
     }
 }

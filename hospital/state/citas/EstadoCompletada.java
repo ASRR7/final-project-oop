@@ -32,7 +32,7 @@ public class EstadoCompletada implements ICitaState{
 
     @Override
     public String toString() {
-        return "Cita completada";
+        return "Completada";
     }
 
     

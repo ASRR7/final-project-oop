@@ -26,6 +26,6 @@ public class EstadoAgendada implements ICitaState {
 
      @Override
     public String toString() {
-        return "Cita Agendada";
+        return "Agendada";
     }
 }
