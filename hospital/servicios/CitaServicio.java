@@ -22,7 +22,7 @@ public class CitaServicio {
         ArrayList<Cita> citas = new ArrayList<>();
         try {
             Scanner fileIn = new Scanner(new FileReader(filePath));
-            while (fileIn.hasNextLine()) {
+            while (fileIn.hasNextInt()) {
                 int hora = fileIn.nextInt();
                 int dia = fileIn.nextInt();
                 int mes = fileIn.nextInt();
