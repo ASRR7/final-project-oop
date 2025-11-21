@@ -72,7 +72,7 @@ public class CitaServicio {
     }
     /*pedir cita reciba arraydoctores id paciente array paciente, array citas datos de hora dia y mes, aleatoriamente 
     asigna un doctor disponible en el array y consultorio aleatorio guarda la cita en el array de citas y retorna un booleano*/
-    public boolean pedirCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int pacienteId, int hora, int dia, int mes){
+    public static boolean pedirCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int pacienteId, int hora, int dia, int mes){
         
         Random aleatorio = new Random();
         Paciente paciente = PacienteServicio.searchByIdPaciente(pacientes, pacienteId);
