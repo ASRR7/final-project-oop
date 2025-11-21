@@ -1,5 +1,65 @@
 package hospital.files.reportes;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+import hospital.object.pacientes.Paciente;
+
 public class PacienteReporte {
-    
+    public static void makeReporte(ArrayList<Paciente> pacientes) throws RuntimeException{
+
+            try{
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
+                                        "yyyy-MM-dd HH:mm:ss a");
+                LocalDateTime now = LocalDateTime.now();
+                String dateTimeString = now.format(formatter);
+                String os = System.getProperty("os.name");
+                String fileName = "Reporte-Pacientes-" + dateTimeString + ".csv";
+                String filePath = os.startsWith("Windows") ? "\\reportesDoctores\\" + fileName: "/reportesDoctores/" + fileName ;
+                FileWriter myWriter = new FileWriter(filePath);
+                //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
+                myWriter.write("nombre,sexo,edad,estado,esEmbarazo,esLactancia,esGeriatria,esInfancia\n");
+                String comma = ",";
+                String lineBreak = "\n";
+
+                for(Paciente paciente: pacientes){
+                    String nombre = paciente.getNombre();
+                    String sexo = paciente.getSexo();
+                    String edad = Integer.toString(paciente.getEdad());
+                    String esEmbarazo = paciente.getEsEmbarazo() ? "Si" : "No";
+                    String esLactancia = paciente.getEsLactancia() ? "Si" : "No";
+                    String esGeriatria = paciente.getEsGeriatria() ? "Si" : "No";
+                    String esInfancia = paciente.getEsInfancia() ? "Si" : "No";
+                    String estado = paciente.toString();
+                    String csvField = nombre+comma +
+                            sexo +comma +
+                            edad + comma +
+                            estado + comma +
+                            esEmbarazo + comma +
+                            esLactancia + comma +
+                            esGeriatria + comma +
+                            esInfancia + comma +
+                            lineBreak;
+                    myWriter.write(csvField);
+                }
+                myWriter.close();
+                System.out.println("Reporte creado con éxito");
+            }
+                
+
+            catch(IOException e) {
+                System.out.println("No se encontró el archivo");
+                e.getMessage();
+            }
+            catch (Exception e) {
+                System.out.println("Ocurrió un error");
+                e.getMessage();
+            }
+
+
+    }
 }
+
