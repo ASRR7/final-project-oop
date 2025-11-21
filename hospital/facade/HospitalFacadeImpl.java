@@ -17,14 +17,13 @@ public class HospitalFacadeImpl {
     protected DoctorServicio doctorServicio;
     protected CitaServicio citaServicio;
     protected MedicamentoServicio medicamentoServicio;
+    protected ArrayList<Doctor> doctores;
+    protected ArrayList<Paciente> pacientes;
+    protected ArrayList<Medicamento> medicamentos;
 
     public void cargarDatosIniciales() {
-        // Cargar datos iniciales de doctores
-        ArrayList<Doctor> doctores = new ArrayList<>();
         DoctorServicio.leerDoctorTxt(doctores);
-        ArrayList<Paciente> pacientes = new ArrayList<>();
         PacienteServicio.leerPacienteTxt(pacientes);
-        ArrayList<Medicamento> medicamentos = new ArrayList<>();
         MedicamentoServicio.leerMedicamentoTxt(medicamentos);
     }
 
