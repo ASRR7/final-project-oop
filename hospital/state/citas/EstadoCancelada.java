@@ -21,4 +21,9 @@ public class EstadoCancelada implements ICitaState{
         System.out.println( "La cita ya fue completada");
         return new EstadoCompletada();
     }
+
+     @Override
+    public String toString() {
+        return "Cita Cancelada";
+    }
 }

@@ -7,5 +7,6 @@ public interface ICitaState {
     public EstadoAgendada makeDisponible( String doNotFillMeString);
     public EstadoCancelada makeNoDisponible(String doNotFillMeString );
     public EstadoCompletada completarCita();
+    public String toString();
     
 }

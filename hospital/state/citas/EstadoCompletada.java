@@ -30,5 +30,10 @@ public class EstadoCompletada implements ICitaState{
         return new EstadoCompletada();
     }
 
+    @Override
+    public String toString() {
+        return "Cita completada";
+    }
+
     
 }
