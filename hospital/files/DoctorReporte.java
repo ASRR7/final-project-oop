@@ -1,4 +1,4 @@
-package hospital.files.reportes;
+package hospital.files;
 
 import hospital.object.usuarios.Doctor;
 import java.io.FileWriter;
@@ -18,7 +18,7 @@ public class DoctorReporte {
                 String dateTimeString = now.format(formatter);
                 String os = System.getProperty("os.name");
                 String fileName = "Reporte-Doctores-" + dateTimeString + ".csv";
-                String filePath = "/reportesDoctores/" + fileName ;
+                String filePath = "/reportess/reportesDoctores/" + fileName ;
                 FileWriter myWriter = new FileWriter(filePath);
                 //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
                 myWriter.write("Doctor,Contraseña,Sueldo,Turno,Especialidad,NumHist,NumActual\n");

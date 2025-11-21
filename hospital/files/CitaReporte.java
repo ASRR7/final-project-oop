@@ -1,4 +1,4 @@
-package hospital.files.reportes;
+package hospital.files;
 
 import hospital.object.recursos.Cita;
 
@@ -26,7 +26,7 @@ public class CitaReporte {
             LocalDateTime now = LocalDateTime.now();
             String dateTimeString = now.format(formatter);
             String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
-            String filePath = "/reportesCitas/" + fileName ;
+            String filePath = "/reportes/reportesCitas/" + fileName ;
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado\n");
             String comma = ",";
