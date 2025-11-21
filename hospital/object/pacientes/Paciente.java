@@ -137,4 +137,7 @@ public class Paciente {
         this.estado.salirDelHospital();
     }
     
+    public String toString() {
+        return estado.toString();
+    }
 }
