@@ -60,7 +60,7 @@ public class PacienteServicio {
     }
     public static void writePacienteTxt(ArrayList<Paciente> Pacientes) throws RuntimeException{
         String fileName = "Pacientes.txt";
-        String filePath = "../archivosTXT/" + fileName;
+        String filePath = "hospital/archivosTXT/" + fileName;
         String comma = ",";
         String lineBreak = "\n";
         try{
@@ -89,7 +89,6 @@ public class PacienteServicio {
                 System.out.println("Los datos de los doctores han sido almacenados correctamente.");
     
     }catch (IOException e) {
-        System.out.println("Ocurrió un error al almacenar los dotores.");
         e.printStackTrace();
     }
     }
