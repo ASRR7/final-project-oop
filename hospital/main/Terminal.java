@@ -2,11 +2,8 @@ package hospital.main;
 
 import java.util.Scanner;
 
-import javax.print.Doc;
-
 import hospital.object.pacientes.*;
 import hospital.object.usuarios.*;
-import hospital.state.*;
 import hospital.facade.*;
 
 
@@ -115,7 +112,7 @@ public class Terminal {
         System.out.println("2. Remover Doctor");
         System.out.println("3. Ver medicamentos");
         System.out.println("4. Agregar Medicamentos");
-        System.out.println("5. Ver Reportes");
+        System.out.println("5. Crear Reportes");
         System.out.println("6. Volver al menú principal");
     }
     public void mostrarMenuDoctor(){
@@ -175,7 +172,7 @@ public class Terminal {
                 this.agregarMedicamentos();
                 break;
             case 5:
-                this.verReportes();
+                this.generarReportes();
                 break;
             case 6:
                 System.out.println("Volviendo al menú principal...");
@@ -260,7 +257,7 @@ public class Terminal {
         String nombre = leerTexto("Ingrese el nombre del doctor: ");
         String contrasena = leerTexto("Ingrese la contraseña del doctor: ");
         double sueldo = leerDouble("Ingrese el sueldo del doctor: ");
-        String turno = leerTexto("Ingrese el turno del doctor: ");
+        String turno = leerTexto("Ingrese el turno del doctor (Matutino, vespertino, Nocturno): ");
         String especialidad = leerTexto("Ingrese la especialidad del doctor: ");
 
         facade.agregarDoctor(nombre, contrasena, sueldo, turno, especialidad);
@@ -278,10 +275,13 @@ public class Terminal {
     public void agregarMedicamentos(){
         int id = leerEntero("Ingrese el ID del medicamento a agregar: ");
         int cantidad = leerEntero("Ingrese la cantidad a agregar: ");
-        facade.agregarMedicamento(id, cantidad);
-        System.out.println("Medicamento agregado exitosamente.");
+        if(facade.agregarMedicamento(id, cantidad)){
+            System.out.println("Medicamento agregado exitosamente.");
+        }else {
+            System.out.println("No se pudo agregar el medicamento.");
+        }
     }
-    public void verReportes(){
+    public void generarReportes(){
         System.out.println("Generando reportes...");
         facade.generarReportes();
         System.out.println("Reportes generados exitosamente.");
@@ -303,14 +303,13 @@ public class Terminal {
     public void irAConsulta(){
         int id = leerEntero("Ingrese el ID de la cita médica: ");
         System.out.println("La consulta ha comenzado.");
-        System.out.println("Info de la cita: " + facade.infoCita(id));
-        System.out.println("La consulta ha finalizado: " + facade.irAConsulta(id));
+        System.out.println("Info de la cita: " + facade.infoCita(doctor.getId(), id));
+        System.out.println("La consulta ha finalizado: " + facade.irAConsulta(doctor.getId(), id));
     }
     public void verCitasAsignadas(){
-        int id = leerEntero("Ingrese su ID de doctor: ");
-        Doctor doctor = facade.obtenerDoctorPorId(id);
+        System.out.println("Mostrando citas asignadas...");
         if(doctor != null){
-            facade.verCitasAsignadas(doctor);
+            facade.verCitasAsignadas(doctor.getId());
         } else {
             System.out.println("Doctor no encontrado.");
         }
