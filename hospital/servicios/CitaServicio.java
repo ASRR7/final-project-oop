@@ -41,7 +41,7 @@ public class CitaServicio {
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
     public static void escribirCitaTxt(ArrayList<Cita> citas) throws IOException {
-        String fileName = "Citas.txt";
+        String fileName = "Cita.txt";
         String filePath = "../archivosTXT/" + fileName;
         String espacio = " ";
         String lineBreak = "\n";
@@ -93,6 +93,30 @@ public class CitaServicio {
             }
         }
         return false;
+    }
+
+    public static String verCitasAsignadas (ArrayList<Cita> citas, int doctorId){
+        for (Cita c: citas){
+            if(c.getDoctor().getId() == doctorId){
+                return c.toString();
+            }
+        }
+    }
+
+    public static String infoCita (ArrayList<Cita> citas, int doctorId, int citaId){
+        for (Cita c: citas){
+            if(c.getId() == citaId && c.getDoctor().getId() == doctorId){
+                return c.toString();
+            }
+        }
+    }
+    
+    public static String irAConsulta (ArrayList<Cita> citas, int doctorId,  int citaId){
+        for (Cita cita: citas){
+            if(cita.getId() == citaId){
+                System.out.println("Consulta iniciada para la cita: " + cita.toString());
+            }
+        }
     }
 
 }
