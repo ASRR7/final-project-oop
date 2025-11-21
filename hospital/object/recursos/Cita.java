@@ -94,7 +94,7 @@ public class Cita {
                 "hora=" + hora +
                 ", dia=" + dia +
                 ", mes=" + mes +
-                ", doctor=" + doctor +
+                ", doctor=" + doctor.getNombre() +
                 ", consultorio=" + consultorio +
                 ", paciente=" + paciente +
                 '}';
