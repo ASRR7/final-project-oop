@@ -219,12 +219,12 @@ public class Terminal {
         } else if(edad<12){
             esInfancia = true;
         }
-        paciente = facade.pacienteServicio.registrarPaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
+        paciente = facade.registrarPaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
         System.out.println("Paciente registrado exitosamente.");
     }
     public void soyPaciente(){
         int id = leerEntero("Ingrese su ID de paciente: ");
-        paciente = facade.pacienteServicio.obtenerPacientePorId(id);
+        paciente = facade.obtenerPacientePorId(id);
         if(paciente != null){
             System.out.println("Bienvenide, " + paciente.getNombre());
         } else {
@@ -235,7 +235,7 @@ public class Terminal {
         double hora = leerDouble("Ingrese la hora de la cita (formato 24h, ej. 14.30): ");
         int dia = leerEntero("Ingresa el día del mes para tu cita: ");
         int mes = leerEntero("Ingresa el número de mes: ");
-        if(facade.citaServicio.pedirCita(paciente.getId(), hora, dia, mes)){
+        if(facade.pedirCita(paciente.getId(), hora, dia, mes)){
             System.out.println("Cita pedida exitosamente.");
         }else {
             System.out.println("No se pudo agendar la cita.");
@@ -243,7 +243,7 @@ public class Terminal {
     }
     public void cancelarCita(){
         int idCita = leerEntero("Ingrese el ID de la cita a cancelar: ");
-        if(facade.citaServicio.cancelarCita(paciente.getId(), idCita)){
+        if(facade.cancelarCita(paciente.getId(), idCita)){
             System.out.println("Cita cancelada exitosamente.");
         }else {
             System.out.println("No se pudo cancelar la cita.");
@@ -251,7 +251,7 @@ public class Terminal {
     }
     public void verHistorialMedico(){
         System.out.println("Mostrando historial médico...");
-        System.out.println(facade.pacienteServicio.verHistorialMedico(paciente.getId()));
+        System.out.println(facade.verHistorialMedico(paciente.getId()));
     }
     // =========================================
     // ADMIN
@@ -263,27 +263,27 @@ public class Terminal {
         String turno = leerTexto("Ingrese el turno del doctor: ");
         String especialidad = leerTexto("Ingrese la especialidad del doctor: ");
 
-        facade.adminServicio.agregarDoctor(nombre, contrasena, sueldo, turno, especialidad);
+        facade.agregarDoctor(nombre, contrasena, sueldo, turno, especialidad);
         System.out.println("Doctor agregado exitosamente.");
     }
     public void removerDoctor(){
         int id = leerEntero("Ingrese el ID del doctor a remover: ");
-        facade.adminServicio.removerDoctor(id);
+        facade.removerDoctor(id);
         System.out.println("Doctor removido exitosamente.");
     }
     public void verMedicamentos(){
         System.out.println("Mostrando medicamentos...");
-        System.out.println(facade.medicamentoServicio.verMedicamentos());
+        System.out.println(facade.verMedicamentos());
     }
     public void agregarMedicamentos(){
         int id = leerEntero("Ingrese el ID del medicamento a agregar: ");
         int cantidad = leerEntero("Ingrese la cantidad a agregar: ");
-        facade.medicamentoServicio.agregarMedicamento(id, cantidad);
+        facade.agregarMedicamento(id, cantidad);
         System.out.println("Medicamento agregado exitosamente.");
     }
     public void verReportes(){
         System.out.println("Generando reportes...");
-        facade.reporteServicio.generarReportes();
+        facade.generarReportes();
         System.out.println("Reportes generados exitosamente.");
     }
     
@@ -293,7 +293,7 @@ public class Terminal {
     public void soyDoctor(){
         int id = leerEntero("Ingrese su ID de doctor: ");
         String contra = leerTexto("Ingresa tu contraseña: ");
-        doctor = facade.doctorServicio.obtenerDoctorPorId(id, contra);
+        doctor = facade.obtenerDoctorPorId(id, contra);
         if(doctor != null){
             System.out.println("Bienvenide, Dr. " + doctor.getNombre());
         } else {
@@ -303,14 +303,14 @@ public class Terminal {
     public void irAConsulta(){
         int id = leerEntero("Ingrese el ID de la cita médica: ");
         System.out.println("La consulta ha comenzado.");
-        System.out.println("Info de la cita: " + facade.citaServicio.info(id));
-        System.out.println("La consulta ha finalizado: " + facade.doctorServicio.irAConsulta(id));
+        System.out.println("Info de la cita: " + facade.infoCita(id));
+        System.out.println("La consulta ha finalizado: " + facade.irAConsulta(id));
     }
     public void verCitasAsignadas(){
         int id = leerEntero("Ingrese su ID de doctor: ");
-        Doctor doctor = facade.doctorServicio.obtenerDoctorPorId(id);
+        Doctor doctor = facade.obtenerDoctorPorId(id);
         if(doctor != null){
-            facade.doctorServicio.verCitasAsignadas(doctor);
+            facade.verCitasAsignadas(doctor);
         } else {
             System.out.println("Doctor no encontrado.");
         }
