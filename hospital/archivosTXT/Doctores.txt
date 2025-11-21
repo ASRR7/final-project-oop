@@ -1,0 +1,3 @@
+3 2
+Juan abcdefg 1500 Matutino Cardiologo
+Pedro 1234 2000 Vespertino Cardiologo 

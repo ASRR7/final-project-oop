@@ -18,7 +18,7 @@ import java.util.Scanner;
                 Doctor.numDoctoresHist = doctoresHist;
                 Doctor.numDoctoresActual = doctoresActual;
 
-                while (fileIn.hasNextLine()) {
+                while (fileIn.hasNext()) {
                     String nombreDoctor     = fileIn.next();
                     String contraseña       = fileIn.next();
                     double sueldo           = fileIn.nextDouble();
