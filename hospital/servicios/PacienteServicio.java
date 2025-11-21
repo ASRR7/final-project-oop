@@ -109,10 +109,14 @@ public class PacienteServicio {
         return null;
     }
 
-    public static String mostrarPacientes(ArrayList<Paciente> pacientes) {
+    public static String mostrarPacientes(ArrayList<Paciente> pacientes) throws NullPointerException{
         String nombreIdPaciente = ("Lista de Pacientes:\n");
-        for (Paciente p : pacientes) {
-            nombreIdPaciente += ("Nombre: " + p.getNombre() + "\tID: " + p.getId() + "\n");
+        try {
+            for (Paciente p : pacientes) {
+                nombreIdPaciente += ("Nombre: " + p.getNombre() + "\tID: " + p.getId() + "\n");
+            }
+        } catch ( NullPointerException e) {
+            throw new NullPointerException(e.getMessage());
         }
         return nombreIdPaciente;
     }

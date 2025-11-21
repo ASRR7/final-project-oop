@@ -7,6 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+
 /*private double hora;
     private int dia;
     private int mes;
@@ -95,16 +96,20 @@ public class CitaServicio {
         return false;
     }
 
-    public static String verCitasAsignadas (ArrayList<Cita> citas, int doctorId){
+    public static String verCitasAsignadas (ArrayList<Cita> citas, int doctorId) throws NullPointerException {
         String espacio = " ";
         String citasDoctor = "Citas asignadas al doctor con ID: "+doctorId+":";
-        
-        for (Cita c: citas){
-            if(c.getDoctor().getId() == doctorId){
-                citasDoctor += c.toString() + espacio;
-                return c.toString();
+        try {
+            for (Cita c : citas) {
+                if (c.getDoctor().getId() == doctorId) {
+                    citasDoctor += c.toString() + espacio;
+                    return c.toString();
+                }
             }
+        } catch (NullPointerException e) {
+            throw new NullPointerException(e.getMessage());
         }
+        
         return citasDoctor;
     }
 
