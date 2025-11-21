@@ -25,7 +25,7 @@ public class Medicamento {
         this.nombre = nombre;
     }
 
-    public int getContrasena() {
+    public int getCantidad() {
         return cantidad;
     }   
     
