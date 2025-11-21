@@ -4,6 +4,7 @@ import hospital.object.recursos.Cita;
 
 
 import java.time.LocalDateTime;
+import java.io.File;
 import java.time.format.*;
 import java.util.ArrayList;
 import java.io.FileWriter;
@@ -27,6 +28,8 @@ public class CitaReporte {
             String dateTimeString = now.format(formatter);
             String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
             String filePath = "hospital/files/reportes/reportesCitas/" + fileName ;
+            File file = new File(filePath);
+                file.createNewFile();
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado\n");
             String comma = ",";

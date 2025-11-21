@@ -1,6 +1,7 @@
 package hospital.files;
 
 import java.io.FileWriter;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +20,8 @@ public class MedicamentoReporte {
                 String dateTimeString = now.format(formatter);
                 String fileName = "Reporte-Medicamentos-" + dateTimeString + ".csv";
                 String filePath = "hospital/files/reportes/reportesMedicamentos/" + fileName ;
+                File file = new File(filePath);
+                file.createNewFile();
                 FileWriter myWriter = new FileWriter(filePath);
                 //nombre, contraseña, sueldo, turno, especialidad, doctoresHist, doctoresACtual
                 myWriter.write("Nombre,Cantidad,EnEmbarazo,EnLactancia,EnGeriatria,EnInfancia\n");

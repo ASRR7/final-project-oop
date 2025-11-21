@@ -351,7 +351,7 @@ public class Terminal {
     public void verCitasAsignadas(){
         if(doctor != null){
             System.out.println("Mostrando citas asignadas...");
-            facade.verCitasAsignadas(doctor.getId());
+            System.out.println(facade.verCitasAsignadas(doctor.getId()));
         } else {
             System.out.println("Doctor no encontrado.");
         }
