@@ -27,13 +27,13 @@ import java.util.Scanner;
                     String especialidad     = fileIn.next();
                     Doctor doctor = new Doctor(nombreDoctor, contraseña, sueldo, turno, especialidad);
                     doctores.add(doctor);
-                    return doctores;
                 }
 
             } catch (IOException e) {
                 System.out.println("Error al leer Doctores.txt");
                 e.printStackTrace();
             }
+            return doctores;
         }
 
         public static void writeDoctorTxt(ArrayList<Doctor> Doctors) {
