@@ -15,8 +15,7 @@ import java.util.Scanner;
 
                 int doctoresHist = fileIn.nextInt();
                 int doctoresActual = fileIn.nextInt();
-                Doctor.numDoctoresHist = doctoresHist;
-                Doctor.numDoctoresActual = doctoresActual;
+                
 
                 while (fileIn.hasNext()) {
                     String nombreDoctor     = fileIn.next();
@@ -27,7 +26,8 @@ import java.util.Scanner;
                     Doctor doctor = new Doctor(nombreDoctor, contraseña, sueldo, turno, especialidad);
                     doctores.add(doctor);
                 }
-
+                Doctor.numDoctoresHist = doctoresHist;
+                Doctor.numDoctoresActual = doctoresActual;
 
             } catch (FileNotFoundException e) {
                 throw new FileNotFoundException (e.getMessage());
