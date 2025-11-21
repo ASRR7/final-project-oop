@@ -103,8 +103,10 @@ public class CitaServicio {
             for (Cita c : citas) {
                 if (c.getDoctor().getId() == doctorId) {
                     citasDoctor += c.toString() + espacio;
+                    
                 }
             }
+            System.out.println(citasDoctor);
         } catch (NullPointerException e) {
             throw new NullPointerException(e.getMessage());
         }
