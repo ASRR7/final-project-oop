@@ -17,7 +17,7 @@ public class Cita {
 
 
 
-    public Cita(int hora, int dia, int mes, Doctor doctor, int consultorio, Paciente paciente) {
+    public Cita(int hora, int dia, int mes, Doctor doctor, int consultorio, Paciente paciente, ICitaState estado) {
         this.hora = hora;
         this.dia = dia;
         this.mes = mes;
@@ -25,6 +25,7 @@ public class Cita {
         this.consultorio = consultorio;
         this.paciente = paciente;
         this.Id = 10000*mes+dia*100 +Doctor.getNumDoctoresActual();
+        this.estado = estado;
     }
     public Paciente getPaciente() {
         return paciente;
