@@ -23,13 +23,13 @@ public class CitaReporte {
         try {
             String os = System.getProperty("os.name");
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(
-                                        "yyyy-MM-dd HH:mm:ss a");
+                                        "yyyy-MM-dd HH-mm-ss");
             LocalDateTime now = LocalDateTime.now();
             String dateTimeString = now.format(formatter);
             String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
             String filePath = "hospital/files/reportes/reportesCitas/" + fileName ;
             File file = new File(filePath);
-                file.createNewFile();
+            file.createNewFile();
             FileWriter myWriter = new FileWriter(filePath);
             myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado\n");
             String comma = ",";

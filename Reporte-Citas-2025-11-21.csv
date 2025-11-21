@@ -1,0 +1,5 @@
+Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado
+11224,Maria,Pepe,9,12-Febrero,12.0,Agendada,
+21224,Juan,Pepe,4,12-Marzo,12.0,Agendada,
+11224,Maria,Pedro,9,12-Febrero,12.0,Agendada,
+21224,Juan,Pedro,4,12-Marzo,12.0,Agendada,

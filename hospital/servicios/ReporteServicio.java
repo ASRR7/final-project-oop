@@ -27,10 +27,11 @@ public class ReporteServicio {
     public static boolean generarReportes(ArrayList<Doctor>doctores, ArrayList<Paciente>pacientes, ArrayList<Medicamento>medicamentos, ArrayList<Cita>citas){
         try{
             crearReporteCita(citas);
-            crearReporteDoctor(doctores);
-            crearReportePaciente(pacientes);
+            // crearReporteDoctor(doctores);
+            // crearReportePaciente(pacientes);
             return true;
         } catch (Exception e){
+            System.out.println(e);
             return false;
         }
     }
