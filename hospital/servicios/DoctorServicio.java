@@ -7,9 +7,10 @@ import java.util.Scanner;
 
     public class DoctorServicio 
     {
-        public static void leerDoctorTxt(ArrayList<Doctor> doctores) {
+        public static ArrayList<Doctor> leerDoctorTxt() {
             String fileName = "Doctores.txt";
             String filePath = "../archivosTXT/" + fileName;
+            ArrayList<Doctor> doctores = new ArrayList<>();
             try {
                 Scanner fileIn = new Scanner(new FileReader(filePath)); 
 
@@ -26,6 +27,7 @@ import java.util.Scanner;
                     String especialidad     = fileIn.next();
                     Doctor doctor = new Doctor(nombreDoctor, contraseña, sueldo, turno, especialidad);
                     doctores.add(doctor);
+                    return doctores;
                 }
 
             } catch (IOException e) {
