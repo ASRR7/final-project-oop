@@ -49,12 +49,10 @@ public class PacienteReporte {
                     myWriter.write(csvField);
                 }
                 myWriter.close();
-                System.out.println("Reporte creado con éxito");
             }
                 
 
             catch(IOException e) {
-                System.out.println("No se encontró el archivo");
                 e.getMessage();
             }
             catch (Exception e) {

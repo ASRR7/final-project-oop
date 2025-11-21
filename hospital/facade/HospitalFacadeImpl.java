@@ -7,6 +7,7 @@ import hospital.object.usuarios.Doctor;
 import hospital.servicios.*;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.io.IOException;
 
 public class HospitalFacadeImpl {
@@ -85,7 +86,11 @@ public class HospitalFacadeImpl {
         return MedicamentoServicio.addMedicamentos(this.medicamentos, cantidad, medicamentoId);
     }
     public boolean generarReportes(){
-        return ReporteServicio.generarReportes(this.doctores, this.pacientes, this.medicamentos, this.citas);
+        try{
+            return ReporteServicio.generarReportes(this.doctores, this.pacientes, this.medicamentos, this.citas);
+        }catch(NoSuchElementException e) {
+            return false;
+        }
     }
 
     // =========================================

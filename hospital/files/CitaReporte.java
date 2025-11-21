@@ -54,9 +54,7 @@ public class CitaReporte {
                 myWriter.write(csvField);
             }
             myWriter.close();
-            System.out.println("Reporte creado con éxito");
         } catch (Exception e) {
-            System.out.println("Ocurrió un error");
             e.printStackTrace();
             throw new RuntimeException(e);
         }

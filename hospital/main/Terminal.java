@@ -157,7 +157,7 @@ public class Terminal {
                 this.verHistorialMedico(); break;
             case 4: 
                 System.out.println("Volviendo al menú de paciente...");
-                    break;
+                break;
         }
     }
     public void menuAdmin(){
