@@ -81,6 +81,7 @@ public class CitaServicio {
                         + consultorio   + espacio
                         + idDoctor      + espacio
                         + idPaciente    + espacio
+                        + estado
                         + lineBreak;
                 myWriter.write(citaInfo);
             }
