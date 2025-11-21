@@ -15,7 +15,7 @@ import java.util.Scanner;
     private Paciente paciente;
     private int Id;*/
 public class CitaServicio {
-    public static ArrayList<Cita> leerCitaTxt(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes) {
+    public static ArrayList<Cita> leerCitaTxt(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes) throws IOException {
         String fileName = "Cita.txt";
         String filePath = "../archivosTXT/" + fileName;
         ArrayList<Cita> citas = new ArrayList<>();
@@ -35,13 +35,12 @@ public class CitaServicio {
             }
 
         } catch (IOException e) {
-            System.out.println("Error al leer Doctores.txt");
-            e.printStackTrace();
+            throw new IOException(e);
         }
         return citas;
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
-    public static void escribirCitaTxt(ArrayList<Cita> citas) {
+    public static void escribirCitaTxt(ArrayList<Cita> citas) throws IOException {
         String fileName = "Cita.txt";
         String filePath = "../archivosTXT/" + fileName;
         String espacio = " ";
@@ -67,10 +66,8 @@ public class CitaServicio {
                 myWriter.write(citaInfo);
             }
             myWriter.close();
-            System.out.println("Los datos de las citas han sido almacenados correctamente.");
         } catch (IOException e) {
-            System.out.println("Ocurrió un error al almacenar las citas.");
-            e.printStackTrace();
+            throw new IOException(e);
         }
     }
     /*pedir cita reciba arraydoctores id paciente array paciente, array citas datos de hora dia y mes, aleatoriamente 
@@ -79,13 +76,10 @@ public class CitaServicio {
         
         Random aleatorio = new Random();
         Paciente paciente = PacienteServicio.searchByIdPaciente(pacientes, pacienteId);
-        //Cita(hora, dia, mes, doctor, consultorio, paciente);
         int consultorio = aleatorio.nextInt(10) + 1;
-        do { 
-            Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
-              
-                Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
-        } while (true);
+        Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
+        //aqui falta ampliar los state de citas  
+        Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
         
         citas.add(cita);
         return true;

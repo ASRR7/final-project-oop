@@ -1,14 +1,11 @@
 package hospital.servicios;
 
+import hospital.object.recursos.Medicamentos.Medicamento;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-
-
-import hospital.object.recursos.Medicamentos.Medicamento;
 
 
 public class MedicamentoServicio {
@@ -68,9 +65,9 @@ public class MedicamentoServicio {
                 myWriter.close();
                 
     
-    }catch (IOException e) {
-        throw new RuntimeException(e);
-    }
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     //method to add n medicamentos
