@@ -28,7 +28,7 @@ public class CitaReporte {
             String fileName = "Reporte-Citas-" + dateTimeString + ".csv";
             String filePath = os.startsWith("Windows") ? "\\reportesCitas\\" + fileName: "/reportesCitas/" + fileName ;
             FileWriter myWriter = new FileWriter(filePath);
-            myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora\n");
+            myWriter.write("Id,Paciente,Doctor,Consultorio,Fecha,Hora,Estado\n");
             String comma = ",";
             String lineBreak = "\n";
             for(Cita cita: citas){
@@ -38,6 +38,7 @@ public class CitaReporte {
                 String nombreDoctor = cita.getDoctor().getNombre();
                 String consultorio = Integer.toString(cita.getConsultorio());
                 String fecha = Integer.toString(cita.getDia())+"-"+meses[cita.getMes()];
+                String estado = cita.getEstado().toString();
                 String hora = Double.toString(cita.getHora());
                 String csvField = idCita+comma +
                                 nombrePaciente +comma +
@@ -45,6 +46,7 @@ public class CitaReporte {
                                 consultorio + comma +
                                 fecha + comma +
                                 hora + comma +
+                                estado + comma +
                                 lineBreak;
                 myWriter.write(csvField);
             }

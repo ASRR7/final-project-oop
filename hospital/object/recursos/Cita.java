@@ -81,4 +81,12 @@ public class Cita {
     public void setId(int id) {
         Id = id;
     }
+
+    public void setEstado(ICitaState estado) {
+        this.estado = estado;
+    }
+
+    public ICitaState getEstado() {
+        return estado;
+    }
 }
