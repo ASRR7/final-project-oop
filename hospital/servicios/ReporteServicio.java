@@ -1,6 +1,6 @@
 package hospital.servicios;
 
-import hospital.files.reportes.*; 
+import hospital.files.*; 
 import hospital.object.pacientes.*;
 import hospital.object.recursos.*;
 import hospital.object.usuarios.*;
