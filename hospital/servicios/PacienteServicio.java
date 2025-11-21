@@ -19,7 +19,7 @@ public class PacienteServicio {
     public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia) throws RuntimeException{
         return new Paciente(nombre, sexo, edad, new PacienteEnfermo(), esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
-    public static ArrayList <Paciente> leerPacienteTxt() {
+    public static ArrayList <Paciente> leerPacienteTxt() throws RuntimeException{
         String fileName = "Pacientes.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
         ArrayList<Paciente> pacientes = new ArrayList<>();
@@ -58,7 +58,7 @@ public class PacienteServicio {
         }
         return pacientes;
     }
-    public static void writePacienteTxt(ArrayList<Paciente> Pacientes) {
+    public static void writePacienteTxt(ArrayList<Paciente> Pacientes) throws RuntimeException{
         String fileName = "Pacientes.txt";
         String filePath = "../archivosTXT/" + fileName;
         String comma = ",";
