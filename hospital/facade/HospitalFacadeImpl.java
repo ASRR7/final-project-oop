@@ -22,11 +22,22 @@ public class HospitalFacadeImpl {
     protected ArrayList<Medicamento> medicamentos;
     protected ArrayList<Cita> citas;
 
-    public void cargarDatosIniciales() {
-        this.doctores = DoctorServicio.leerDoctorTxt();
-        this.pacientes = PacienteServicio.leerPacienteTxt();
-        this.medicamentos = MedicamentoServicio.leerMedicamentos();
-        this.citas = CitaServicio.leerCitaTxt(doctores, pacientes);
+    public String cargarDatosIniciales() {
+        try{
+            this.doctores = DoctorServicio.leerDoctorTxt();
+            this.pacientes = PacienteServicio.leerPacienteTxt();
+            this.medicamentos = MedicamentoServicio.leerMedicamentos();
+            this.citas = CitaServicio.leerCitaTxt(doctores, pacientes);
+            return "Datos iniciales cargados correctamente.";
+        } catch (RuntimeException e){
+            return "Error al momento de leer los archivos: " + e.getMessage();
+        }
+        catch (IOException e){
+            return "Error al cargar los datos iniciales: " + e.getMessage();
+        }
+        catch (Exception e){
+            return "Error inesperado: " + e.getMessage();
+        }
     }
     // =========================================
     // PACIENTES
@@ -72,8 +83,8 @@ public class HospitalFacadeImpl {
     public Doctor obtenerDoctorPorId(int id, String contra){
         return DoctorServicio.searchByIdDoctor(this.doctores, id, contra);
     }
-    public String infoCita(int doctorId, int id){
-        return CitaServicio.infoCita(this.citas, doctorId, id);
+    public String infoCita(int doctorId, int citaId){
+        return CitaServicio.infoCita(this.citas, doctorId, citaId);
     }
     public String verCitasAsignadas(int doctorId){
         return CitaServicio.verCitasAsignadas(this.citas, doctorId);
@@ -83,10 +94,13 @@ public class HospitalFacadeImpl {
     }
 
     public void cerrarSistema() {
-        DoctorServicio.writeDoctorTxt(this.doctores);
-        PacienteServicio.writePacienteTxt(this.pacientes);
-        MedicamentoServicio.writeMedicamentoTXT(this.medicamentos);
-        CitaServicio.writeCitasTxt(this.citas);
+        try{
+            DoctorServicio.writeDoctorTxt(this.doctores);
+            PacienteServicio.writePacienteTxt(this.pacientes);
+            MedicamentoServicio.writeMedicamentoTXT(this.medicamentos);
+            CitaServicio.escribirCitaTxt(this.citas);
+        }catch (IOException e){
+            System.out.println("Error al guardar los datos: " + e.getMessage());
+        }
     }
-
 }

@@ -57,7 +57,7 @@ public class Terminal {
 
     public void iniciar(){
         System.out.println("Iniciando sistema del hospital...");
-        facade.cargarDatosIniciales(); 
+        System.out.println(facade.cargarDatosIniciales());
         this.menuPrincipal();
     }
 
