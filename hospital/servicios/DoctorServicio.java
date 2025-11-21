@@ -12,19 +12,22 @@ import java.util.Scanner;
             String filePath = "../archivosTXT/" + fileName;
             try {
                 Scanner fileIn = new Scanner(new FileReader(filePath)); 
+
                 int doctoresHist = fileIn.nextInt();
                 int doctoresActual = fileIn.nextInt();
                 Doctor.numDoctoresHist = doctoresHist;
                 Doctor.numDoctoresActual = doctoresActual;
+
                 while (fileIn.hasNextLine()) {
-                    String nombreDoctor = fileIn.next();
-                    String contraseña = fileIn.next();
-                    double sueldo = fileIn.nextDouble();
-                    String turno = fileIn.next();
-                    String especialidad = fileIn.next();
+                    String nombreDoctor     = fileIn.next();
+                    String contraseña       = fileIn.next();
+                    double sueldo           = fileIn.nextDouble();
+                    String turno            = fileIn.next();
+                    String especialidad     = fileIn.next();
                     Doctor doctor = new Doctor(nombreDoctor, contraseña, sueldo, turno, especialidad);
                     doctores.add(doctor);
                 }
+                
             } catch (IOException e) {
                 System.out.println("Error al leer Doctores.txt");
                 e.printStackTrace();
@@ -50,10 +53,10 @@ import java.util.Scanner;
                     String especialidad = doctor.getEspecialidad();
                     
                     String doctorInfo = nombreDoctor+espacio +
-                        contraseña +espacio +
-                        sueldo + espacio +
-                        turno + espacio +
-                        especialidad + espacio +
+                        contraseña      +espacio +
+                        sueldo          + espacio +
+                        turno           + espacio +
+                        especialidad    + espacio +
                         lineBreak;
                         myWriter.write(doctorInfo);
                 }
