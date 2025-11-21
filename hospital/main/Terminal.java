@@ -189,20 +189,21 @@ public class Terminal {
         }
     }
     public void menuDoctor(){
-        this.soyDoctor();
-        this.mostrarMenuDoctor();
-        int opcion = this.leerEntero("Seleccione una opción: ");
-        switch (opcion) {
-            case 1:
-                this.verCitasAsignadas();
-                break;
-            case 2:
-                this.irAConsulta();
-                break;
-            case 3:
-                System.out.println("Volviendo al menú principal...");
-                break;
-            default: System.out.println("Opción inválida.");
+        if(this.soyDoctor()){
+            this.mostrarMenuDoctor();
+            int opcion = this.leerEntero("Seleccione una opción: ");
+            switch (opcion) {
+                case 1:
+                    this.verCitasAsignadas();
+                    break;
+                case 2:
+                    this.irAConsulta();
+                    break;
+                case 3:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default: System.out.println("Opción inválida.");
+            }
         }
     }
     
@@ -329,14 +330,16 @@ public class Terminal {
     // =========================================
     // DOCTOR
     // =========================================
-    public void soyDoctor(){
+    public boolean soyDoctor(){
         int id = leerEntero("Ingrese su ID de doctor: ");
         String contra = leerTexto("Ingresa tu contraseña: ");
         doctor = facade.obtenerDoctorPorId(id, contra);
         if(doctor != null){
             System.out.println("Bienvenide, Dr. " + doctor.getNombre());
+            return true;
         } else {
             System.out.println("Doctor no encontrado.");
+            return false;
         }
     }
     public void irAConsulta(){

@@ -1,3 +1,3 @@
-3 2
-Juan abcdefg 1500 Matutino Cardiologo
-Pedro 1234 2000 Vespertino Cardiologo 
+25 24
+Pedro 1234 2000.0 Vespertino Cardiologo 
+Pepe contra 12900.0 MAtutino Cardiologo 

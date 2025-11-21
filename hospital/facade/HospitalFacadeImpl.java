@@ -36,7 +36,11 @@ public class HospitalFacadeImpl {
     // PACIENTES
     // =========================================
     public String mostrarPacientes(){
-        return PacienteServicio.mostrarPacientes(this.pacientes);
+        try{
+            return PacienteServicio.mostrarPacientes(this.pacientes);
+        } catch (NullPointerException e){
+            return "Error al mostrar los pacientes: " + e.getMessage();
+        }
     }
     public Paciente registrarPaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
         return PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);

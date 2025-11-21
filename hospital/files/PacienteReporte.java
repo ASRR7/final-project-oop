@@ -1,4 +1,4 @@
-package hospital.files.reportes;
+package hospital.files;
 
 import java.io.FileWriter;
 import java.io.IOException;
