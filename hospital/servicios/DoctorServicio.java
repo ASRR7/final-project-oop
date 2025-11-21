@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
     public class DoctorServicio {
-        public static ArrayList<Doctor> leerDoctorTxt() throws IOException {
+        public static ArrayList<Doctor> leerDoctorTxt() throws FileNotFoundException {
             String fileName = "Doctores.txt";
             String filePath = "hospital/archivosTXT/" + fileName;
             ArrayList<Doctor> doctores = new ArrayList<>();
@@ -29,8 +29,8 @@ import java.util.Scanner;
                 }
 
 
-            } catch (IOException e) {
-                throw new IOException(e);
+            } catch (FileNotFoundException e) {
+                throw new FileNotFoundException (e.getMessage());
             }
             return doctores;
         }
