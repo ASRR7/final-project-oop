@@ -1,10 +1,9 @@
 package hospital.facade;
 
-import java.util.Scanner;
-
 import hospital.object.usuarios.Admin;
 import hospital.object.usuarios.Doctor;
 import hospital.object.usuarios.Recepcionista;
+import java.util.Scanner;
 
 public class HospitalFacadeImpl {
     public static int desplegarMenu(String texto, int n, Scanner sc) {
@@ -31,6 +30,7 @@ public class HospitalFacadeImpl {
 
                     break;
                 case 3:
+                    
                     break;
                 case 4:
                     System.out.println("Saliendo del menú de administrador...");
