@@ -229,7 +229,7 @@ public class Terminal {
         }
     }
     public void pedirCita(){
-        double hora = leerDouble("Ingrese la hora de la cita (formato 24h, ej. 14.30): ");
+        int hora = leerEntero("Ingrese la hora de la cita (formato 24h, ej. 14.30): ");
         int dia = leerEntero("Ingresa el día del mes para tu cita: ");
         int mes = leerEntero("Ingresa el número de mes: ");
         if(facade.pedirCita(paciente.getId(), hora, dia, mes)){
@@ -265,8 +265,11 @@ public class Terminal {
     }
     public void removerDoctor(){
         int id = leerEntero("Ingrese el ID del doctor a remover: ");
-        facade.removerDoctor(id);
-        System.out.println("Doctor removido exitosamente.");
+        if(facade.removerDoctor(id)){
+            System.out.println("Doctor removido exitosamente.");
+        } else {
+            System.out.println("No se pudo remover el doctor.");
+        }
     }
     public void verMedicamentos(){
         System.out.println("Mostrando medicamentos...");
@@ -275,10 +278,14 @@ public class Terminal {
     public void agregarMedicamentos(){
         int id = leerEntero("Ingrese el ID del medicamento a agregar: ");
         int cantidad = leerEntero("Ingrese la cantidad a agregar: ");
-        if(facade.agregarMedicamento(id, cantidad)){
-            System.out.println("Medicamento agregado exitosamente.");
+        if(cantidad > 0){
+            if(facade.agregarMedicamento(id, cantidad)){
+                System.out.println("Medicamento agregado exitosamente.");
+            }else {
+                System.out.println("No se pudo agregar el medicamento.");
+            }
         }else {
-            System.out.println("No se pudo agregar el medicamento.");
+            System.out.println("Cantidad inválida.");
         }
     }
     public void generarReportes(){

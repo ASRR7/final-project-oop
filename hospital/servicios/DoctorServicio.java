@@ -5,8 +5,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-    public class DoctorServicio 
-    {
+    public class DoctorServicio {
         public static ArrayList<Doctor> leerDoctorTxt() {
             String fileName = "Doctores.txt";
             String filePath = "../archivosTXT/" + fileName;
@@ -69,12 +68,33 @@ import java.util.Scanner;
                 e.printStackTrace();
             }
         }
-        public static Doctor searchByIdDoctor(ArrayList<Doctor> doctores, int id) {
+        
+        public static Doctor searchByIdDoctor(ArrayList<Doctor> doctores, int id, String contra){
             for (Doctor doctor:doctores){
-                if(doctor.getId() == id){
+                if((doctor.getId() == id) && (doctor.getContrasena().equals(contra))){
                     return doctor;
                 }
             }
             return null;
+        }
+
+        public static void addDoctor(ArrayList<Doctor> doctores, String nombre, String contrasena, double sueldo, String turno, String especialidad){
+            Doctor nuevoDoctor = new Doctor(nombre, contrasena, sueldo, turno, especialidad);
+            doctores.add(nuevoDoctor);
+        }
+
+        public static boolean removeDoctor(ArrayList<Doctor> doctores, int doctorId){
+            Doctor doctorAEliminar = null;
+            for(Doctor doctor:doctores){
+                if(doctor.getId() == doctorId){
+                    doctorAEliminar = doctor;
+                    break;
+                }
+            }
+            if(doctorAEliminar != null){
+                doctores.remove(doctorAEliminar);
+                return true;
+            }
+            return false;
         }
 }

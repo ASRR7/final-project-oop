@@ -37,8 +37,8 @@ public class HospitalFacadeImpl {
     public Paciente obtenerPacientePorId(int id){
         return PacienteServicio.obtenerPacientePorId(this.pacientes, id);
     }
-    public boolean pedirCita(int pacienteId, double hora, int dia, int mes){
-        return CitaServicio.pedirCita(this.doctores, pacienteId, hora, dia, mes);
+    public boolean pedirCita(int pacienteId, int hora, int dia, int mes){
+        return CitaServicio.pedirCita(this.doctores, this.pacientes, this.citas, pacienteId, hora, dia, mes);
     }
     public boolean cancelarCita(int pacienteId, int citaId){
         return CitaServicio.cancelarCita(this.citas, pacienteId, citaId);
@@ -53,14 +53,14 @@ public class HospitalFacadeImpl {
     public void agregarDoctor(String nombre, String contrasena, double sueldo, String turno, String especialidad){
         DoctorServicio.addDoctor(this.doctores, nombre, contrasena, sueldo, turno, especialidad);
     }
-    public void removerDoctor(int doctorId){
-        DoctorServicio.removeDoctor(this.doctores, doctorId);
+    public boolean removerDoctor(int doctorId){
+        return DoctorServicio.removeDoctor(this.doctores, doctorId);
     }
     public String verMedicamentos(){
-        return MedicamentoServicio.verMedicamentos(this.medicamentos);
+        return MedicamentoServicio.medicamentosString(this.medicamentos);
     }
     public boolean agregarMedicamento(int medicamentoId, int cantidad){
-        return MedicamentoServicio.agregarMedicamento(this.medicamentos, medicamentoId, cantidad);
+        return MedicamentoServicio.addMedicamentos(this.medicamentos, cantidad, medicamentoId);
     }
     public String generarReportes(){
         return ReporteServicio.generarReportes(this.doctores, this.pacientes, this.medicamentos, this.citas);
@@ -70,7 +70,7 @@ public class HospitalFacadeImpl {
     // DOCTOR
     // =========================================
     public Doctor obtenerDoctorPorId(int id, String contra){
-        return DoctorServicio.obtenerDoctorPorId(this.doctores, id, contra);
+        return DoctorServicio.searchByIdDoctor(this.doctores, id, contra);
     }
     public String infoCita(int doctorId, int id){
         return CitaServicio.infoCita(this.citas, doctorId, id);
@@ -85,7 +85,7 @@ public class HospitalFacadeImpl {
     public void cerrarSistema() {
         DoctorServicio.writeDoctorTxt(this.doctores);
         PacienteServicio.writePacienteTxt(this.pacientes);
-        MedicamentoServicio.writeMedicamentoTxt(this.medicamentos);
+        MedicamentoServicio.writeMedicamentoTXT(this.medicamentos);
         CitaServicio.writeCitasTxt(this.citas);
     }
 

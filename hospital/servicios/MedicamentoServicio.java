@@ -77,19 +77,18 @@ public class MedicamentoServicio {
     }
 
     //method to add n medicamentos
-    public static int addMedicamentos(ArrayList<Medicamento> medicamentos, int n, int id) {
+    public static boolean addMedicamentos(ArrayList<Medicamento> medicamentos, int n, int id) {
         if (n<=0) {
-            System.out.println("La cantidad de medicamentos a agregar debe ser mayor a 0.");
-            return -1;
+            return false;
         }
         for (Medicamento medicamento: medicamentos) {
             if (medicamento.getId() == id) {
                 medicamento.setCantidad(medicamento.getCantidad() + n);
-                return 0;
+                return true;
             }
         }
         System.out.println("El medicamento con el id proporcionado no se encontró.");
-        return -1;
+        return false;
     }
 
     public static String medicamentosString(ArrayList<Medicamento> medicamentos) {
