@@ -3,17 +3,10 @@ package hospital.facade;
 import hospital.object.pacientes.Paciente;
 import hospital.object.recursos.Cita;
 import hospital.object.recursos.Medicamentos.Medicamento;
-import hospital.object.usuarios.Admin;
 import hospital.object.usuarios.Doctor;
-import hospital.object.usuarios.Recepcionista;
 import hospital.servicios.*;
 
-import java.util.Scanner;
-
-import javax.print.Doc;
-
 import java.util.ArrayList;
-import java.io.FileWriter;
 import java.io.IOException;
 
 public class HospitalFacadeImpl {
