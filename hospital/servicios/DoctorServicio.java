@@ -27,7 +27,7 @@ import java.util.Scanner;
                     Doctor doctor = new Doctor(nombreDoctor, contraseña, sueldo, turno, especialidad);
                     doctores.add(doctor);
                 }
-                
+
             } catch (IOException e) {
                 System.out.println("Error al leer Doctores.txt");
                 e.printStackTrace();
@@ -53,7 +53,7 @@ import java.util.Scanner;
                     String especialidad = doctor.getEspecialidad();
                     
                     String doctorInfo = nombreDoctor+espacio +
-                        contraseña      +espacio +
+                        contraseña      + espacio +
                         sueldo          + espacio +
                         turno           + espacio +
                         especialidad    + espacio +
