@@ -41,7 +41,7 @@ public class CitaServicio {
         return citas;
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
-    public static void writeDoctorTxt(ArrayList<Cita> citas) {
+    public static void escribirCitaTxt(ArrayList<Cita> citas) {
         String fileName = "Cita.txt";
         String filePath = "../archivosTXT/" + fileName;
         String espacio = " ";
