@@ -62,7 +62,7 @@ public class HospitalFacadeImpl {
     public boolean agregarMedicamento(int medicamentoId, int cantidad){
         return MedicamentoServicio.addMedicamentos(this.medicamentos, cantidad, medicamentoId);
     }
-    public String generarReportes(){
+    public boolean generarReportes(){
         return ReporteServicio.generarReportes(this.doctores, this.pacientes, this.medicamentos, this.citas);
     }
 

@@ -244,7 +244,7 @@ public class Terminal {
             System.out.println("Mes inválido.");
             return;
         }
-        
+
         if(facade.pedirCita(paciente.getId(), hora, dia, mes)){
             System.out.println("Cita pedida exitosamente.");
         }else {
@@ -303,8 +303,11 @@ public class Terminal {
     }
     public void generarReportes(){
         System.out.println("Generando reportes...");
-        facade.generarReportes();
-        System.out.println("Reportes generados exitosamente.");
+        if(facade.generarReportes()){
+            System.out.println("Reportes generados exitosamente.");
+        }else {
+            System.out.println("No se pudo generar los reportes.");
+        }
     }
     
     // =========================================
