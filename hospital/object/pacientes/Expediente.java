@@ -23,4 +23,13 @@ public class Expediente {
     public void agregarDiagnostico( Diagnostico diagnostico ){
         this.diagnosticos.add( diagnostico );
     }
+    public String toString() {
+        String stringRepresentation ="";
+        for (Diagnostico diagnostico : diagnosticos) {
+            stringRepresentation += diagnostico.toString();
+            stringRepresentation += "\n";
+        }
+        return "Expediente:" +
+                stringRepresentation;
+    }
 }

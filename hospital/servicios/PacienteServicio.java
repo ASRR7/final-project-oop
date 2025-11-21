@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import hospital.object.pacientes.Paciente;
@@ -97,6 +98,15 @@ public class PacienteServicio {
         for (Paciente paciente : pacientes) {
             if (paciente.getId() == id) {
                 return paciente;
+            }
+        }
+        return null;
+    }
+
+    public static String pacienteExpediente(ArrayList<Paciente> pacientes, int id) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getId() == id) {
+                return paciente.getExpediente().toString();
             }
         }
         return null;

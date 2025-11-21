@@ -33,4 +33,12 @@ public class Diagnostico {
     public void setTratamiento( Tratamiento tratamiento ) {
         this.tratamiento = tratamiento;
     }
+
+    public String toString() {
+        return "Diagnostico{" +
+                "enfermedad='" + enfermedad + '\'' +
+                ", doctor=" + doctor +
+                ", tratamiento=" + tratamiento +
+                '}';
+    }
 }
