@@ -98,7 +98,6 @@ public class HospitalFacadeImpl {
         return CitaServicio.infoCita(this.citas, doctorId, citaId);
     }
     public String verCitasAsignadas(int doctorId){
-        String citas;
         try{
             return CitaServicio.verCitasAsignadas(this.citas, doctorId);
         }catch (NullPointerException e){
