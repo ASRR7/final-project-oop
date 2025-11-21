@@ -11,7 +11,7 @@ import hospital.object.usuarios.Doctor;
         public statc void leerDoctorTxt() {
             //Por implementar
         }
-        
+
         public static void writeDoctorTxt(ArrayList<Doctor> Doctors) {
             String fileName = "Doctores.txt";
             String filePath = "../archivosTXT/" + fileName;
@@ -19,14 +19,19 @@ import hospital.object.usuarios.Doctor;
             String lineBreak = "\n";
             try{
                 FileWriter myWriter = new FileWriter(filePath);
+                String doctoresHist = Integer.toString(Doctor.getNumDoctoresHist());
+                String doctoresActual = Integer.toString(Doctor.getNumDoctoresActual());
+                String doctorEstadistica = doctoresHist + comma +
+                    doctoresActual + comma +
+                    lineBreak;
+                    myWriter.write(doctorEstadistica);
                 for(Doctor doctor: Doctors){
                     String nombreDoctor = doctor.getNombre();
                     String contraseña = doctor.getContrasena();
                     String sueldo = Double.toString(doctor.getSueldo());
                     String turno = doctor.getTurno();
                     String especialidad = doctor.getEspecialidad();
-                    String doctoresHist = Integer.toString(Doctor.getNumDoctoresHist());
-                    String doctoresActual = Integer.toString(Doctor.getNumDoctoresActual());
+                    
                     String doctorInfo = nombreDoctor+comma +
                         contraseña +comma +
                         sueldo + comma +
