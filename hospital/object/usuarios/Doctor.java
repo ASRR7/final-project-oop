@@ -3,12 +3,14 @@ public class Doctor extends Usuario {
     public static int numDoctoresHist = 0;
     public static int numDoctoresActual = 0;
     private String especialidad;
+    private int Id;
 
     public Doctor( String nombre, String contrasena, double sueldo, String turno, String especialidad ) {
         super(nombre, contrasena, sueldo, turno); 
         this.especialidad = especialidad;
         numDoctoresHist++;
         numDoctoresActual++;
+        this.Id = numDoctoresHist;
     }
 
     public String getEspecialidad() {
@@ -24,4 +26,8 @@ public class Doctor extends Usuario {
     public static int getNumDoctoresActual() {
         return numDoctoresActual;
     }
+
+    public int getId() {
+        return Id;
+    }   
 }
