@@ -104,4 +104,12 @@ import java.util.Scanner;
             }
             return false;
         }
+
+        public static String mostrarDoctores(ArrayList<Doctor> doctores){
+            String nombreIdDoctores = ("Lista de Doctores:\n");
+            for (Doctor d:doctores){
+                nombreIdDoctores += ("Nombre: "+d.getNombre()+"\tID: "+d.getId()+"\n") ;
+            }
+            return nombreIdDoctores;
+        }
 }
