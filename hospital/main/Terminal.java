@@ -229,9 +229,22 @@ public class Terminal {
         }
     }
     public void pedirCita(){
-        int hora = leerEntero("Ingrese la hora de la cita (formato 24h, ej. 14.30): ");
+        int hora = leerEntero("Ingrese la hora de la cita (formato 24h): ");
+        if(hora < 0 || hora > 23){
+            System.out.println("Hora inválida.");
+            return;
+        }
         int dia = leerEntero("Ingresa el día del mes para tu cita: ");
-        int mes = leerEntero("Ingresa el número de mes: ");
+        if(dia < 1 || dia > 30){
+            System.out.println("Día inválido.");
+            return;
+        }
+        int mes = leerEntero("Ingresa el mes: ");
+        if(mes < 1 || mes > 12){
+            System.out.println("Mes inválido.");
+            return;
+        }
+        
         if(facade.pedirCita(paciente.getId(), hora, dia, mes)){
             System.out.println("Cita pedida exitosamente.");
         }else {

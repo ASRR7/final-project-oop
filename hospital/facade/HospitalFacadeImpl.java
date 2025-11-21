@@ -26,7 +26,7 @@ public class HospitalFacadeImpl {
         this.doctores = DoctorServicio.leerDoctorTxt();
         this.pacientes = PacienteServicio.leerPacienteTxt();
         this.medicamentos = MedicamentoServicio.leerMedicamentos();
-        this.citas = CitaServicio.leerCitaTxt();
+        this.citas = CitaServicio.leerCitaTxt(doctores, pacientes);
     }
     // =========================================
     // PACIENTES
@@ -35,7 +35,7 @@ public class HospitalFacadeImpl {
         return PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
     public Paciente obtenerPacientePorId(int id){
-        return PacienteServicio.obtenerPacientePorId(this.pacientes, id);
+        return PacienteServicio.searchByIdPaciente(this.pacientes, id);
     }
     public boolean pedirCita(int pacienteId, int hora, int dia, int mes){
         return CitaServicio.pedirCita(this.doctores, this.pacientes, this.citas, pacienteId, hora, dia, mes);
@@ -44,7 +44,7 @@ public class HospitalFacadeImpl {
         return CitaServicio.cancelarCita(this.citas, pacienteId, citaId);
     }
     public String verHistorialMedico(int pacienteId){
-        return PacienteServicio.verHistorialMedico(this.pacientes, pacienteId);
+        return PacienteServicio.pacienteExpediente(this.pacientes, pacienteId);
     }
 
     // =========================================

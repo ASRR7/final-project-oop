@@ -69,6 +69,15 @@ import java.util.Scanner;
             }
         }
         
+        public static Doctor searchByIdDoctor(ArrayList<Doctor> doctores, int id){
+            for (Doctor doctor:doctores){
+                if(doctor.getId() == id){
+                    return doctor;
+                }
+            }
+            return null;
+        }
+
         public static Doctor searchByIdDoctor(ArrayList<Doctor> doctores, int id, String contra){
             for (Doctor doctor:doctores){
                 if((doctor.getId() == id) && (doctor.getContrasena().equals(contra))){
