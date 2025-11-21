@@ -8,10 +8,10 @@ import java.util.Scanner;
     public class DoctorServicio {
         public static ArrayList<Doctor> leerDoctorTxt() throws IOException {
             String fileName = "Doctores.txt";
-            String filePath = "../archivosTXT/" + fileName;
+            String filePath = "hospital/archivosTXT/" + fileName;
             ArrayList<Doctor> doctores = new ArrayList<>();
             try {
-                Scanner fileIn = new Scanner(new FileReader(filePath)); 
+                Scanner fileIn = new Scanner(new File(filePath)); 
 
                 int doctoresHist = fileIn.nextInt();
                 int doctoresActual = fileIn.nextInt();
@@ -28,6 +28,7 @@ import java.util.Scanner;
                     doctores.add(doctor);
                 }
 
+
             } catch (IOException e) {
                 throw new IOException(e);
             }
@@ -36,7 +37,7 @@ import java.util.Scanner;
 
         public static void writeDoctorTxt(ArrayList<Doctor> Doctors) throws IOException {
             String fileName = "Doctores.txt";
-            String filePath = "../archivosTXT/" + fileName;
+            String filePath = "hospital/archivosTXT/" + fileName;
             String espacio = " "; 
             String lineBreak = "\n";
             try{
