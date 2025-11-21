@@ -81,6 +81,7 @@ public class CitaServicio {
         Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
         //aqui falta ampliar los state de citas  
         Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
+        
         citas.add(cita);
         return true;
     }
