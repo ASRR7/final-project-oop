@@ -15,7 +15,7 @@ import hospital.state.PacienteMuerto;
 import hospital.state.PacienteSano;
 
 public class MedicamentoServicio {
-    public static ArrayList <Medicamento> leerPacienteTxt() {
+    public static ArrayList <Medicamento> leerMedicamentos() {
         String fileName = "Medicamentos.txt";
         String filePath = "../archivosTXT/" + fileName;
         ArrayList<Medicamento> medicamentos = new ArrayList<>();
