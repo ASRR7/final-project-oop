@@ -2,29 +2,29 @@ package hospital.state;
 import hospital.object.pacientes.Paciente;
 
 public class PacienteMuerto implements IPacienteState {
-    private ContextoPaciente contexto;
+    private Paciente contexto;
 
     @Override
-    public void agendarCita(Paciente paciente) {
-        System.out.println("El paciente " + paciente.getNombre() + " está muerto y no puede agendar citas.");
+    public void agendarCita() {
+        System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede agendar citas.");
     }
 
     @Override
-    public void cancelarCita(Paciente paciente) {
-        System.out.println("El paciente " + paciente.getNombre() + " está muerto y no puede cancelar citas.");
+    public void cancelarCita() {
+        System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede cancelar citas.");
     }
 
     @Override
-    public void irACita(Paciente paciente) {
-        System.out.println("El paciente " + paciente.getNombre() + " está muerto y no puede ir a citas.");
+    public void irACita() {
+        System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede ir a citas.");
     }
 
     @Override
-    public void salirDelHospital(Paciente paciente) {
-        System.out.println("El paciente " + paciente.getNombre() + " ya está fuera del hospital, ya que está muerto.");
+    public void salirDelHospital() {
+        System.out.println("El paciente " + contexto.getNombre() + " ya está fuera del hospital, ya que está muerto.");
     }
     @Override
-    public void setContextoPaciente(ContextoPaciente contexto) {
+    public void setContextoPaciente(Paciente contexto) {
         this.contexto = contexto;
     }
 }

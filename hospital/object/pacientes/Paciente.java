@@ -1,6 +1,6 @@
 package hospital.object.pacientes;
 
-package hospital.state.*;
+import hospital.state.*;
 
 
 public class Paciente {
@@ -116,7 +116,7 @@ public class Paciente {
         return estado;
     }
 
-    public ContextoPaciente() {
+    public void ContextoPaciente() {
         setState(new PacienteEnfermo());
     }
 
