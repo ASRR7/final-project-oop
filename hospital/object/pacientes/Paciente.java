@@ -116,10 +116,6 @@ public class Paciente {
         return estado;
     }
 
-    public void ContextoPaciente() {
-        setState(new PacienteEnfermo());
-    }
-
     public void setState(IPacienteState estado) {
         this.estado = estado;
         this.estado.setContextoPaciente(this);
