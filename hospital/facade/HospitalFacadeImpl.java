@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 public class HospitalFacadeImpl {
-    protected ArrayList<Doctor> doctores;
-    protected ArrayList<Paciente> pacientes;
-    protected ArrayList<Medicamento> medicamentos;
-    protected ArrayList<Cita> citas;
+    protected ArrayList<Doctor> doctores = new ArrayList<>();
+    protected ArrayList<Paciente> pacientes = new ArrayList<>();
+    protected ArrayList<Medicamento> medicamentos = new ArrayList<>();
+    protected ArrayList<Cita> citas = new ArrayList<>();
 
     public String cargarDatosIniciales() {
         try{
