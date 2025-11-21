@@ -22,7 +22,7 @@ public class CitaServicio {
         try {
             Scanner fileIn = new Scanner(new FileReader(filePath));
             while (fileIn.hasNextLine()) {
-                double hora = fileIn.nextInt();
+                int hora = fileIn.nextInt();
                 int dia = fileIn.nextInt();
                 int mes = fileIn.nextInt();
                 int consultorio = fileIn.nextInt();
@@ -75,26 +75,18 @@ public class CitaServicio {
     }
     /*pedir cita reciba arraydoctores id paciente array paciente, array citas datos de hora dia y mes, aleatoriamente 
     asigna un doctor disponible en el array y consultorio aleatorio guarda la cita en el array de citas y retorna un booleano*/
-    public boolean pedirCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int pacienteId, double hora, int dia, int mes){
+    public boolean pedirCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int pacienteId, int hora, int dia, int mes){
         
         Random aleatorio = new Random();
         Paciente paciente = PacienteServicio.searchByIdPaciente(pacientes, pacienteId);
         //Cita(hora, dia, mes, doctor, consultorio, paciente);
-        int hora = aleatorio.nextInt(10) + 1;
+        int consultorio = aleatorio.nextInt(10) + 1;
         do { 
-            
+            Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
+              
+                Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
         } while (true);
-        if (paciente == null){
-            return false;
-        }
-        //buscar doctor disponible
-        if (doctores.size() == 0){
-            return false;
-        }
-        Doctor doctor = doctores.get(0); //selecciona el primer doctor disponible
         
-        int consultorio = (int)(Math.random()*10)+1; //consultorio aleatorio entre 1 y 10
-        Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente);
         citas.add(cita);
         return true;
     }
