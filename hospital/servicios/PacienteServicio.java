@@ -89,7 +89,6 @@ public class PacienteServicio {
                 System.out.println("Los datos de los doctores han sido almacenados correctamente.");
     
     }catch (IOException e) {
-        System.out.println("Ocurrió un error al almacenar los dotores.");
         e.printStackTrace();
     }
     }
