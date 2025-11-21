@@ -109,19 +109,25 @@ public class CitaServicio {
     }
 
     public static String infoCita (ArrayList<Cita> citas, int doctorId, int citaId){
+        String infoDeUnaCita = "Información de la cita con ID: "+citaId+": ";
+
         for (Cita c: citas){
             if(c.getId() == citaId && c.getDoctor().getId() == doctorId){
-                return c.toString();
+                infoDeUnaCita += c.toString();
+                break;
             }
         }
+        return infoDeUnaCita;
     }
     
     public static String irAConsulta (ArrayList<Cita> citas, int doctorId,  int citaId){
+        String consultaInfo = "Iniciando consulta para la cita con ID: "+citaId+": ";
         for (Cita cita: citas){
             if(cita.getId() == citaId){
-                System.out.println("Consulta iniciada para la cita: " + cita.toString());
-            }
+                consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
+                break;  }
         }
+        return consultaInfo;    
     }
 
 }
