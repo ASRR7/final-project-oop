@@ -84,4 +84,15 @@ public class CitaServicio {
         citas.add(cita);
         return true;
     }
+
+    public static boolean cancelarCita (ArrayList<Cita> citas, int pacienteId, int citaId){
+        for (Cita cita: citas){
+            if(cita.getId() == citaId && cita.getPaciente().getId() == pacienteId){
+                citas.remove(cita);
+                return  true;
+            }
+        }
+        return false;
+    }
+
 }

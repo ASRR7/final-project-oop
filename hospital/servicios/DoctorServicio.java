@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
     public class DoctorServicio {
-        public static ArrayList<Doctor> leerDoctorTxt() {
+        public static ArrayList<Doctor> leerDoctorTxt() throws IOException {
             String fileName = "Doctores.txt";
             String filePath = "../archivosTXT/" + fileName;
             ArrayList<Doctor> doctores = new ArrayList<>();
@@ -29,13 +29,12 @@ import java.util.Scanner;
                 }
 
             } catch (IOException e) {
-                System.out.println("Error al leer Doctores.txt");
-                e.printStackTrace();
+                throw new IOException(e);
             }
             return doctores;
         }
 
-        public static void writeDoctorTxt(ArrayList<Doctor> Doctors) {
+        public static void writeDoctorTxt(ArrayList<Doctor> Doctors) throws IOException {
             String fileName = "Doctores.txt";
             String filePath = "../archivosTXT/" + fileName;
             String espacio = " "; 
@@ -62,10 +61,8 @@ import java.util.Scanner;
                         myWriter.write(doctorInfo);
                 }
                 myWriter.close();
-                System.out.println("Los datos de los doctores han sido almacenados correctamente.");
             }catch (IOException e) {
-                System.out.println("Ocurrió un error al almacenar los dotores.");
-                e.printStackTrace();
+                throw new IOException(e);
             }
         }
         
