@@ -1,0 +1,6 @@
+Juan,H,34,No,No,No,No
+Maria,M,28,Si,No,No,No
+Alex,NoBinario,22,No,No,No,No
+Lucia,M,1,No,No,No,Si
+Pedro,H,72,No,No,Si,No
+Ana,M,30,No,Si,No,No
