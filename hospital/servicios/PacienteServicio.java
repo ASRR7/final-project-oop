@@ -1,18 +1,16 @@
 package hospital.servicios;
 
 
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 import hospital.object.pacientes.Paciente;
+import hospital.state.IPacienteState;
 import hospital.state.PacienteEnfermo;
 import hospital.state.PacienteMuerto;
 import hospital.state.PacienteSano;
-import hospital.state.IPacienteState;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class PacienteServicio {
@@ -111,5 +109,11 @@ public class PacienteServicio {
         return null;
     }
 
-
+    public static String mostrarPacientes(ArrayList<Paciente> pacientes) {
+        String nombreIdPaciente = ("Lista de Pacientes:\n");
+        for (Paciente p : pacientes) {
+            nombreIdPaciente += ("Nombre: " + p.getNombre() + "\tID: " + p.getId() + "\n");
+        }
+        return nombreIdPaciente;
+    }
 }
