@@ -81,7 +81,6 @@ public class MedicamentoServicio {
                 return true;
             }
         }
-        System.out.println("El medicamento con el id proporcionado no se encontró.");
         return false;
     }
 
