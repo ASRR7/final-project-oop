@@ -25,13 +25,13 @@ public class Terminal {
         String texto;
         try{
             texto = scanner.nextLine();
-            scanner.close();
             if (texto.isEmpty()) {
                 throw new IllegalArgumentException();
             }
             return texto;
         } catch (Exception e) {
             System.out.println("El campo no puede estar vacio");
+            return leerTexto(mensaje);
         }
     }
 
