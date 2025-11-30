@@ -1,4 +1,4 @@
-package state.paciente;
+package hospital.state.paciente;
 
 public class EstadoSano {
     
