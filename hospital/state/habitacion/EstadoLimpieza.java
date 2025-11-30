@@ -1,6 +1,8 @@
-package hospital.state;
+package hospital.state.habitacion;
 
 import hospital.object.pacientes.Paciente;
+
+import hospital.state.IHabitacionState;
 
 public class EstadoLimpieza extends IHabitacionState {
 

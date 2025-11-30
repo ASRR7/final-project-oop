@@ -2,6 +2,7 @@ package hospital.state.habitacion;
 
 import hospital.object.pacientes.Paciente;
 import java.util.Scanner;
+import hospital.state.IHabitacionState;
 public class EstadoDisponible extends IHabitacionState{
 
     public EstadoDisponible(int capacidadMaxima,int numPacientes){
@@ -10,14 +11,14 @@ public class EstadoDisponible extends IHabitacionState{
     }
 
     public Boolean isDisponible(){
-        return disponible;
+        return this.getDisponible();
     }
 
     public void addPaciente(Paciente paciente){
         updateDisponible();
         if (isDisponible()){
-            pacientes.add(paciente);
-            numPacientes++;
+            this.getPacientes().add(paciente);
+            this.setNumPacientes(getNumPacientes()+1);
             System.out.println("Paciente agregado");
         }
         else{
@@ -26,7 +27,7 @@ public class EstadoDisponible extends IHabitacionState{
     }
 
     public int eliminarPaciente(){
-        for(Paciente paciente: pacientes){
+        for(Paciente paciente: this.getPacientes()){
             System.out.println("Nombre:" + paciente.getNombre());
             System.out.println("ID:" + paciente.getId());
             System.out.println("Edad: " + paciente.getEdad());
@@ -44,11 +45,11 @@ public class EstadoDisponible extends IHabitacionState{
         }
         int indexDelete = 0;
 
-        for(Paciente paciente: pacientes){
+        for(Paciente paciente: this.getPacientes()){
             if (idDelete ==  paciente.getId()){
-                pacientes.remove(indexDelete);
+                this.getPacientes().remove(indexDelete);
                 System.out.println("Paciente eliminado");
-                numPacientes--;
+                this.setNumPacientes(getNumPacientes()-1);
                 updateDisponible();
                 return 0;
             }
@@ -73,11 +74,11 @@ public class EstadoDisponible extends IHabitacionState{
     }
 
     private void updateDisponible(){
-        if (capacidadMaxima>numPacientes){
-            disponible = Boolean.TRUE;
+        if (this.getCapacidadMaxima()>this.getNumPacientes()){
+            this.setDisponible(Boolean.TRUE);
         }
         else{
-            disponible = Boolean.FALSE;
+            this.setDisponible(Boolean.FALSE);
         }
     }
 }
