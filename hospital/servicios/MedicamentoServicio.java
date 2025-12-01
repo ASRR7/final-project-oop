@@ -9,10 +9,28 @@ import java.util.ArrayList;
 
 
 public class MedicamentoServicio {
+    /**
+     * <h1>makeMedicamento</h1>
+     * Crea un medicamento a partir de los datos proporcionados y lo devuelve
+     * @param nombre
+     * @param cantidad
+     * @param enEmbarazo
+     * @param enLactancia
+     * @param enGeriatria
+     * @param enInfancia
+     * @return Medicamento
+     * @throws RuntimeException
+     */
     public static Medicamento makeMedicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) throws RuntimeException {
         return new Medicamento ( nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
     }
 
+    /**
+     * <h1>leerMedicamentos</h1>
+     * Lee los medicamentos desde el archivo Medicamentos.txt, los agrega a un ArrayList y devuelve dicho ArrayList
+     * @return ArrayList<Medicamento>
+     * @throws RuntimeException
+     */
     public static ArrayList <Medicamento> leerMedicamentos() throws RuntimeException {
         String fileName = "Medicamentos.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
@@ -41,6 +59,12 @@ public class MedicamentoServicio {
         
         return medicamentos;
     }
+    /**
+     * <h1>writeMedicamentoTXT</h1>
+     * Tomando como base un ArrayList de Medicamentos, los añade a Medicamentos.txt para que puedan ser leidos posteriormente
+     * @param ArrayList<Medicamento> medicamentos
+     * @throws RuntimeException
+     */
     public static void writeMedicamentoTXT(ArrayList<Medicamento> medicamentos) throws RuntimeException {
         String fileName = "Medicamentos.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
@@ -74,7 +98,15 @@ public class MedicamentoServicio {
         }
     }
 
-    //method to add n medicamentos
+    /**
+     * <h1>addMedicamentos</h1>
+     * Añade una cantidad dada de un medicamento (accedido por su Id) existente en el ArrayList de medicamentos.
+     * Devuelve un booleano correspondiente a si se encontró el medicamento y se añadió la cantidad, validando que esta sea mayor a 0.
+     * @param medicamentos
+     * @param n
+     * @param id
+     * @return boolean
+     */
     public static boolean addMedicamentos(ArrayList<Medicamento> medicamentos, int n, int id) {
         if (n<=0) {
             return false;
@@ -87,7 +119,12 @@ public class MedicamentoServicio {
         }
         return false;
     }
-
+    /**
+     * <h1>medicamentosString</h1>
+     * Devuelve un String correspondiente a la concatenación de cada método toString() de cada medicamento
+     * @param ArrayList<Medicamento> medicamentos
+     * @return String
+     */
     public static String medicamentosString(ArrayList<Medicamento> medicamentos) {
         String medicamentosString = "";
         for (Medicamento medicamento: medicamentos) {

@@ -14,6 +14,19 @@ import java.util.ArrayList;
 
 
 public class PacienteServicio {
+    /**
+     * <h1>makePaciente</h1>
+     * Tomando como base los parámetros pasados, crea un objeto Paciente con los parámetros dados y lo devuelve
+     * @param nombre
+     * @param sexo
+     * @param edad
+     * @param esEmbarazo
+     * @param esLactancia
+     * @param esGeriatria
+     * @param esInfancia
+     * @return
+     * @throws RuntimeException
+     */
     public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia) throws RuntimeException{
         return new Paciente(nombre, sexo, edad, new PacienteEnfermo(), esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
@@ -56,6 +69,12 @@ public class PacienteServicio {
         }
         return pacientes;
     }
+    /**
+     * <h1>writePacienteTxt</h1>
+     * Tomando como base un ArrayList de Pacientes, los añade a Pacientes.txt para que puedan ser leidos posteriormente
+     * @param Pacientes
+     * @throws RuntimeException
+     */
     public static void writePacienteTxt(ArrayList<Paciente> Pacientes) throws RuntimeException{
         String fileName = "Pacientes.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
@@ -89,7 +108,14 @@ public class PacienteServicio {
         e.printStackTrace();
     }
     }
-
+    /**
+     * <h1>searchByIdPaciente</h1>
+     * Busca (por ID) en un ArrayList de Pacientes el objeto Paciente  y lo devuelve
+     * En caso de no encontrarlo, devuelve null
+     * @param pacientes
+     * @param id
+     * @return
+     */
     public static Paciente searchByIdPaciente(ArrayList<Paciente> pacientes, int id) {
         for (Paciente paciente : pacientes) {
             if (paciente.getId() == id) {
@@ -98,7 +124,14 @@ public class PacienteServicio {
         }
         return null;
     }
-
+    /**
+     * <h1>pacienteExpediente</h1>
+     * Busca (por ID) en un ArrayList de Pacientes el objeto Paciente y devuelve el toString() de su expediente
+     * En caso de no encontrarlo, devuelve null
+     * @param pacientes
+     * @param id
+     * @return
+     */
     public static String pacienteExpediente(ArrayList<Paciente> pacientes, int id) {
         for (Paciente paciente : pacientes) {
             if (paciente.getId() == id) {
@@ -107,7 +140,13 @@ public class PacienteServicio {
         }
         return null;
     }
-
+    /**
+     * <h1>mostrarPacientes</h1>
+     * Devuelve un String con el nombre y ID de cada paciente en el ArrayList de pacientes
+     * @param pacientes
+     * @return String
+     * @throws NullPointerException
+     */
     public static String mostrarPacientes(ArrayList<Paciente> pacientes) throws NullPointerException{
         String nombreIdPaciente = ("Lista de Pacientes:\n");
         try {
