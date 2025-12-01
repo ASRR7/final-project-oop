@@ -151,17 +151,19 @@ public class Terminal {
     }
     public void menuPacienteInterno(){
         opcionInterPaciente = 0;
-        while(opcionInterPaciente != 4){
+        while(opcionInterPaciente != 5){
             this.mostrarMenuPacienteInterno();
             opcionInterPaciente = this.leerEntero("Seleccione una opción: ");
             switch (opcionInterPaciente) {
                 case 1:
-                    this.pedirCita(); break;
+                    this.verCitasAsignadas(); break;
                 case 2:
-                    this.cancelarCita(); break;
+                    this.pedirCita(); break;
                 case 3:
+                    this.cancelarCita(); break;
+                case 4:
                     this.verHistorialMedico(); break;
-                case 4: 
+                case 5: 
                     System.out.println("Volviendo al menú de paciente...");
                     break;
             }
@@ -368,11 +370,11 @@ public class Terminal {
         System.out.println("La consulta ha finalizado: " + facade.irAConsulta(doctor.getId(), id));
     }
     public void verCitasAsignadas(){
+        System.out.println("Mostrando citas asignadas...");
         if(doctor != null){
-            System.out.println("Mostrando citas asignadas...");
-            System.out.println(facade.verCitasAsignadas(doctor.getId()));
-        } else {
-            System.out.println("Doctor no encontrado.");
+            System.out.println( facade.verCitasAsignadas( doctor.getId(), -1 ) );
+        } else if(paciente != null){
+            System.out.println( facade.verCitasAsignadas( -1, paciente.getId() ) );
         }
     }
     

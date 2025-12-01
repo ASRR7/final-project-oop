@@ -110,15 +110,18 @@ public class HospitalFacadeImpl {
     public String infoCita(int doctorId, int citaId){
         return CitaServicio.infoCita(this.citas, doctorId, citaId);
     }
-    public String verCitasAsignadas(int doctorId){
+    public String verCitasAsignadas(int doctorId, int pacienteId){
         try{
-            return CitaServicio.verCitasAsignadas(this.citas, doctorId);
+            if(doctorId != -1){
+                return CitaServicio.verCitasAsignadas(this.citas, doctorId);
+            } else {
+                return CitaServicio.verCitasAsignadasPaciente(this.citas, pacienteId);
         }catch (NullPointerException e){
             return "No hay citas disponibles. ";
         }
     }
     public String irAConsulta(int doctorId, int citaId){
-        return CitaServicio.irAConsulta(this.citas, doctorId, citaId);
+        return CitaServicio.irAConsulta(this.citas, this.medicamentos, doctorId, citaId);
     }
 
     public String cerrarSistema() {
