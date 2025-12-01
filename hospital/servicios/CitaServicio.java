@@ -100,14 +100,15 @@ public class CitaServicio {
         Doctor doctor = doctores.get(aleatorio.nextInt(doctores.size()));
         //aqui falta ampliar los state de citas  
         Cita cita = new Cita(hora, dia, mes, doctor, consultorio, paciente, new EstadoAgendada());
-        
+        paciente.agendarCita(paciente);
         citas.add(cita);
         return true;
     }
 
-    public static boolean cancelarCita (ArrayList<Cita> citas, int pacienteId, int citaId){
+    public static boolean cancelarCita (ArrayList<Cita> citas, Paciente paciente, int citaId){
         for (Cita cita: citas){
-            if(cita.getId() == citaId && cita.getPaciente().getId() == pacienteId){
+            if(cita.getId() == citaId && cita.getPaciente().getId() == paciente.getId()){
+                paciente.cancelarCita(paciente);
                 cita.cancelar();
                 return  true;
             }
@@ -128,6 +129,21 @@ public class CitaServicio {
             throw new NullPointerException(e.getMessage());
         }
         return citasDoctor;
+    }
+
+    public static String verCitasAsignadasPaciente(ArrayList<Cita> citas, int pacienteId) throws NullPointerException {
+        String espacio = " ";
+        String citasPaciente = "Citas asignadas al paciente con ID: " + pacienteId + ":";
+        try {
+            for (Cita c : citas) {
+                if (c.getPaciente().getId() == pacienteId) {
+                    citasPaciente += c.toString() + espacio;
+                }
+            }
+        } catch (NullPointerException e) {
+            throw new NullPointerException(e.getMessage());
+        }
+        return citasPaciente;
     }
 
     public static String infoCita (ArrayList<Cita> citas, int doctorId, int citaId){
