@@ -2,8 +2,11 @@ package hospital.servicios;
 
 import hospital.object.pacientes.Paciente;
 import hospital.object.recursos.Cita;
+import hospital.object.recursos.Medicamentos.Medicamento;
 import hospital.object.usuarios.Doctor;
 import hospital.state.ICitaState;
+import hospital.state.PacienteMuerto;
+import hospital.state.PacienteSano;
 import hospital.state.citas.EstadoAgendada;
 import hospital.state.citas.EstadoCancelada;
 import hospital.state.citas.EstadoCompletada;
@@ -157,13 +160,27 @@ public class CitaServicio {
         return infoDeUnaCita;
     }
     
-    public static String irAConsulta (ArrayList<Cita> citas, int doctorId,  int citaId){
+    public static String irAConsulta (ArrayList<Cita> citas, ArrayList<Medicamento> medicamentos, int doctorId,  int citaId){
         String consultaInfo = "Iniciando consulta para la cita con ID: "+citaId+": ";
+        Random aleatorio = new Random(); 
+        int medicinaId, probaMuerte; 
         for (Cita cita: citas){
             if(cita.getId() == citaId){
                 consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
-                cita.completar();
-                break; 
+                probaMuerte = aleatorio.nextInt(100);
+                if (probaMuerte <= 20) {
+                    consultaInfo += "\nEl paciente ha fallecido durante la consulta.";
+                    cita.getPaciente().setState(new PacienteMuerto());
+                    cita.completar();
+                    return consultaInfo;
+                }
+                else {
+                    medicinaId = aleatorio.nextInt(medicamentos.size());
+                    consultaInfo += "\nEl paciente se ha curado, tiene que comprar el medicamento: " + medicamentos.get(medicinaId).getNombre();
+                    cita.getPaciente().setState(new PacienteSano());
+                    cita.completar();
+                }
+                break;
                 // TODO : Agregar lógica con states
             }
         }
