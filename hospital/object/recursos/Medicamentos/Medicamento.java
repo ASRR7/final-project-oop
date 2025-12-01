@@ -93,7 +93,7 @@ public class Medicamento {
 
     public String toString() {
         
-        return "\nMedicamento" + nombre +
+        return "\nMedicamento: " + nombre +
                 "\n Cantidad: " + cantidad +
                 "\n "  + EmbarazoString +
                 "\n " + LactanciaString +
