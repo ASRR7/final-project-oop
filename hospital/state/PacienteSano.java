@@ -1,22 +1,17 @@
 package hospital.state;
-import java.util.ArrayList;
-
 import hospital.object.pacientes.Paciente;
-import hospital.object.recursos.Cita;
-import hospital.object.usuarios.Doctor;
-import hospital.servicios.CitaServicio;
 
 public class PacienteSano implements IPacienteState {
     private Paciente contexto;
 
     @Override
-    public void agendarCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int hora, int dia, int mes) {
-        CitaServicio.pedirCita(doctores, pacientes, citas, contexto.getId(), hora, dia, mes);
+    public void agendarCita() {
+        System.out.println("El paciente sano " + contexto.getNombre() + "agendo una cita.");
     }
 
     @Override
-    public void cancelarCita(ArrayList<Cita> citas, Paciente paciente, int citaId) {
-        CitaServicio.cancelarCita(citas, paciente, citaId);
+    public void cancelarCita() {
+        System.out.println("El paciente sano " + contexto.getNombre() + "ha cancelado una cita.");
     }
 
     @Override
