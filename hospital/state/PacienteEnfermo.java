@@ -1,13 +1,21 @@
 package hospital.state;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import hospital.object.pacientes.Paciente;
+import hospital.servicios.CitaServicio;
+import hospital.object.recursos.Cita;
+import hospital.object.usuarios.Doctor;
+import hospital.servicios.*;
+
 
 public class PacienteEnfermo implements IPacienteState {
     private Paciente contexto;
+    private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void agendarCita() {
-        System.out.println("Agendando cita para el paciente enfermo: " + contexto.getNombre());
-        // Lógica para agendar cita
+    public void agendarCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int hora, int dia, int mes) {
+        CitaServicio.pedirCita(doctores, pacientes, citas, contexto.getId(), hora, dia, mes);
     }
 
     @Override
@@ -36,6 +44,17 @@ public class PacienteEnfermo implements IPacienteState {
     @Override
     public String toString() {
         return "El paciente esta Enfermo";
+    }
+
+    private int leerEntero(String mensaje) {
+        System.out.print(mensaje);
+        while (!scanner.hasNextInt()) {
+            System.out.print("Ingresa un número válido: ");
+            scanner.next();
+        }
+        int dato = scanner.nextInt();
+        scanner.nextLine();
+        return dato;
     }
     
 }
