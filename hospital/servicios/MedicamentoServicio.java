@@ -9,6 +9,10 @@ import java.util.ArrayList;
 
 
 public class MedicamentoServicio {
+    public static Medicamento makeMedicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) throws RuntimeException {
+        return new Medicamento ( nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
+    }
+
     public static ArrayList <Medicamento> leerMedicamentos() throws RuntimeException {
         String fileName = "Medicamentos.txt";
         String filePath = "hospital/archivosTXT/" + fileName;
