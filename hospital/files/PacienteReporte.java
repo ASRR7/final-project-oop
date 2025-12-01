@@ -10,6 +10,12 @@ import java.util.ArrayList;
 import hospital.object.pacientes.Paciente;
 
 public class PacienteReporte {
+    /**
+     * <h1>makeReporte</h1>
+     * Crea un reporte en formato CSV con la información de cada paciente proporcionado
+     * @param pacientes
+     * @throws RuntimeException
+     */
     public static void makeReporte(ArrayList<Paciente> pacientes) throws RuntimeException{
 
             try{

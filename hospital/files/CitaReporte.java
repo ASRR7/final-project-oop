@@ -17,7 +17,12 @@ public class CitaReporte {
                             "Octubre", "Noviembre", "Diciembre"};
 
 
-
+    /**
+     * <h1>makeCsvReport</h1>
+     * Crea un reporte en formato CSV con la información de cada cita proporcionada
+     * @param citas
+     * @throws RuntimeException
+     */
     public static void makeCsvReport(ArrayList<Cita> citas) throws RuntimeException{
 
         try {
