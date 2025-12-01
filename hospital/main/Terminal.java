@@ -355,12 +355,13 @@ public class Terminal {
     public void crearMedicamentos(){
         String nombre = leerTexto("Ingresa el nombre del nuevo medicamento: ");
         int cantidad = leerEntero("Ingresa la cantidad de medicamentos a surtir: ");
-        boolean enEmbarazo = leerTexto("¿Es seguro en embarazo? (1: si/ 0:no): ") == "1";
-        boolean enLactancia = leerTexto("¿Es seguro en lactancia? (1: si/ 0:no): ") == "1";
-        boolean enGeriatria = leerTexto("¿Es seguro en geriatría? (1: si/ 0:no): ") == "1";
-        boolean enInfancia = leerTexto("¿Es seguro en infancia? (1: si/ 0:no): ") == "1";
+        boolean enEmbarazo = leerEntero("¿Es seguro en embarazo? (1: si/ 0:no): ") == 1;
+        boolean enLactancia = leerEntero("¿Es seguro en lactancia? (1: si/ 0:no): ") == 1;
+        boolean enGeriatria = leerEntero("¿Es seguro en geriatría? (1: si/ 0:no): ") == 1;
+        boolean enInfancia = leerEntero("¿Es seguro en infancia? (1: si/ 0:no): ") == 1;
         
         facade.crearMedicamento(nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
+        System.out.println(enEmbarazo + "" + enLactancia + "" + enGeriatria + "" + enInfancia);
         System.out.println("Medicamento agregado exitosamente.");
     }
     public void generarReportes(){

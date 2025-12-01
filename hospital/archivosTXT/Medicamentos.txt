@@ -1,6 +1,4 @@
 paracetamol,12,No,No,No,No,
-paracetamol,12,No,No,No,No,
-pepto,12,No,No,No,No,
 pepto,12,No,No,No,No,
 ibuprofeno,12,No,No,No,No,
-ibuprofeno,12,No,No,No,No,
+naproxeno,10,Si,No,Si,No,
