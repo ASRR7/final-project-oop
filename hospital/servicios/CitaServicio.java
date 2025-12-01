@@ -24,6 +24,7 @@ import java.util.Scanner;
     private int Id;*/
 public class CitaServicio {
     /**
+     * <h1>leerCitaTxt</h1>
      * Lee desde el archivo de texto todas las citas registradas en el sistema y
      * las convierte en objetos de tipo Cita.
      *
@@ -88,6 +89,7 @@ public class CitaServicio {
     }
 //double hora, int dia, int mes, Doctor doctor , int consultorio, Paciente paciente
     /**
+     * <h1>escribirCitaTxt</h1>
      * Escribe en el archivo de texto todas las citas registradas en el sistema.
      *
      * Este método reemplaza por completo el contenido del archivo
@@ -141,6 +143,7 @@ public class CitaServicio {
     /*pedir cita reciba arraydoctores id paciente array paciente, array citas datos de hora dia y mes, aleatoriamente 
     asigna un doctor disponible en el array y consultorio aleatorio guarda la cita en el array de citas y retorna un booleano*/
     /**
+     * <h1>pedirCita</h1>
      * Crea una nueva cita para un paciente.
      *
      * Busca al paciente por su id, asigna un doctor y un consultorio al azar,
@@ -169,6 +172,7 @@ public class CitaServicio {
     }
 
     /**
+     * <h1>cancelarCita</h1>
      * Cancela una cita que pertenece a un paciente.
      *
      * Este método busca en la lista de citas aquella que tenga el mismo id que
@@ -200,6 +204,7 @@ public class CitaServicio {
         return false;
     }
     /**
+     * <h1>verCitasAsignadas</h1>
      * Devuelve todas las citas asignadas a un doctor.
      *
      * Recorre la lista de citas y agrega a un texto aquellas cuyo doctor tenga
@@ -228,6 +233,7 @@ public class CitaServicio {
         return citasDoctor;
     }
     /**
+     * <h1>verCitasAsignadasPaciente</h1>
      * Devuelve todas las citas registradas para un paciente.
      *
      * Recorre la lista de citas y agrega en un texto aquellas cuyo paciente
@@ -255,6 +261,7 @@ public class CitaServicio {
         return citasPaciente;
     }
     /**
+     * <h1>infoCita</h1>
      * Obtiene la información de una cita específica asignada a un doctor.
      *
      * Busca en la lista de citas aquella que coincida con el id de la cita y el
@@ -280,6 +287,7 @@ public class CitaServicio {
         return infoDeUnaCita;
     }
     /**
+     * <h1>irAConsulta</h1>
      * Atiende una cita y devuelve el resultado de la consulta.
      *
      * Busca la cita indicada por su id y muestra su información. Luego, se
