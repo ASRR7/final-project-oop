@@ -11,7 +11,7 @@ public class PacienteSano implements IPacienteState {
 
     @Override
     public void agendarCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int hora, int dia, int mes) {
-        CitaServicio.pedirCita(doctores, pacientes, citas, contexto.getId(), 0, 0, 0);
+        CitaServicio.pedirCita(doctores, pacientes, citas, contexto.getId(), hora, dia, mes);
     }
 
     @Override
