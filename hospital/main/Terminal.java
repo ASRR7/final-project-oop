@@ -115,9 +115,10 @@ public class Terminal {
         System.out.println("2. Agregar Doctor");
         System.out.println("3. Remover Doctor");
         System.out.println("4. Ver medicamentos");
-        System.out.println("5. Agregar Medicamentos");
-        System.out.println("6. Crear Reportes");
-        System.out.println("7. Volver al menú principal");
+        System.out.println("5. Agregar Cantidad de Medicamentos");
+        System.out.println("6. Crear Medicamento");
+        System.out.println("7. Crear Reportes");
+        System.out.println("8. Volver al menú principal");
     }
     public void mostrarMenuDoctor(){
         System.out.println("=== Menú Doctor ===");
@@ -174,7 +175,7 @@ public class Terminal {
     }
     public void menuAdmin(){
         opcionInter = 0;
-        while(opcionInter != 7){
+        while(opcionInter != 8){
             this.mostrarMenuAdmin();
             opcionInter = this.leerEntero("Seleccione una opción: ");
             switch (opcionInter) {
@@ -194,9 +195,12 @@ public class Terminal {
                     this.agregarMedicamentos();
                     break;
                 case 6:
-                    this.generarReportes();
+                    this.crearMedicamentos();
                     break;
                 case 7:
+                    this.generarReportes();
+                    break;
+                case 8:
                     System.out.println("Volviendo al menú principal...");
                     break;
                 default: System.out.println("Opción inválida.");
@@ -340,6 +344,17 @@ public class Terminal {
         }else {
             System.out.println("Cantidad inválida.");
         }
+    }
+    public void crearMedicamentos(){
+        String nombre = leerTexto("Ingresa el nombre del nuevo medicamento.");
+        int cantidad = leerEntero("Ingresa la cantidad de medicamentos a surtir");
+        boolean enEmbarazo = leerTexto("¿Es seguro en embarazo? (1: si/ 0:no): ") == "1";
+        boolean enLactancia = leerTexto("¿Es seguro en lactancia? (1: si/ 0:no): ") == "1";
+        boolean enGeriatria = leerTexto("¿Es seguro en geriatría? (1: si/ 0:no): ") == "1";
+        boolean enInfancia = leerTexto("¿Es seguro en infancia? (1: si/ 0:no): ") == "1";
+        
+        facade.crearMedicamento(nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
+        System.out.println("Medicamento agregado exitosamente.");
     }
     public void generarReportes(){
         System.out.println("Generando reportes...");
