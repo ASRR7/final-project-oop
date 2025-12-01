@@ -12,6 +12,7 @@ public class Terminal {
     Paciente paciente;
     Doctor doctor;
     Scanner scanner = new Scanner(System.in);
+    int opcion, opcionInter, opcionInterPaciente;
 
     public Terminal(HospitalFacadeImpl facade){
         this.facade = facade;
@@ -62,7 +63,7 @@ public class Terminal {
     }
 
     public void menuPrincipal(){
-        int opcion = 0;
+        opcion = 0;
         while(opcion != 4){
             this.mostrarMenuUsuario();
             opcion = this.leerEntero("Seleccione una opción: ");
@@ -125,84 +126,96 @@ public class Terminal {
     }
 
     public void menuPacientes(){
-        this.mostrarMenuPaciente();
-        int opcion = this.leerEntero("Seleccione una opción: ");
-        switch (opcion) {
-            case 1:
-                this.mostrarPacientes();
-                break;
-            case 2:
-                this.registrarPaciente();
-                this.menuPacienteInterno();
-                break;
-            case 3:
-                this.soyPaciente();
-                this.menuPacienteInterno();
-                break;
-            case 4:
-                System.out.println("Volviendo al menú principal...");
-                break;
-            default: System.out.println("Opción inválida.");
+        opcionInter = 0;
+        while(opcionInter != 4){
+            this.mostrarMenuPaciente();
+            opcionInter = this.leerEntero("Seleccione una opción: ");
+            switch (opcionInter) {
+                case 1:
+                    this.mostrarPacientes();
+                    break;
+                case 2:
+                    this.registrarPaciente();
+                    this.menuPacienteInterno();
+                    break;
+                case 3:
+                    this.soyPaciente();
+                    this.menuPacienteInterno();
+                    break;
+                case 4:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default: System.out.println("Opción inválida.");
+            }
         }
     }
     public void menuPacienteInterno(){
-        this.mostrarMenuPacienteInterno();
-        int opcion = this.leerEntero("Seleccione una opción: ");
-        switch (opcion) {
-            case 1:
-                this.pedirCita(); break;
-            case 2:
-                this.cancelarCita(); break;
-            case 3:
-                this.verHistorialMedico(); break;
-            case 4: 
-                System.out.println("Volviendo al menú de paciente...");
-                break;
+        opcionInterPaciente = 0;
+        while(opcionInterPaciente != 4){
+            this.mostrarMenuPacienteInterno();
+            opcionInterPaciente = this.leerEntero("Seleccione una opción: ");
+            switch (opcionInterPaciente) {
+                case 1:
+                    this.pedirCita(); break;
+                case 2:
+                    this.cancelarCita(); break;
+                case 3:
+                    this.verHistorialMedico(); break;
+                case 4: 
+                    System.out.println("Volviendo al menú de paciente...");
+                    break;
+            }
         }
     }
     public void menuAdmin(){
-        this.mostrarMenuAdmin();
-        int opcion = this.leerEntero("Seleccione una opción: ");
-        switch (opcion) {
-            case 1:
-                this.mostrarDoctores();
-                break;
-            case 2:
-                this.agregarDoctor();
-                break;
-            case 3:
-                this.removerDoctor();
-                break;
-            case 4:
-                this.verMedicamentos();
-                break;
-            case 5:
-                this.agregarMedicamentos();
-                break;
-            case 6:
-                this.generarReportes();
-                break;
-            case 7:
-                System.out.println("Volviendo al menú principal...");
-                break;
-            default: System.out.println("Opción inválida.");
+        opcionInter = 0;
+        while(opcionInter != 7){
+            this.mostrarMenuAdmin();
+            opcionInter = this.leerEntero("Seleccione una opción: ");
+            switch (opcionInter) {
+                case 1:
+                    this.mostrarDoctores();
+                    break;
+                case 2:
+                    this.agregarDoctor();
+                    break;
+                case 3:
+                    this.removerDoctor();
+                    break;
+                case 4:
+                    this.verMedicamentos();
+                    break;
+                case 5:
+                    this.agregarMedicamentos();
+                    break;
+                case 6:
+                    this.generarReportes();
+                    break;
+                case 7:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default: System.out.println("Opción inválida.");
+            }
         }
     }
     public void menuDoctor(){
         if(this.soyDoctor()){
-            this.mostrarMenuDoctor();
-            int opcion = this.leerEntero("Seleccione una opción: ");
-            switch (opcion) {
-                case 1:
-                    this.verCitasAsignadas();
-                    break;
-                case 2:
-                    this.irAConsulta();
-                    break;
-                case 3:
-                    System.out.println("Volviendo al menú principal...");
-                    break;
-                default: System.out.println("Opción inválida.");
+            opcionInter = 0;
+            while(opcionInter != 3){
+                this.mostrarMenuDoctor();
+                opcionInter = this.leerEntero("Seleccione una opción: ");
+                switch (opcionInter) {
+                    case 1:
+                        this.verCitasAsignadas();
+                        break;
+                    case 2:
+                        this.irAConsulta();
+                        break;
+                    case 3:
+                        System.out.println("Volviendo al menú principal...");
+                        break;
+                    default: System.out.println("Opción inválida.");
+                }
             }
         }
     }
@@ -331,6 +344,7 @@ public class Terminal {
     // DOCTOR
     // =========================================
     public boolean soyDoctor(){
+        this.mostrarDoctores();
         int id = leerEntero("Ingrese su ID de doctor: ");
         String contra = leerTexto("Ingresa tu contraseña: ");
         doctor = facade.obtenerDoctorPorId(id, contra);
