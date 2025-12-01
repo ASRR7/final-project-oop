@@ -126,7 +126,6 @@ public class Paciente {
     }
 
     public void cancelarCita(Paciente paciente) {
-        System.out.println("Antes de estado");
         this.estado.cancelarCita();
     }
 
