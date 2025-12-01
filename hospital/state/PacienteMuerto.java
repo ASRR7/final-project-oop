@@ -9,12 +9,12 @@ public class PacienteMuerto implements IPacienteState {
     private Paciente contexto;
 
     @Override
-    public void agendarCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int hora, int dia, int mes) {
+    public void agendarCita() {
         System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede agendar citas.");
     }
 
     @Override
-    public void cancelarCita(ArrayList<Cita> citas, Paciente paciente, int citaId) {
+    public void cancelarCita() {
         System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede cancelar citas.");
     }
 
