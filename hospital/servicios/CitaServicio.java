@@ -160,40 +160,43 @@ public class CitaServicio {
         return infoDeUnaCita;
     }
     
-    public static String irAConsulta (ArrayList<Cita> citas, ArrayList<Medicamento> medicamentos, int doctorId,  int citaId){
+    public static String irAConsulta (ArrayList<Cita> citas, ArrayList<Medicamento> medicamentos, int doctorId,  int citaId)throws NullPointerException{
         String consultaInfo = "Iniciando consulta para la cita con ID: "+citaId+": ";
         Random aleatorio = new Random(); 
         int medicinaId, probaMuerte, numMedicaentos; 
-        for (Cita cita: citas){
-            if(cita.getId() == citaId){
-                consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
-                probaMuerte = aleatorio.nextInt(100);
-                if (probaMuerte <= 20) {
-                    consultaInfo += "\nEl paciente ha fallecido durante la consulta.";
-                    cita.getPaciente().setState(new PacienteMuerto());
-                    cita.completar();
-                    return consultaInfo;
-                }
-                else {
-                    medicinaId = aleatorio.nextInt(medicamentos.size());
-                    consultaInfo += "\nEl paciente se ha curado, tiene que comprar el medicamento: " + medicamentos.get(medicinaId).getNombre();
-                    numMedicaentos = aleatorio.nextInt(5) + 1;
-                    int medicamentosDisponibles = medicamentos.get(medicinaId).getCantidad();
-                    if ( numMedicaentos > medicamentosDisponibles) {
-                        consultaInfo += "\nNo hay suficientes medicamentos disponibles. Solo se pueden comprar " + medicamentosDisponibles + " unidades.";
-                        numMedicaentos = medicamentosDisponibles;
-                    }
-                    else {
-                        consultaInfo += "\nSe han comprado " + numMedicaentos + " unidades del medicamento.";
-                    }
-                    medicamentos.get(medicinaId).setCantidad(medicamentos.get(medicinaId).getCantidad() - numMedicaentos);
+        try {
+            for (Cita cita : citas) {
+                if (cita.getId() == citaId) {
+                    consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
+                    probaMuerte = aleatorio.nextInt(100);
+                    if (probaMuerte <= 20) {
+                        consultaInfo += "\nEl paciente ha fallecido durante la consulta.";
+                        cita.getPaciente().setState(new PacienteMuerto());
+                        cita.completar();
+                        return consultaInfo;
+                    } else {
+                        medicinaId = aleatorio.nextInt(medicamentos.size());
+                        consultaInfo += "\nEl paciente se ha curado, tiene que comprar el medicamento: " + medicamentos.get(medicinaId).getNombre();
+                        numMedicaentos = aleatorio.nextInt(5) + 1;
+                        int medicamentosDisponibles = medicamentos.get(medicinaId).getCantidad();
+                        if (numMedicaentos > medicamentosDisponibles) {
+                            consultaInfo += "\nNo hay suficientes medicamentos disponibles. Solo se pueden comprar " + medicamentosDisponibles + " unidades.";
+                            numMedicaentos = medicamentosDisponibles;
+                        } else {
+                            consultaInfo += "\nSe han comprado " + numMedicaentos + " unidades del medicamento.";
+                        }
+                        medicamentos.get(medicinaId).setCantidad(medicamentos.get(medicinaId).getCantidad() - numMedicaentos);
 
-                    cita.getPaciente().setState(new PacienteSano());
-                    cita.completar();
+                        cita.getPaciente().setState(new PacienteSano());
+                        cita.completar();
+                    }
+                    break;
                 }
-                break;
             }
+        } catch (NullPointerException e) {
+            throw new NullPointerException(e.getMessage());
         }
+        
         return consultaInfo;    
     }
 }

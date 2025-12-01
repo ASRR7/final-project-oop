@@ -23,6 +23,10 @@ public class Medicamento {
         this.enLactancia = enLactancia;
         this.enGeriatria = enGeriatria;
         this.enInfancia = enInfancia;
+        EmbarazoString = (enEmbarazo ) ? "Sí se puede usar en embarazo" : "No se puede usar en embarazo";
+        LactanciaString = (enLactancia) ? "Sí se puede usar en lactancia" : "No se puede usar en lactancia";
+        GeriatriaString = (enGeriatria) ? "Sí se puede usar en geriatría" : "No se puede usar en geriatría";
+        InfanciaString = (enInfancia) ? "Sí se puede usar en infancia" : "No se puede usar en infancia";
     }
 
     public int getId() {
@@ -50,6 +54,7 @@ public class Medicamento {
 
     public void setEnEmbarazo(boolean enEmbarazo) {
         this.enEmbarazo = enEmbarazo;
+        EmbarazoString = (enEmbarazo ) ? "Sí se puede usar en embarazo" : "No se puede usar en embarazo";
     }
 
     public boolean isEnLactancia() {
@@ -58,6 +63,7 @@ public class Medicamento {
 
     public void setEnLactancia(boolean enLactancia) {
         this.enLactancia = enLactancia;
+        LactanciaString = (enLactancia) ? "Sí se puede usar en lactancia" : "No se puede usar en lactancia";
     }
 
     public boolean isEnGeriatria() {
@@ -66,6 +72,7 @@ public class Medicamento {
 
     public void setEnGeriatria(boolean enGeriatria ) {
         this.enGeriatria = enGeriatria;
+        GeriatriaString = (enGeriatria) ? "Sí se puede usar en geriatría" : "No se puede usar en geriatría";
     }
 
     public boolean isEnInfancia() {
@@ -73,7 +80,7 @@ public class Medicamento {
     }
 
     public void setEnInfancia(boolean enInfancia) {
-        this.enInfancia = enInfancia;
+        InfanciaString = (enInfancia) ? "Sí se puede usar en infancia" : "No se puede usar en infancia";
     }
 
     public void sintomasSecundarios() {
@@ -85,10 +92,7 @@ public class Medicamento {
     }
 
     public String toString() {
-        EmbarazoString = (enEmbarazo ) ? "Sí se puede usar en embarazo" : "No se puede usar en embarazo";
-        LactanciaString = (enLactancia) ? "Sí se puede usar en lactancia" : "No se puede usar en lactancia";
-        GeriatriaString = (enGeriatria) ? "Sí se puede usar en geriatría" : "No se puede usar en geriatría";
-        InfanciaString = (enInfancia) ? "Sí se puede usar en infancia" : "No se puede usar en infancia";
+        
         return "\nMedicamento" + nombre +
                 "\n Cantidad: " + cantidad +
                 "\n "  + EmbarazoString +
