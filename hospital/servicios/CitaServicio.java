@@ -124,7 +124,6 @@ public class CitaServicio {
                     citasDoctor += c.toString() + espacio;
                 }
             }
-            System.out.println(citasDoctor);
         } catch (NullPointerException e) {
             throw new NullPointerException(e.getMessage());
         }
