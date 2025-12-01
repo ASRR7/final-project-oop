@@ -242,8 +242,12 @@ public class Terminal {
         } else if(edad<12){
             esInfancia = true;
         }
-        paciente = facade.registrarPaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
-        System.out.println("Paciente registrado exitosamente.");
+        try{
+            paciente = facade.registrarPaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
+            System.out.println("Paciente registrado exitosamente.");
+        }catch(RuntimeException e){
+            System.out.println("Ocurrió un error al guardar al paciente.");
+        }
     }
     public void soyPaciente(){
         int id = leerEntero("Ingrese su ID de paciente: ");
