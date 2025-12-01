@@ -81,13 +81,11 @@ public class Medicamento {
     }
 
     public String toString() {
-        return "Medicamento{" +
-                "nombre='" + nombre + '\'' +
-                ", cantidad=" + cantidad +
-                ", enEmbarazo=" + enEmbarazo +
-                ", enLactancia=" + enLactancia +
-                ", enGeriatria=" + enGeriatria +
-                ", enInfancia=" + enInfancia +
-                '}';
+        return "\nMedicamento" + nombre +
+                "\n Cantidad: " + cantidad +
+                "\n EnEmbarazo=" + enEmbarazo +
+                "\n EnLactancia=" + enLactancia +
+                "\n EnGeriatria=" + enGeriatria +
+                "\n EnInfancia=" + enInfancia;
     }
 }
