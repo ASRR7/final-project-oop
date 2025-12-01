@@ -108,7 +108,7 @@ public class CitaServicio {
     public static boolean cancelarCita (ArrayList<Cita> citas, int pacienteId, int citaId){
         for (Cita cita: citas){
             if(cita.getId() == citaId && cita.getPaciente().getId() == pacienteId){
-                citas.remove(cita);
+                cita.cancelar();
                 return  true;
             }
         }
@@ -148,6 +148,7 @@ public class CitaServicio {
         for (Cita cita: citas){
             if(cita.getId() == citaId){
                 consultaInfo += "Consulta iniciada para la cita: " + cita.toString();
+                cita.completar();
                 break; 
                 // TODO : Agregar lógica con states
             }
