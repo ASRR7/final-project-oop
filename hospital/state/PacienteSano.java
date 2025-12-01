@@ -15,9 +15,8 @@ public class PacienteSano implements IPacienteState {
     }
 
     @Override
-    public void cancelarCita() {
-        System.out.println("Cancelando cita para el paciente sano: " + contexto.getNombre());
-        // Lógica para cancelar cita
+    public void cancelarCita(ArrayList<Cita> citas, Paciente paciente, int citaId) {
+        CitaServicio.cancelarCita(citas, paciente, citaId);
     }
 
     @Override
