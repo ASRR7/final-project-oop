@@ -9,6 +9,10 @@ public class Medicamento {
     private boolean enLactancia;
     private boolean enGeriatria;
     private boolean enInfancia;
+    private String EmbarazoString;
+    private String LactanciaString;
+    private String GeriatriaString;
+    private String InfanciaString;
 
     public Medicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia) {
         numMedicamentosActual++;
@@ -81,11 +85,15 @@ public class Medicamento {
     }
 
     public String toString() {
+        EmbarazoString = enEmbarazo ? "Sí se puede usar en embarazo" : "No se puede usar en embarazo";
+        LactanciaString = enLactancia ? "Sí se puede usar en lactancia" : "No se puede usar en lactancia";
+        GeriatriaString = enGeriatria ? "Sí se puede usar en geriatría" : "No se puede usar en geriatría";
+        InfanciaString = enInfancia ? "Sí se puede usar en infancia" : "No se puede usar en infancia";
         return "\nMedicamento" + nombre +
                 "\n Cantidad: " + cantidad +
-                "\n EnEmbarazo=" + enEmbarazo +
-                "\n EnLactancia=" + enLactancia +
-                "\n EnGeriatria=" + enGeriatria +
-                "\n EnInfancia=" + enInfancia;
+                "\n "  + EmbarazoString +
+                "\n " + LactanciaString +
+                "\n " + GeriatriaString +
+                "\n " + InfanciaString;
     }
 }
