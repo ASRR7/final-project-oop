@@ -23,10 +23,10 @@ public class Medicamento {
         this.enLactancia = enLactancia;
         this.enGeriatria = enGeriatria;
         this.enInfancia = enInfancia;
-        EmbarazoString = (enEmbarazo ) ? "Sí se puede usar en embarazo" : "No se puede usar en embarazo";
-        LactanciaString = (enLactancia) ? "Sí se puede usar en lactancia" : "No se puede usar en lactancia";
-        GeriatriaString = (enGeriatria) ? "Sí se puede usar en geriatría" : "No se puede usar en geriatría";
-        InfanciaString = (enInfancia) ? "Sí se puede usar en infancia" : "No se puede usar en infancia";
+        EmbarazoString = ((enEmbarazo ) ? "Sí" : "No") + " se puede usar en embarazo" ;
+        LactanciaString = ((enLactancia) ? "Sí" : "No") +  " se puede usar en lactancia" ;
+        GeriatriaString = ((enGeriatria) ? "Sí" : "No") + " se puede usar en geriatría" ;
+        InfanciaString = ((enInfancia) ? "Sí" : "No") + " se puede usar en infancia" ;
     }
 
     public int getId() {
