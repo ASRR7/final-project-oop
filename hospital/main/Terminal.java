@@ -346,8 +346,8 @@ public class Terminal {
         }
     }
     public void crearMedicamentos(){
-        String nombre = leerTexto("Ingresa el nombre del nuevo medicamento.");
-        int cantidad = leerEntero("Ingresa la cantidad de medicamentos a surtir");
+        String nombre = leerTexto("Ingresa el nombre del nuevo medicamento: ");
+        int cantidad = leerEntero("Ingresa la cantidad de medicamentos a surtir: ");
         boolean enEmbarazo = leerTexto("¿Es seguro en embarazo? (1: si/ 0:no): ") == "1";
         boolean enLactancia = leerTexto("¿Es seguro en lactancia? (1: si/ 0:no): ") == "1";
         boolean enGeriatria = leerTexto("¿Es seguro en geriatría? (1: si/ 0:no): ") == "1";
