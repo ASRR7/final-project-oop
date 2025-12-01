@@ -159,7 +159,7 @@ public class Terminal {
             opcionInterPaciente = this.leerEntero("Seleccione una opción: ");
             switch (opcionInterPaciente) {
                 case 1:
-                    this.verCitasAsignadas(); break;
+                    this.verCitasAsignadasPaciente(); break;
                 case 2:
                     this.pedirCita(); break;
                 case 3:
@@ -169,6 +169,7 @@ public class Terminal {
                     this.verHistorialMedico(); break;
                 case 5: 
                     System.out.println("Volviendo al menú de paciente...");
+                    paciente = null;
                     break;
             }
         }
@@ -222,6 +223,7 @@ public class Terminal {
                         break;
                     case 3:
                         System.out.println("Volviendo al menú principal...");
+                        doctor = null;
                         break;
                     default: System.out.println("Opción inválida.");
                 }
@@ -302,6 +304,11 @@ public class Terminal {
     public void verHistorialMedico(){
         System.out.println("Mostrando historial médico...");
         System.out.println(facade.verHistorialMedico(paciente.getId()));
+    }
+    public void verCitasAsignadasPaciente(){
+        if(paciente != null){
+            System.out.println( facade.verCitasAsignadasPaciente( paciente.getId() ) );
+        }
     }
     // =========================================
     // ADMIN
@@ -390,9 +397,7 @@ public class Terminal {
     public void verCitasAsignadas(){
         System.out.println("Mostrando citas asignadas...");
         if(doctor != null){
-            System.out.println( facade.verCitasAsignadas( doctor.getId(), -1 ) );
-        } else if(paciente != null){
-            System.out.println( facade.verCitasAsignadas( -1, paciente.getId() ) );
+            System.out.println( facade.verCitasAsignadasDoctor( doctor.getId() ) );
         }
     }
     
