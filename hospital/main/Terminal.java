@@ -243,8 +243,8 @@ public class Terminal {
         String nombre = leerTexto("Ingrese el nombre del paciente: ");
         String sexo = leerTexto("Ingrese el sexo del paciente: ");
         int edad = leerEntero("Ingrese la edad del paciente: ");
-        Boolean esEmbarazo = leerTexto("¿Está en embarazo? (1: si/ 0:no): ") == "1";
-        Boolean esLactancia = leerTexto("¿Está en lactancia? (1: si/ 0:no): ") == "1";
+        Boolean esEmbarazo = leerEntero("¿Está en embarazo? (1: si/ 0:no): ") == 1;
+        Boolean esLactancia = leerEntero("¿Está en lactancia? (1: si/ 0:no): ") == 1;
         Boolean esGeriatria = false;
         Boolean esInfancia = false;
 
