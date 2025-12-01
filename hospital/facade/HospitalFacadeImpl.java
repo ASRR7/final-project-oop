@@ -60,9 +60,9 @@ public class HospitalFacadeImpl {
     public boolean pedirCita(int pacienteId, int hora, int dia, int mes){
         return CitaServicio.pedirCita(this.doctores, this.pacientes, this.citas, pacienteId, hora, dia, mes);
     }
-    public boolean cancelarCita(int pacienteId, int citaId){
+    public boolean cancelarCita(Paciente paciente, int citaId){
         try{
-            return CitaServicio.cancelarCita(this.citas, pacienteId, citaId);
+            return CitaServicio.cancelarCita(this.citas, paciente, citaId);
         }catch (NullPointerException e){
             return false;
         }
@@ -116,12 +116,14 @@ public class HospitalFacadeImpl {
                 return CitaServicio.verCitasAsignadas(this.citas, doctorId);
             } else {
                 return CitaServicio.verCitasAsignadasPaciente(this.citas, pacienteId);
+            }
         }catch (NullPointerException e){
             return "No hay citas disponibles. ";
         }
     }
     public String irAConsulta(int doctorId, int citaId){
-        return CitaServicio.irAConsulta(this.citas, this.medicamentos, doctorId, citaId);
+        // return CitaServicio.irAConsulta(this.citas, this.medicamentos, doctorId, citaId);
+        return "";
     }
 
     public String cerrarSistema() {

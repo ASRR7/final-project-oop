@@ -96,10 +96,11 @@ public class Terminal {
     }
     public void mostrarMenuPacienteInterno(){
         System.out.println("=== Menú Interno de Paciente ===");
-        System.out.println("1. Pedir cita médica");
-        System.out.println("2. Cancelar cita médica");
-        System.out.println("3. Ver historial médico");
-        System.out.println("4. Volver al menú de paciente");
+        System.out.println("1. Ver citas asignadas");
+        System.out.println("2. Pedir cita médica");
+        System.out.println("3. Cancelar cita médica");
+        System.out.println("4. Ver historial médico");
+        System.out.println("5. Volver al menú de paciente");
 
     }
     public void mostrarMenuRecepcionista(){
@@ -286,7 +287,7 @@ public class Terminal {
     }
     public void cancelarCita(){
         int idCita = leerEntero("Ingrese el ID de la cita a cancelar: ");
-        if(facade.cancelarCita(paciente.getId(), idCita)){
+        if(facade.cancelarCita(paciente, idCita)){
             System.out.println("Cita cancelada exitosamente.");
         }else {
             System.out.println("No se pudo cancelar la cita.");
