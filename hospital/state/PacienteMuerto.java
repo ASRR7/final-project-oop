@@ -14,7 +14,7 @@ public class PacienteMuerto implements IPacienteState {
     }
 
     @Override
-    public void cancelarCita() {
+    public void cancelarCita(ArrayList<Cita> citas, Paciente paciente, int citaId) {
         System.out.println("El paciente " + contexto.getNombre() + " está muerto y no puede cancelar citas.");
     }
 
