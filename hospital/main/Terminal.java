@@ -163,7 +163,7 @@ public class Terminal {
                 case 2:
                     this.pedirCita(); break;
                 case 3:
-                    this.verCitasAsignadas();
+                    this.verCitasAsignadasPaciente();
                     this.cancelarCita(); break;
                 case 4:
                     this.verHistorialMedico(); break;

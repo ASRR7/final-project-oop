@@ -109,10 +109,11 @@ public class CitaServicio {
 
     public static boolean cancelarCita (ArrayList<Cita> citas, Paciente paciente, int citaId){
         for (Cita cita: citas){
+            System.out.println("CAda cita " + cita.getId() + " id: " + citaId + "; cliente: " + cita.getPaciente().getId() + " iDc: " + paciente.getId());
             if(cita.getId() == citaId && cita.getPaciente().getId() == paciente.getId()){
                 paciente.cancelarCita(paciente);
                 cita.cancelar();
-                return  true;
+                return true;
             }
         }
         return false;

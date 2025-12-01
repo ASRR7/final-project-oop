@@ -17,10 +17,7 @@ public class EstadoAgendada implements ICitaState {
 
     @Override
     public void cancelar() {
-        System.out.println("La cita ha sido cancelada.");
-
         ICitaState nuevo = new EstadoCancelada();
-        nuevo.setContextoCita(contexto);
         contexto.setEstado(nuevo);
     }
 

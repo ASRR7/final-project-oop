@@ -25,7 +25,7 @@ public class Paciente {
         this.sexo = sexo;
         this.edad = edad;
         this.expediente = new Expediente(); // Expediente vacio
-        this.estado = estado;
+        this.setState(estado);
         this.esEmbarazo = esEmbarazo;
         this.esLactancia = esLactancia;
         this.esGeriatria = esGeriatria;
@@ -126,6 +126,7 @@ public class Paciente {
     }
 
     public void cancelarCita(Paciente paciente) {
+        System.out.println("Antes de estado");
         this.estado.cancelarCita();
     }
 

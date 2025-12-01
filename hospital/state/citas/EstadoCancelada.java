@@ -29,7 +29,7 @@ public class EstadoCancelada implements ICitaState{
         System.out.println("No se puede completar una cita cancelada.");
     }
     
-     @Override
+    @Override
     public String toString() {
         return "Cancelada";
     }

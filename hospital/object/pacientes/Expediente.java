@@ -29,7 +29,7 @@ public class Expediente {
             stringRepresentation += diagnostico.toString();
             stringRepresentation += "\n";
         }
-        return "Expediente:" +
+        return "Expediente: " +
                 stringRepresentation;
     }
 }

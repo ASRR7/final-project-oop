@@ -45,15 +45,4 @@ public class PacienteEnfermo implements IPacienteState {
         return "El paciente esta Enfermo";
     }
 
-    private int leerEntero(String mensaje) {
-        System.out.print(mensaje);
-        while (!scanner.hasNextInt()) {
-            System.out.print("Ingresa un número válido: ");
-            scanner.next();
-        }
-        int dato = scanner.nextInt();
-        scanner.nextLine();
-        return dato;
-    }
-    
 }
