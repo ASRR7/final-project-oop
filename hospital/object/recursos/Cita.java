@@ -108,9 +108,9 @@ public class Cita {
                 "\n Hora: " + hora +
                 "\n Dia: " + dia +
                 "\n Mes: " + mes +
-                "\n Doctor=" + doctor.getNombre() +
-                "\n Consultorio=" + consultorio +
-                "\n Paciente=" + paciente +
-                "\n Estado=" + estado.toString();
+                "\n Doctor: " + doctor.getNombre() +
+                "\n Consultorio: " + consultorio +
+                "\n Paciente: " + paciente +
+                "\n Estado: " + estado.toString();
     }
 }
