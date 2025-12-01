@@ -104,14 +104,13 @@ public class Cita {
     
 
     public String toString(){
-        return "Cita{" +
-                "hora=" + hora +
-                ", dia=" + dia +
-                ", mes=" + mes +
-                ", doctor=" + doctor.getNombre() +
-                ", consultorio=" + consultorio +
-                ", paciente=" + paciente +
-                ", estado=" + estado.toString() +
-                '}';
+        return "\nCita:" + Id +
+                "\n Hora: " + hora +
+                "\n Dia: " + dia +
+                "\n Mes: " + mes +
+                "\n Doctor=" + doctor.getNombre() +
+                "\n Consultorio=" + consultorio +
+                "\n Paciente=" + paciente +
+                "\n Estado=" + estado.toString();
     }
 }
