@@ -14,13 +14,7 @@ import java.util.ArrayList;
 
 
 public class PacienteServicio {
-    public static Paciente makePaciente(String nombre, 
-                                        String sexo, 
-                                        int edad, 
-                                        boolean esEmbarazo, 
-                                        boolean esLactancia, 
-                                        boolean esGeriatria, 
-                                        boolean esInfancia) throws RuntimeException{
+    public static Paciente makePaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia) throws RuntimeException{
         return new Paciente(nombre, sexo, edad, new PacienteEnfermo(), esEmbarazo, esLactancia, esGeriatria, esInfancia);
     }
     public static ArrayList <Paciente> leerPacienteTxt() throws RuntimeException{

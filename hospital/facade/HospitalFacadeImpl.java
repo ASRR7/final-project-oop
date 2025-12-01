@@ -43,7 +43,11 @@ public class HospitalFacadeImpl {
         }
     }
     public Paciente registrarPaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
-        return PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
+        Paciente paciente = PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
+        if(this.pacientes.add(paciente)){
+            return paciente;
+        }
+        return null;
     }
     public Paciente obtenerPacientePorId(int id){
         return PacienteServicio.searchByIdPaciente(this.pacientes, id);

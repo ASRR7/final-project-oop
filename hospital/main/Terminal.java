@@ -85,7 +85,7 @@ public class Terminal {
         System.out.println("1. Soy un paciente");
         System.out.println("2. Soy Admin");
         System.out.println("3. Soy un doctor");
-        System.out.println("4. Salir");
+        System.out.println("4. Salir del programa");
     }
     public void mostrarMenuPaciente(){
         System.out.println("=== Menú Paciente ===");
