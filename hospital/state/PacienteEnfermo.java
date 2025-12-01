@@ -14,13 +14,13 @@ public class PacienteEnfermo implements IPacienteState {
     private Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void agendarCita(ArrayList<Doctor> doctores, ArrayList<Paciente> pacientes, ArrayList<Cita> citas, int hora, int dia, int mes) {
-        CitaServicio.pedirCita(doctores, pacientes, citas, contexto.getId(), hora, dia, mes);
+    public void agendarCita() {
+        System.out.println("Agendando cita para el paciente enfermo: " + contexto.getNombre());
     }
 
     @Override
-    public void cancelarCita(ArrayList<Cita> citas, Paciente paciente, int citaId) {
-        CitaServicio.cancelarCita(citas, paciente, citaId);
+    public void cancelarCita() {
+        System.out.println("Cancelando cita para el paciente sano: " + contexto.getNombre());
     }
 
     @Override
