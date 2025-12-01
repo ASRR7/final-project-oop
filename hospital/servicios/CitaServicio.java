@@ -160,7 +160,7 @@ public class CitaServicio {
         return infoDeUnaCita;
     }
     
-    public static String irAConsulta (ArrayList<Cita> citas, ArrayList<Medicamento> medicamentos, int doctorId,  int citaId){
+    public static String irAConsulta (ArrayList<Cita> citas, ArrayList<Medicamento> medicamentos, int doctorId,  int citaId)throws NullPointerException{
         String consultaInfo = "Iniciando consulta para la cita con ID: "+citaId+": ";
         Random aleatorio = new Random(); 
         int medicinaId, probaMuerte, numMedicaentos; 
