@@ -32,7 +32,7 @@ public class MedicamentoServicio {
                 Boolean esInfancia = info[5].equals("Si");
                 medicamentos.add(new Medicamento(nombre, cantidad, esEmbarazo, esLactancia, esGeriatria, esInfancia));
             
-                medicamentos.add(new Medicamento(nombre,cantidad, esEmbarazo, esLactancia, esGeriatria, esInfancia));
+
             }
             bufferedReader.close();
         } catch (IOException e) {
