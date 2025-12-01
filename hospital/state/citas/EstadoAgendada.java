@@ -1,27 +1,36 @@
 package hospital.state.citas;
 
+import hospital.object.recursos.Cita;
 import hospital.state.ICitaState;
+
 public class EstadoAgendada implements ICitaState {
+    private Cita contexto;  
+
     @Override
-        public boolean isDisponible(){
-        return Boolean.TRUE;
+    public void setContextoCita(Cita contexto) {
+        this.contexto = contexto;
+    }
+
+    public void agendar() {
+        System.out.println("La cita ya está agendada.");
     }
 
     @Override
-    public EstadoAgendada makeDisponible(String doNotFillMeString) {
-        System.out.println("La cita ya está agendada");
-        return new EstadoAgendada();
+    public void cancelar() {
+        System.out.println("La cita ha sido cancelada.");
+
+        ICitaState nuevo = new EstadoCancelada();
+        nuevo.setContextoCita(contexto);
+        contexto.setEstado(nuevo);
     }
 
     @Override
-    public EstadoCancelada makeNoDisponible(String doNotFillMeString) {
-        System.out.println("La cita ha sido cancelada");
-        return new EstadoCancelada();
-    }
-    @Override
-    public EstadoCompletada completarCita(){
-        System.out.println( "La cita ya fue completada");
-        return new EstadoCompletada();
+    public void completar() {
+        System.out.println("La cita ha sido completada.");
+
+        ICitaState nuevo = new EstadoCompletada();
+        nuevo.setContextoCita(contexto);
+        contexto.setEstado(nuevo);
     }
 
      @Override

@@ -81,14 +81,27 @@ public class Cita {
     public void setId(int id) {
         Id = id;
     }
-
-    public void setEstado(ICitaState estado) {
-        this.estado = estado;
-    }
-
     public ICitaState getEstado() {
         return estado;
     }
+
+    public void setEstado(ICitaState estado) {
+        this.estado = estado;
+        this.estado.setContextoCita(this);
+    }
+
+    public void agendar() {
+        estado.agendar();
+    }
+
+    public void cancelar() {
+        estado.cancelar();
+    }
+
+    public void completar() {
+        estado.completar();
+    }
+    
 
     public String toString(){
         return "Cita{" +
