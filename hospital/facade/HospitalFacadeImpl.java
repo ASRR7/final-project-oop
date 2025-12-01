@@ -94,8 +94,17 @@ public class HospitalFacadeImpl {
         return MedicamentoServicio.addMedicamentos(this.medicamentos, cantidad, medicamentoId);
     }
     public boolean crearMedicamento(String nombre, int cantidad, boolean enEmbarazo, boolean enLactancia, boolean enGeriatria, boolean enInfancia){
-        Medicamento medicamento = MedicamentoServicio.makeMedicamento(nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
-        this.medicamentos.add(medicamento);
+        try{
+            Medicamento medicamento = MedicamentoServicio.makeMedicamento(nombre, cantidad, enEmbarazo, enLactancia, enGeriatria, enInfancia);
+            
+            if( this.medicamentos.add(medicamento) ){
+                return true;
+            }
+        }catch(RuntimeException e){
+            return false;
+        }
+        return false;
+        
     }
     public boolean generarReportes(){
         try{
@@ -127,7 +136,6 @@ public class HospitalFacadeImpl {
     }
     public String irAConsulta(int doctorId, int citaId){
         return CitaServicio.irAConsulta(this.citas, this.medicamentos, doctorId, citaId);
-        return "";
     }
 
     public String cerrarSistema() {
