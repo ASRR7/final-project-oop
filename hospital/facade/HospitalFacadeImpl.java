@@ -15,6 +15,11 @@ public class HospitalFacadeImpl {
     protected ArrayList<Medicamento> medicamentos = new ArrayList<>();
     protected ArrayList<Cita> citas = new ArrayList<>();
 
+    /**
+     * Lee los archivos y guarda los datos en los ArrayList
+     * @version 1
+     * @author Equipo 13
+     */
     public String cargarDatosIniciales() {
         try{
             this.doctores.addAll(DoctorServicio.leerDoctorTxt());
@@ -35,6 +40,11 @@ public class HospitalFacadeImpl {
     // =========================================
     // PACIENTES
     // =========================================
+    /**
+     * Imprime pacientes
+     * @version 1
+     * @author Equipo 13
+     */
     public String mostrarPacientes(){
         try{
             return PacienteServicio.mostrarPacientes(this.pacientes);
@@ -42,6 +52,11 @@ public class HospitalFacadeImpl {
             return "Error al mostrar los pacientes: " + e.getMessage();
         }
     }
+    /**
+     * Crea un nuevo paciente
+     * @version 1
+     * @author Equipo 13
+     */
     public Paciente registrarPaciente(String nombre, String sexo, int edad, boolean esEmbarazo, boolean esLactancia, boolean esGeriatria, boolean esInfancia){
         try{
             Paciente paciente = PacienteServicio.makePaciente(nombre, sexo, edad, esEmbarazo, esLactancia, esGeriatria, esInfancia);
@@ -54,12 +69,30 @@ public class HospitalFacadeImpl {
         }
         return null;
     }
+    /**
+     * Busca paciente por ID
+     * @return Paciente encontrado
+     * @version 1
+     * @author Equipo 13
+     */
     public Paciente obtenerPacientePorId(int id){
         return PacienteServicio.searchByIdPaciente(this.pacientes, id);
     }
+    /**
+     * Solicita una cita con los datos ingresados por el paciente
+     * @return boolean
+     * @version 1
+     * @author Equipo 13
+     */
     public boolean pedirCita(int pacienteId, int hora, int dia, int mes){
         return CitaServicio.pedirCita(this.doctores, this.pacientes, this.citas, pacienteId, hora, dia, mes);
     }
+    /**
+     * Cancela una cita
+     * @return boolean
+     * @version 1
+     * @author Equipo 13
+     */
     public boolean cancelarCita(Paciente paciente, int citaId){
         try{
             return CitaServicio.cancelarCita(this.citas, paciente, citaId);
@@ -67,6 +100,12 @@ public class HospitalFacadeImpl {
             return false;
         }
     }
+    /**
+     * Imprime el historial medico del paciente
+     * @return boolean
+     * @version 1
+     * @author Equipo 13
+     */
     public String verHistorialMedico(int pacienteId){
         String historial = PacienteServicio.pacienteExpediente(this.pacientes, pacienteId);
         if(historial == null){
@@ -106,6 +145,12 @@ public class HospitalFacadeImpl {
         return false;
         
     }
+    /**
+     * Genera los reportes y estadísticas
+     * @return boolean
+     * @version 1
+     * @author Equipo 13
+     */
     public boolean generarReportes(){
         try{
             return ReporteServicio.generarReportes(this.doctores, this.pacientes, this.medicamentos, this.citas);
@@ -117,6 +162,12 @@ public class HospitalFacadeImpl {
     // =========================================
     // DOCTOR
     // =========================================
+    /**
+     * Busca al doctor por id
+     * @return Doctor
+     * @version 1
+     * @author Equipo 13
+     */
     public Doctor obtenerDoctorPorId(int id, String contra){
         return DoctorServicio.searchByIdDoctor(this.doctores, id, contra);
     }
@@ -141,6 +192,12 @@ public class HospitalFacadeImpl {
         return CitaServicio.irAConsulta(this.citas, this.medicamentos, doctorId, citaId);
     }
 
+    /**
+     * Cierra el programa y guarda los datos en los archivos
+     * @return String
+     * @version 1
+     * @author Equipo 13
+     */
     public String cerrarSistema() {
         try{
             DoctorServicio.writeDoctorTxt(this.doctores);

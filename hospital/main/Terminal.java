@@ -17,7 +17,13 @@ public class Terminal {
     public Terminal(HospitalFacadeImpl facade){
         this.facade = facade;
     }
-    
+    /**
+     * Imprime el mensaje en consola y lee el mensaje ingresado por el usuario.
+     * Implementa try-catch en caso de que haya un texto vacío.
+     * @return String ingresado por el usuario
+     * @version 1
+     * @author Equipo 13
+     */
     private String leerTexto(String mensaje) {
         System.out.print(mensaje);
         String texto;
@@ -32,7 +38,13 @@ public class Terminal {
             return leerTexto(mensaje);
         }
     }
-
+    /**
+     * Imprime el mensaje en consola y lee el entero ingresado por el usuario.
+     * Implementa try-catch en caso de que haya una entrada inválida.
+     * @return Int ingresado por el usuario
+     * @version 1
+     * @author Equipo 13
+     */
     private int leerEntero(String mensaje) {
         System.out.print(mensaje);
         while (!scanner.hasNextInt()) {
@@ -44,6 +56,13 @@ public class Terminal {
         return dato;
     }
 
+    /**
+     * Imprime el mensaje en consola y lee el double ingresado por el usuario.
+     * Implementa try-catch en caso de que haya una entrada inválida.
+     * @return Double ingresado por el usuario
+     * @version 1
+     * @author Equipo 13
+     */
     private double leerDouble(String mensaje) {
         System.out.print(mensaje);
         while (!scanner.hasNextDouble()) {
@@ -55,13 +74,21 @@ public class Terminal {
         return dato;
     }
 
-
+    /**
+     * El método inicial que es llamado desde el método principal main. {@link hospital.main.Main}
+     * @version 1
+     * @author Equipo 13
+     */
     public void iniciar(){
         System.out.println("Iniciando sistema del hospital...");
         System.out.println(facade.cargarDatosIniciales());
         this.menuPrincipal();
     }
-
+    /**
+     * Imprime el menu inicial y según la entrada del usuario manda a llamar a los demás menús.
+     * @version 1
+     * @author Equipo 13
+     */
     public void menuPrincipal(){
         opcion = 0;
         while(opcion != 4){
@@ -79,7 +106,11 @@ public class Terminal {
         
         cerrar();
     }
-
+    /**
+     * Imprime el menu de usuario (principal) para elegir 
+     * @version 1
+     * @author Equipo 13
+     */
     public void mostrarMenuUsuario(){
         System.out.println("=== Sistema de Gestión del Hospital ===");
         System.out.println("1. Soy un paciente");
@@ -87,6 +118,11 @@ public class Terminal {
         System.out.println("3. Soy un doctor");
         System.out.println("4. Salir del programa");
     }
+    /**
+     * Imprime el menu de paciente 
+     * @version 1
+     * @author Equipo 13
+     */
     public void mostrarMenuPaciente(){
         System.out.println("=== Menú Paciente ===");
         System.out.println("1. Ver pacientes registrados");
@@ -94,6 +130,11 @@ public class Terminal {
         System.out.println("3. Ya soy paciente");
         System.out.println("4. Volver al menú principal");
     }
+    /**
+     * Imprime el menu de paciente con opciones una vez ya eres paciente 
+     * @version 1
+     * @author Equipo 13
+     */
     public void mostrarMenuPacienteInterno(){
         System.out.println("=== Menú Interno de Paciente ===");
         System.out.println("1. Ver citas asignadas");
@@ -103,12 +144,11 @@ public class Terminal {
         System.out.println("5. Volver al menú de paciente");
 
     }
-    public void mostrarMenuRecepcionista(){
-        System.out.println("=== Menú Recepcionista ===");
-        System.out.println("1. Registrar cita a paciente");
-        System.out.println("2. Cancelar cita de paciente");
-        System.out.println("3. Volver al menú principal");
-    }
+    /**
+     * Imprime el menu de administrador 
+     * @version 1
+     * @author Equipo 13
+     */
     public void mostrarMenuAdmin(){
         System.out.println("=== Menú Admin ===");
         System.out.println("1. Ver Doctores");
@@ -120,13 +160,22 @@ public class Terminal {
         System.out.println("7. Crear Reportes");
         System.out.println("8. Volver al menú principal");
     }
+    /**
+     * Imprime el menu de doctor 
+     * @version 1
+     * @author Equipo 13
+     */
     public void mostrarMenuDoctor(){
         System.out.println("=== Menú Doctor ===");
         System.out.println("1. Ver citas asignadas");
         System.out.println("2. Ir a consulta");
         System.out.println("3. Volver al menú principal");
     }
-
+    /**
+     * Es la funcionalidad del menu de paciente para las opciones internas de paciente 
+     * @version 1
+     * @author Equipo 13
+     */
     public void menuPacientes(){
         opcionInter = 0;
         while(opcionInter != 4){
@@ -152,6 +201,11 @@ public class Terminal {
             }
         }
     }
+    /**
+     * Las funcionalidades con el menu de paciente una vez que ya es paciente
+     * @version 1
+     * @author Equipo 13
+     */
     public void menuPacienteInterno(){
         opcionInterPaciente = 0;
         while(opcionInterPaciente != 5){
